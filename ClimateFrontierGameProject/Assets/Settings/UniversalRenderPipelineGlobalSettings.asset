@@ -52,6 +52,7 @@ MonoBehaviour:
       - rid: 6852985685364965392
       - rid: 6852985685364965393
       - rid: 6852985685364965394
+      - rid: 834063779565666304
     m_RuntimeSettings:
       m_List: []
   m_AssetVersion: 7
@@ -84,6 +85,14 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 834063779565666304
+      type: {class: UniversalRenderPipelineRuntimeXRResources, ns: UnityEngine.Rendering.Universal,
+        asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_xrOcclusionMeshPS: {fileID: 4800000, guid: 4431b1f1f743fbf4eb310a967890cbea,
+          type: 3}
+        m_xrMirrorViewPS: {fileID: 4800000, guid: d5a307c014552314b9f560906d708772,
+          type: 3}
     - rid: 6852985685364965376
       type: {class: URPShaderStrippingSetting, ns: UnityEngine.Rendering.Universal,
         asm: Unity.RenderPipelines.Universal.Runtime}

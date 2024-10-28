@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|c:\\users\\husain\\documents\\github\\climatefrontier\\climatefrontiergameproject\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\camera\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CameraFollow.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Camera\\CameraFollow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\CameraFollow.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Camera\\CameraFollow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Camera\\CameraFollow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T14:54:30.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T13:59:32.068Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
