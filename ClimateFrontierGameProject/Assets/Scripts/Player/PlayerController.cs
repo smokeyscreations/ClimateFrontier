@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _speed = 5;
-    [SerializeField] private float _turnSpeed = 1000;
+    [SerializeField] private float _turnSpeed = 500;
     [SerializeField] private Animator _animator;
     private Vector3 _input;
 
@@ -29,12 +29,23 @@ public class PlayerController : MonoBehaviour
         _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
 
+    //private void Look()
+    //{
+    //    if (_input == Vector3.zero) return;
+
+    //    var rot = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
+    //    transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
+    //}
+
     private void Look()
     {
         if (_input == Vector3.zero) return;
 
-        var rot = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
+        // Calculate the target rotation based on input
+        var targetRotation = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
+
+        // Smoothly interpolate towards the target rotation
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _turnSpeed * Time.deltaTime / 100);
     }
 
     private void Move()
