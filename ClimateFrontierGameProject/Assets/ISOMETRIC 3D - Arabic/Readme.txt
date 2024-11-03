@@ -1,4 +1,3 @@
-Hello and thank you for the purchase. 
 
 This package has one big game level. You can downscale lightmap size by editing lightmap resolution.
 

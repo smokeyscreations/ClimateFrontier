@@ -1,0 +1,1 @@
+For URP and HDRP go to Auras pack 3 -> URP and HDRP patches folder
