@@ -1,26 +1,27 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using EnemyStates;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
     [Header("Enemy Settings")]
     [SerializeField] private float attackRange = 2f;
-    [SerializeField] private float pathUpdateInterval = 0.2f;
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float rotationSpeed = 8f;
     [SerializeField] private float baseAttackDamage = 10f;
+    [SerializeField] private float pathUpdateInterval = 0.2f; // Set a default interval for path updates
 
     public NavMeshAgent navMeshAgent;
     public Animator animator;
-    public Transform target;
+    public Transform Target { get; protected set; }
     private float currentHealth;
-    private float nextPathUpdateTime;
 
-    // Static hash for the Idle animation trigger
-    protected static readonly int IdleHash = Animator.StringToHash("Idle");
+    private float pathUpdateTimer; // Timer to control path update delay
 
-    // Properties (Getters and Setters)
+    protected StateMachine stateMachine;
+    protected IState chaseState;
+    protected IState attackState;
+
     public float AttackRange
     {
         get => attackRange;
@@ -33,39 +34,10 @@ public abstract class BaseEnemy : MonoBehaviour
             }
         }
     }
-
     public float PathUpdateInterval
     {
         get => pathUpdateInterval;
         set => pathUpdateInterval = value;
-    }
-
-    public float MaxHealth
-    {
-        get => maxHealth;
-        set
-        {
-            maxHealth = value;
-            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Ensure current health is within new max
-        }
-    }
-
-    public float CurrentHealth
-    {
-        get => currentHealth;
-        set => currentHealth = Mathf.Clamp(value, 0, maxHealth);
-    }
-
-    public float RotationSpeed
-    {
-        get => rotationSpeed;
-        set => rotationSpeed = value;
-    }
-
-    public float BaseAttackDamage
-    {
-        get => baseAttackDamage;
-        set => baseAttackDamage = value;
     }
 
     protected virtual void Awake()
@@ -75,97 +47,86 @@ public abstract class BaseEnemy : MonoBehaviour
         currentHealth = maxHealth;
 
         navMeshAgent.stoppingDistance = attackRange;
+
+        InitializeStateMachine();
     }
 
     protected virtual void Start()
     {
-        target = GameObject.FindWithTag("Player")?.transform;
+        Target = GameObject.FindWithTag("Player")?.transform;
+
+        if (Target == null)
+        {
+            Debug.LogError($"{gameObject.name}: Player target not found. Ensure the player GameObject has the tag 'Player'.");
+        }
     }
 
     protected virtual void Update()
     {
-        if (target == null) return;
+        stateMachine.Tick();
 
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        bool inAttackRange = distanceToTarget <= attackRange;
-
-        if (inAttackRange)
+        // Transition management logic
+        if (Vector3.Distance(transform.position, Target.position) <= attackRange)
         {
-            EnterAttackState();
+            stateMachine.SetState(attackState);
         }
         else
         {
-            ChaseTarget();
+            stateMachine.SetState(chaseState);
         }
-
-        UpdateAnimationParameters(inAttackRange);
     }
 
-    public virtual void UpdateAnimationParameters(bool inAttackRange)
+    protected virtual void InitializeStateMachine()
     {
-        animator.SetBool("Attack", inAttackRange);
-        animator.SetFloat("speed", navMeshAgent.velocity.magnitude);
-    }
+        stateMachine = new StateMachine();
 
-    public virtual void EnterAttackState()
-    {
-        LookAtTarget();
-        navMeshAgent.isStopped = true;
-    }
+        chaseState = new EnemyChaseState(this, navMeshAgent, animator); 
+        attackState = new EnemyAttackState(this, animator);
 
-    public virtual void ChaseTarget()
-    {
-        if (Time.time >= nextPathUpdateTime)
-        {
-            nextPathUpdateTime = Time.time + pathUpdateInterval;
-            navMeshAgent.SetDestination(target.position);
-        }
-        navMeshAgent.isStopped = false;
+        stateMachine.SetState(chaseState);
     }
 
     public void LookAtTarget()
     {
-        Vector3 lookDirection = target.position - transform.position;
+        if (Target == null) return;
+
+        Vector3 lookDirection = Target.position - transform.position;
         lookDirection.y = 0;
         Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * navMeshAgent.angularSpeed);
     }
 
-    public virtual void TakeDamage(float amount)
+    public virtual void PerformAttack()
     {
-        CurrentHealth -= amount;
-        if (currentHealth <= 0) Die();
+        if (Target != null && Vector3.Distance(transform.position, Target.position) <= attackRange)
+        {
+            Target.GetComponent<PlayerHealth>()?.TakeDamage(baseAttackDamage);
+        }
     }
 
-    public virtual void Die()
+    public virtual void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    protected virtual void Die()
     {
         animator.SetTrigger("Die");
         navMeshAgent.isStopped = true;
         Destroy(gameObject, 2f);
     }
 
-    public virtual void PerformAttack()
+    public bool ShouldUpdatePath() // Helper function to check if path should update
     {
-        if (target != null && Vector3.Distance(transform.position, target.position) <= attackRange)
+        if (Time.time >= pathUpdateTimer)
         {
-            target.GetComponent<PlayerHealth>()?.TakeDamage(baseAttackDamage);
+            pathUpdateTimer = Time.time + pathUpdateInterval;
+            return true;
         }
-    }
-
-    public void StopMovement()
-    {
-        if (navMeshAgent != null)
-        {
-            navMeshAgent.isStopped = true;
-            navMeshAgent.velocity = Vector3.zero;
-        }
-    }
-
-    public void UpdateMovementSpeed(float speed)
-    {
-        if (navMeshAgent != null)
-        {
-            navMeshAgent.speed = speed;
-        }
+        return false;
     }
 }

@@ -1,11 +1,16 @@
-public class QueenAttackState : PlayerAttackState
+namespace PlayerStates
 {
-    public QueenAttackState(BasePlayer player) : base(player) { }
+    public class QueenAttackState : PlayerAttackState
 
-    public override void OnEnter()
+
     {
-        // Custom attack logic for the AncientQueen
-        player.animator.SetTrigger("QueenAttack");
-        player.BaseAttack();
+        public QueenAttackState(BasePlayer player) : base(player) { }
+
+        public override void OnEnter()
+        {
+            // Custom attack logic for the AncientQueen
+            player.animator.SetTrigger("QueenAttack");
+            player.BaseAttack();
+        }
     }
 }

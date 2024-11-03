@@ -1,30 +1,32 @@
 using UnityEngine;
 
-internal class IdleState : IState
+namespace EnemyStates
 {
-    private readonly BaseEnemy _enemy;
-    private readonly Animator _animator;
-    private static readonly int IdleHash = Animator.StringToHash("Idle");
-
-    public IdleState(BaseEnemy enemy, Animator animator)
+    public class EnemyIdleState : IState
     {
-        _enemy = enemy;
-        _animator = animator;
-    }
+        private readonly BaseEnemy _enemy;
+        private readonly Animator _animator;
+        private static readonly int SpeedHash = Animator.StringToHash("speed");
 
-    public void OnEnter()
-    {
-        _enemy.StopMovement();          // Stop the enemy's movement
-        _animator.SetTrigger(IdleHash); // Set the idle animation
-    }
+        public EnemyIdleState(BaseEnemy enemy, Animator animator)
+        {
+            _enemy = enemy;
+            _animator = animator;
+        }
 
-    public void Tick()
-    {
-        // No behavior in Tick() for IdleState, as transitions are handled in the main class
-    }
+        public void OnEnter()
+        {
+            Debug.Log($"{_enemy.gameObject.name}: Entered EnemyIdleState");
+        }
 
-    public void OnExit()
-    {
-        // No specific cleanup needed for exiting idle state
+        public void Tick()
+        {
+            Debug.Log($"{_enemy.gameObject.name}: Ticking EnemyIdleState");
+        }
+
+        public void OnExit()
+        {
+            Debug.Log($"{_enemy.gameObject.name}: Exited EnemyIdleState");
+        }
     }
 }

@@ -1,28 +1,33 @@
 using UnityEngine;
 
-public class PlayerAttackState : IState
+namespace PlayerStates
 {
-    protected BasePlayer player;
-
-    public PlayerAttackState(BasePlayer player)
+    public class PlayerAttackState : IState
     {
-        this.player = player;
-    }
+        protected BasePlayer player;
 
-    public virtual void Tick()
-    {
-        // Attack logic if needed
-    }
+        public PlayerAttackState(BasePlayer player)
+        {
+            this.player = player;
+        }
 
-    public virtual void OnEnter()
-    {
-        // Trigger attack animation and logic
-        player.animator.SetTrigger("Attack");
-        player.BaseAttack();
-    }
+        public virtual void Tick()
+        {
+            // Attack logic if needed
+        }
 
-    public virtual void OnExit()
-    {
-        // Cleanup if needed
+        public virtual void OnEnter()
+        {
+            // Trigger attack animation and logic
+            player.animator.SetTrigger("Attack");
+            player.BaseAttack();
+
+            Debug.Log("Entered player Attack state");
+        }
+
+        public virtual void OnExit()
+        {
+            // Cleanup if needed
+        }
     }
 }

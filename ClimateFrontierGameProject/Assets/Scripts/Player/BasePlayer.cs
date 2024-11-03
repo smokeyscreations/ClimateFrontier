@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+using PlayerStates;
 public abstract class BasePlayer : MonoBehaviour
 {
     [Header("Player Attributes")]

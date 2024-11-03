@@ -1,28 +1,32 @@
 using UnityEngine;
 
-public class PlayerIdleState : IState
+namespace PlayerStates
 {
-    protected BasePlayer player;
 
-    public PlayerIdleState(BasePlayer player)
-    {
-        this.player = player;
-    }
 
-    public void Tick()
+    public class PlayerIdleState : IState
     {
-        // Set speed to 0 to ensure the Animator stays in Idle state
-        player.animator.SetFloat("speed", 0f);
-    }
+        protected BasePlayer player;
 
-    public void OnEnter()
-    {
-        Debug.Log("Entering Idle State");
-        // No need to set animator parameters here since it's handled in Tick
-    }
+        public PlayerIdleState(BasePlayer player)
+        {
+            this.player = player;
+        }
 
-    public void OnExit()
-    {
-        Debug.Log("Exiting Idle State");
+        public void Tick()
+        {
+            // Set speed to 0 to ensure the Animator stays in Idle state
+            player.animator.SetFloat("speed", 0f);
+        }
+
+        public void OnEnter()
+        {
+            Debug.Log("Entered player Idle state");
+        }
+
+        public void OnExit()
+        {
+
+        }
     }
 }
