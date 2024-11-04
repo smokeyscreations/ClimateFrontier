@@ -19,7 +19,7 @@ namespace EnemyStates
         public void OnEnter()
         {
             _navMeshAgent.isStopped = false;
-            Debug.Log($"{_enemy.gameObject.name}: Entered ChaseState");
+            //Debug.Log($"{_enemy.gameObject.name}: Entered ChaseState");
         }
 
         public void Tick()
@@ -36,7 +36,7 @@ namespace EnemyStates
         {
             _navMeshAgent.isStopped = true;
             _animator.SetFloat("speed", 0f);
-            Debug.Log($"{_enemy.gameObject.name}: Exited ChaseState");
+            //Debug.Log($"{_enemy.gameObject.name}: Exited ChaseState");
         }
     }
 }

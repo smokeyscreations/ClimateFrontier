@@ -21,7 +21,7 @@ namespace PlayerStates
 
         public void OnEnter()
         {
-            Debug.Log("Entered Player Run State");
+            //Debug.Log("Entered Player Run State");
         }
 
         public void OnExit()

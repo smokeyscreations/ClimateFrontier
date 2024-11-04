@@ -10,34 +10,34 @@ public class AncientQueen : BasePlayer
 
     protected override void InitializeStateMachine()
     {
-        // Call base method to set up default states and transitions
         base.InitializeStateMachine();
-
-        // Replace the attackState with QueenAttackState
-        attackState = new QueenAttackState(this);
+        InitializeAttributes();
+        // Override the attackState with QueenAttackState and set up transitions
+        attackState = new QueenAttackState(this, AttackRange);
         Debug.Log("attackState type at init: " + attackState.GetType());
 
-
-        // Update the transitions that involve attackState
+        // Update transitions for QueenAttackState
         stateMachine.AddTransition(idleState, attackState, IsAttacking);
-        Debug.Log("Added transition : " + attackState.GetType());
         stateMachine.AddTransition(runState, attackState, IsAttacking);
         stateMachine.AddTransition(attackState, idleState, () => !IsAttacking());
     }
 
-    protected override void Awake()
-    {
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
-        healthSystem = GetComponent<PlayerHealth>();
-        healthSystem.Initialize(maxHealth);
+    //public override void BaseAttack()
+    //{
+    //    if (Time.time - LastAttackTime < AttackCooldown)
+    //        return; // Skip if cooldown hasn't elapsed
 
-        InitializeStateMachine();
-    }
-    public override void BaseAttack()
-    {
-        Debug.Log("Queen performs a melee attack");
-    }
+    //    LastAttackTime = Time.time;
+    //    int numHit = Physics.OverlapSphereNonAlloc(transform.position, AttackRange, HitEnemies, EnemyLayerMask);
+    //    for (int i = 0; i < numHit; i++)
+    //    {
+    //        if (HitEnemies[i].TryGetComponent<BaseEnemy>(out BaseEnemy enemyComponent))
+    //        {
+    //            enemyComponent.TakeDamage(baseAttackDamage);
+    //        }
+    //    }
+    //    Debug.Log("Queen performs a melee attack!");
+    //}
 
     public override void UseAbility(int abilityIndex)
     {
@@ -57,21 +57,11 @@ public class AncientQueen : BasePlayer
                 break;
         }
     }
-
-    private void Ability1()
+    public void InitializeAttributes()
     {
-        Debug.Log("Queen uses Ability 1");
-
+        AttackRange = 3f;
     }
-
-    private void Ability2()
-    {
-        Debug.Log("Queen uses Ability 2");
-
-    }
-
-    private void Ability3()
-    {
-        Debug.Log("Queen uses Ability 3");
-    }
+    private void Ability1() => Debug.Log("Queen uses Ability 1!");
+    private void Ability2() => Debug.Log("Queen uses Ability 2!");
+    private void Ability3() => Debug.Log("Queen uses Ability 3!");
 }

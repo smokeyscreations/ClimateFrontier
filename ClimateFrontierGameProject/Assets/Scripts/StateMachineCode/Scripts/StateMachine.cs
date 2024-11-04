@@ -27,7 +27,7 @@ public class StateMachine
             return;
 
         _currentState?.OnExit();
-        Debug.Log($"Transitioning to {state.GetType().Name}");
+        //Debug.Log($"Transitioning to {state.GetType().Name}");
         _currentState = state;
 
         _transitions.TryGetValue(_currentState.GetType(), out _currentTransitions);
@@ -72,7 +72,7 @@ public class StateMachine
         {
             if (transition.Condition())
             {
-                Debug.Log("Any transition condition met.");
+                //Debug.Log("Any transition condition met.");
                 return transition;
             }
         }
@@ -81,7 +81,7 @@ public class StateMachine
         {
             if (transition.Condition())
             {
-                Debug.Log("Current transition condition met.");
+                //Debug.Log("Current transition condition met.");
                 return transition;
             }
         }

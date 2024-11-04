@@ -21,7 +21,7 @@ namespace PlayerStates
 
         public void OnEnter()
         {
-            Debug.Log("Entered player Idle state");
+            //Debug.Log("Entered player Idle state");
         }
 
         public void OnExit()

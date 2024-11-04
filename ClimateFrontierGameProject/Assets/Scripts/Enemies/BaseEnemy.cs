@@ -16,6 +16,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public Animator animator;
     public Transform Target { get; protected set; }
     private float currentHealth;
+    private PlayerHealth playerHealth;
 
     private float pathUpdateTimer; // Timer to control path update delay
 
@@ -55,6 +56,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected virtual void Start()
     {
         Target = GameObject.FindWithTag("Player")?.transform;
+        playerHealth = Target?.GetComponent<PlayerHealth>();
 
         if (Target == null)
         {
@@ -95,11 +97,35 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public virtual void PerformAttack()
     {
+        //// Define a detection radius around the enemy's attack range
+        //Collider[] hitObjects = Physics.OverlapSphere(transform.position + transform.forward * attackRange, attackRange);
+
+        //foreach (Collider hit in hitObjects)
+        //{
+        //    // Check if the collider has the "Player" tag
+        //    if (hit.CompareTag("Player"))
+        //    {
+        //        if (hit.TryGetComponent(out PlayerHealth playerHealth))
+        //        {
+        //            playerHealth.TakeDamage(baseAttackDamage);
+        //            Debug.Log($"{gameObject.name} dealt {baseAttackDamage} damage to player.");
+        //            break; // Stop after hitting the player once
+        //        }
+        //    }
+        //}
+
+        // Ensure this method is called via the animation event at the correct time
         if (Target != null && Vector3.Distance(transform.position, Target.position) <= attackRange)
         {
-            Debug.Log("Forest guardian performs an attack");
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(baseAttackDamage);
+                Debug.Log($"{gameObject.name} attacks the player for {baseAttackDamage} damage.");
+            }
+           
         }
     }
+
 
     public virtual void TakeDamage(float damage)
     {

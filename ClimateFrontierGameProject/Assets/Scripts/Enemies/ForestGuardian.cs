@@ -14,13 +14,13 @@ public class ForestGuardian : BaseEnemy
         AttackRange = 1f;
     }
 
-    public override void PerformAttack()
-    {
+    //public override void PerformAttack()
+    //{
         
 
-        if (Target != null && Vector3.Distance(transform.position, Target.position) <= AttackRange)
-        {
-            Debug.Log("Forest Guardian performs a powerful attack!");
-        }
-    }
+    //    if (Target != null && Vector3.Distance(transform.position, Target.position) <= AttackRange)
+    //    {
+    //        Debug.Log("Forest Guardian performs a powerful attack!");
+    //    }
+    //}
 }
