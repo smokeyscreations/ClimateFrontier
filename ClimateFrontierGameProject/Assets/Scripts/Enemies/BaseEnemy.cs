@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 using EnemyStates;
+using static UnityEngine.GraphicsBuffer;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
@@ -65,15 +66,6 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         stateMachine.Tick();
 
-        // Transition management logic
-        if (Vector3.Distance(transform.position, Target.position) <= attackRange)
-        {
-            stateMachine.SetState(attackState);
-        }
-        else
-        {
-            stateMachine.SetState(chaseState);
-        }
     }
 
     protected virtual void InitializeStateMachine()
@@ -83,9 +75,14 @@ public abstract class BaseEnemy : MonoBehaviour
         chaseState = new EnemyChaseState(this, navMeshAgent, animator); 
         attackState = new EnemyAttackState(this, animator);
 
+        stateMachine.AddTransition(chaseState, attackState, PlayerInAttackRange);
+        stateMachine.AddTransition(attackState, chaseState, PlayerOutOfAttackRange);
+
         stateMachine.SetState(chaseState);
     }
 
+    protected Func<bool> PlayerInAttackRange => () => Vector3.Distance(transform.position, Target.position) <= AttackRange;
+    protected Func<bool> PlayerOutOfAttackRange => () => Vector3.Distance(transform.position, Target.position) > AttackRange;
     public void LookAtTarget()
     {
         if (Target == null) return;
@@ -100,7 +97,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         if (Target != null && Vector3.Distance(transform.position, Target.position) <= attackRange)
         {
-            Target.GetComponent<PlayerHealth>()?.TakeDamage(baseAttackDamage);
+            Debug.Log("Forest guardian performs an attack");
         }
     }
 
@@ -120,13 +117,23 @@ public abstract class BaseEnemy : MonoBehaviour
         Destroy(gameObject, 2f);
     }
 
-    public bool ShouldUpdatePath() // Helper function to check if path should update
+    //public bool ShouldUpdatePath() // Helper function to check if path should update
+    //{
+    //    if (Time.time >= pathUpdateTimer)
+    //    {
+    //        pathUpdateTimer = Time.time + pathUpdateInterval;
+    //        return true;
+    //    }
+    //    return false;
+    //}
+
+    public void MoveToTarget()
     {
         if (Time.time >= pathUpdateTimer)
         {
             pathUpdateTimer = Time.time + pathUpdateInterval;
-            return true;
+            navMeshAgent.SetDestination(Target.position);
         }
-        return false;
+        navMeshAgent.isStopped = false;
     }
 }

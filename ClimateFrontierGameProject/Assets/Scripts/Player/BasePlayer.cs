@@ -10,7 +10,7 @@ public abstract class BasePlayer : MonoBehaviour
     [SerializeField] protected float abilityCooldown = 1f;
 
     protected PlayerHealth healthSystem;
-    protected internal Animator animator; // Changed to protected internal
+    protected internal Animator animator; 
     protected Rigidbody rb;
 
     // New MovementInput property
@@ -72,9 +72,7 @@ public abstract class BasePlayer : MonoBehaviour
         stateMachine.Tick();
     }
 
-    /// <summary>
-    /// Gathers input for movement and abilities.
-    /// </summary>
+
     protected virtual void GatherInput()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -93,7 +91,7 @@ public abstract class BasePlayer : MonoBehaviour
 
             // Smoothly rotate player to face movement direction
             Quaternion targetRotation = Quaternion.LookRotation(MovementInput);
-            float rotationSpeed = 10f; // Adjust this value to control rotation smoothness
+            float rotationSpeed = 10f; 
 
             // Use FixedDeltaTime for consistent rotation in FixedUpdate
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
@@ -104,7 +102,7 @@ public abstract class BasePlayer : MonoBehaviour
 
     protected virtual bool IsAttacking()
     {
-        return Input.GetButtonDown("Fire1"); // Adjust the input based on your setup
+        return Input.GetButtonDown("Fire1"); 
     }
 
     public virtual void TakeDamage(float amount)

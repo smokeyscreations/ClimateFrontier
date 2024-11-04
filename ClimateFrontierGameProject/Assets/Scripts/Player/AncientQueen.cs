@@ -15,9 +15,12 @@ public class AncientQueen : BasePlayer
 
         // Replace the attackState with QueenAttackState
         attackState = new QueenAttackState(this);
+        Debug.Log("attackState type at init: " + attackState.GetType());
+
 
         // Update the transitions that involve attackState
         stateMachine.AddTransition(idleState, attackState, IsAttacking);
+        Debug.Log("Added transition : " + attackState.GetType());
         stateMachine.AddTransition(runState, attackState, IsAttacking);
         stateMachine.AddTransition(attackState, idleState, () => !IsAttacking());
     }
@@ -33,8 +36,7 @@ public class AncientQueen : BasePlayer
     }
     public override void BaseAttack()
     {
-        Debug.Log("Queen performs a melee attack!");
-        // Implement melee attack logic, such as detecting enemies in range and applying damage
+        Debug.Log("Queen performs a melee attack");
     }
 
     public override void UseAbility(int abilityIndex)
@@ -58,19 +60,18 @@ public class AncientQueen : BasePlayer
 
     private void Ability1()
     {
-        Debug.Log("Queen uses Ability 1!");
-        // Implement ability 1 logic
+        Debug.Log("Queen uses Ability 1");
+
     }
 
     private void Ability2()
     {
-        Debug.Log("Queen uses Ability 2!");
-        // Implement ability 2 logic
+        Debug.Log("Queen uses Ability 2");
+
     }
 
     private void Ability3()
     {
-        Debug.Log("Queen uses Ability 3!");
-        // Implement ability 3 logic
+        Debug.Log("Queen uses Ability 3");
     }
 }

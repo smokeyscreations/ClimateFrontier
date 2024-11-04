@@ -33,6 +33,6 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player has died.");
-        // Trigger death animation, disable controls, etc.
+
     }
 }

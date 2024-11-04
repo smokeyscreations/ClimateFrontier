@@ -13,7 +13,7 @@ namespace PlayerStates
 
         public virtual void Tick()
         {
-            // Attack logic if needed
+            Debug.Log("Ticking Player Attack State");
         }
 
         public virtual void OnEnter()
@@ -23,11 +23,12 @@ namespace PlayerStates
             player.BaseAttack();
 
             Debug.Log("Entered player Attack state");
+
         }
 
         public virtual void OnExit()
         {
-            // Cleanup if needed
+
         }
     }
 }

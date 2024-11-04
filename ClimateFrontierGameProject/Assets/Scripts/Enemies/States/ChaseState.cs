@@ -26,12 +26,7 @@ namespace EnemyStates
         {
             if (_enemy.Target == null) return;
 
-            // Only update path periodically
-            if (_enemy.ShouldUpdatePath())
-            {
-                _navMeshAgent.SetDestination(_enemy.Target.position);
-            }
-
+            _enemy.MoveToTarget();
             float speed = _navMeshAgent.velocity.magnitude;
             _animator.SetFloat("speed", speed);
             _enemy.LookAtTarget();

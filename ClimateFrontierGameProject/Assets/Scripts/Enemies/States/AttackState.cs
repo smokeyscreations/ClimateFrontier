@@ -25,7 +25,7 @@ namespace EnemyStates
             if (_enemy.Target == null) return;
 
             _enemy.LookAtTarget();
-            _enemy.PerformAttack();
+
         }
 
         public void OnExit()
