@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using EnemyStates;
 using static UnityEngine.GraphicsBuffer;
+using System.Collections;
+
 
 public abstract class BaseEnemy : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float baseAttackDamage = 10f;
     [SerializeField] private float pathUpdateInterval = 0.2f; // Set a default interval for path updates
+
+    public int experienceAmount = 10; 
 
     public NavMeshAgent navMeshAgent;
     public Animator animator;
@@ -23,6 +27,27 @@ public abstract class BaseEnemy : MonoBehaviour
     protected StateMachine stateMachine;
     protected IState chaseState;
     protected IState attackState;
+
+    public event Action<BaseEnemy> OnEnemyDeath;
+    protected virtual void OnEnable()
+    {
+        // Reset health
+        currentHealth = maxHealth;
+        Debug.Log($"{gameObject.name} reactivated with health: {currentHealth}");
+
+        // Reset other states
+        navMeshAgent.isStopped = false;
+        animator.ResetTrigger("Die");
+        animator.ResetTrigger("Attack");
+
+        // Reset the state machine
+        stateMachine.SetState(chaseState);
+
+        // Ensure the NavMeshAgent is enabled
+        navMeshAgent.enabled = false;
+        navMeshAgent.enabled = true;
+    }
+
 
     public float AttackRange
     {
@@ -140,7 +165,35 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         animator.SetTrigger("Die");
         navMeshAgent.isStopped = true;
-        Destroy(gameObject, 2f);
+
+        SpawnExperienceOrb();
+
+        // Return to pool after a delay to allow death animation
+        StartCoroutine(ReturnToPoolAfterDelay(2f));
+    }
+
+
+    private IEnumerator ReturnToPoolAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Invoke the death event here, after the enemy is about to be deactivated
+        OnEnemyDeath?.Invoke(this);
+
+        EnemyPool.Instance.ReturnToPool(this);
+    }
+
+
+    private void SpawnExperienceOrb()
+    {
+        GameObject orb = ExperienceOrbPool.Instance.GetOrb();
+        orb.transform.position = transform.position;
+
+        ExperienceOrb expOrb = orb.GetComponent<ExperienceOrb>();
+        if (expOrb != null)
+        {
+            expOrb.experienceAmount = experienceAmount;
+        }
     }
 
     //public bool ShouldUpdatePath() // Helper function to check if path should update

@@ -6,7 +6,7 @@ public abstract class BasePlayer : MonoBehaviour
 {
     [Header("Player Attributes")]
     [SerializeField] protected float maxHealth = 100f;
-    [SerializeField] protected float baseAttackDamage = 10f;
+    [SerializeField] protected float baseAttackDamage = 50f;
     [SerializeField] protected float movementSpeed = 5f;
     [SerializeField] protected float abilityCooldown = 1f;
     [SerializeField] private float attackRange = 10f;
@@ -97,7 +97,7 @@ public abstract class BasePlayer : MonoBehaviour
 
     public virtual void TakeDamage(float amount) => healthSystem.TakeDamage(amount);
 
-    public abstract void BaseAttack();
+    
     public abstract void UseAbility(int abilityIndex);
 
     public void ScaleHealth(float healthIncrease)

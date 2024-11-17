@@ -1,58 +1,78 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\",
+  "WorkspaceRootPath": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|c:\\users\\husain\\documents\\github\\climatefrontier\\climatefrontiergameproject\\assets\\scripts\\player\\states\\queenattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\states\\queenattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Library\\PackageCache\\com.unity.visualeffectgraph\\Editor\\Models\\VFXGraph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.visualeffectgraph\\Editor\\Models\\VFXGraph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\baseplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\baseplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|c:\\users\\husain\\documents\\stablegame\\climatefrontier\\climatefrontiergameproject\\assets\\scripts\\enemies\\experience orbs\\experienceorbpool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\experience orbs\\experienceorbpool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\ancientqueen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\ancientqueen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|c:\\users\\husain\\documents\\stablegame\\climatefrontier\\climatefrontiergameproject\\assets\\scripts\\enemies\\experience orbs\\experienceorb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\experience orbs\\experienceorb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\states\\playerattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\states\\playerattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\enemypool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\enemypool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\baseenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\enemyspanwer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\enemyspanwer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\baseenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\baseenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\forestguardian.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\forestguardian.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\states\\chasestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\states\\chasestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\states\\chasestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\states\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\states\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\states\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|c:\\users\\husain\\documents\\github\\climatefrontier\\climatefrontiergameproject\\assets\\scripts\\statemachinecode\\scripts\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\statemachinecode\\scripts\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\vfxstuff\\scripts\\lootdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\vfxstuff\\scripts\\lootdrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\states\\playeridlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\playerexperience.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerexperience.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\states\\playerrunstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\states\\playerrunstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\ancientqueen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\ancientqueen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\baseplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\baseplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\forestguardian.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\forestguardian.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\states\\queenattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\states\\queenattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\states\\playeridlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\states\\playeridlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\enemies\\states\\idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\states\\idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\states\\playerattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\states\\playerattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\states\\playerrunstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\states\\playerrunstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scripts\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,173 +82,232 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "StateMachine.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\StateMachineCode\\Scripts\\StateMachine.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachineCode\\Scripts\\StateMachine.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\StateMachineCode\\Scripts\\StateMachine.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StateMachineCode\\Scripts\\StateMachine.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowEUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T16:40:25.193Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PlayerIdleState.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T13:50:30.951Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "QueenAttackState.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAYwCEAAAA4AAAAAAAAAA==",
+              "Title": "VFXGraph.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Library\\PackageCache\\com.unity.visualeffectgraph\\Editor\\Models\\VFXGraph.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.visualeffectgraph\\Editor\\Models\\VFXGraph.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Library\\PackageCache\\com.unity.visualeffectgraph\\Editor\\Models\\VFXGraph.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.visualeffectgraph\\Editor\\Models\\VFXGraph.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAewIkAAAB6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T13:36:17.869Z",
+              "WhenOpened": "2024-11-17T11:07:58.599Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PlayerAttackState.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T13:33:50.644Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "PlayerRunState.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T13:33:34.458Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AncientQueen.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\AncientQueen.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\AncientQueen.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\AncientQueen.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\AncientQueen.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Title": "ExperienceOrb.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrb.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrb.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrb.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrb.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T13:20:11.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PlayerHealth.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerHealth.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerHealth.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerHealth.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerHealth.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T13:19:38.908Z",
+              "WhenOpened": "2024-11-17T10:16:10.62Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BasePlayer.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\BasePlayer.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\BasePlayer.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\BasePlayer.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\BasePlayer.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAgwBYAAAA2AAAAAAAAAA==",
+              "Title": "ExperienceOrbPool.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrbPool.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrbPool.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrbPool.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrbPool.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCMAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T13:18:56.346Z",
+              "WhenOpened": "2024-11-17T10:15:46.253Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "AttackState.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\AttackState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\States\\AttackState.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\AttackState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemies\\States\\AttackState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Title": "LootDrop.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\VFXStuff\\Scripts\\LootDrop.cs",
+              "RelativeDocumentMoniker": "Assets\\VFXStuff\\Scripts\\LootDrop.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\VFXStuff\\Scripts\\LootDrop.cs",
+              "RelativeToolTip": "Assets\\VFXStuff\\Scripts\\LootDrop.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:58:29.298Z",
+              "WhenOpened": "2024-11-17T09:53:47.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ChaseState.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAABIAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "EnemyPool.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\EnemyPool.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\EnemyPool.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\EnemyPool.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\EnemyPool.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:17:42.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IdleState.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\IdleState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\States\\IdleState.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\IdleState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemies\\States\\IdleState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:04:55.587Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ForestGuardian.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\ForestGuardian.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\ForestGuardian.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\ForestGuardian.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemies\\ForestGuardian.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:53:59.268Z",
+              "WhenOpened": "2024-11-17T09:13:40.571Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BaseEnemy.cs",
-              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\BaseEnemy.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\BaseEnemy.cs",
-              "ToolTip": "C:\\Users\\Husain\\Documents\\GitHub\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\BaseEnemy.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemies\\BaseEnemy.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAuwAwAAABoAAAAAAAAAA==",
+              "Title": "EnemySpanwer.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\EnemySpanwer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\EnemySpanwer.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\EnemySpanwer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\EnemySpanwer.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAwwEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:53:12.501Z",
+              "WhenOpened": "2024-11-17T08:50:51.076Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "QueenAttackState.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAIwEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:44:27.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PlayerRunState.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:44:21.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PlayerIdleState.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:44:12.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PlayerAttackState.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:44:05.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PlayerHealth.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerHealth.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerHealth.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerHealth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:43:52.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ChaseState.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:43:13.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AttackState.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\AttackState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\States\\AttackState.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\AttackState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\States\\AttackState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:43:01.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BaseEnemy.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\BaseEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\BaseEnemy.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\BaseEnemy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\BaseEnemy.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAIwNoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:42:17.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PlayerExperience.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerExperience.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerExperience.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerExperience.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerExperience.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T10:00:20.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ForestGuardian.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\ForestGuardian.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\ForestGuardian.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\ForestGuardian.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\ForestGuardian.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:42:37.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BasePlayer.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\BasePlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\BasePlayer.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\BasePlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\BasePlayer.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAAAG4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T08:38:51.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AncientQueen.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\AncientQueen.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\AncientQueen.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\AncientQueen.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\AncientQueen.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAowEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T08:38:42.447Z"
             }
           ]
         }

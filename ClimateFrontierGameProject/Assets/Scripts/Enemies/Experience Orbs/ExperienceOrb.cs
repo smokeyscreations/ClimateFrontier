@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class LootDrop : MonoBehaviour
+public class ExperienceOrb : MonoBehaviour
 {
     public GameObject lootObject;
     public VisualEffect lootVFX;
     public int experienceAmount = 10;
 
-    void Start()
+    void OnEnable()
     {
         lootVFX.Play();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -20,24 +21,26 @@ public class LootDrop : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            lootVFX.Stop();
-            lootObject.SetActive(false);
-
-
+            // Get the player's experience component and add experience
             PlayerExperience playerExperience = other.GetComponent<PlayerExperience>();
             if (playerExperience != null)
             {
                 playerExperience.GainExperience(experienceAmount);
-                // Optionally play a sound or particle effect here
 
-                // Destroy the orb after it's collected
-                Destroy(gameObject);
+                // Return the orb to the pool instead of destroying it
+                ExperienceOrbPool.Instance.ReturnOrb(this.gameObject);
             }
         }
-
     }
+
+
+    public void ResetOrb()
+    {
+        lootVFX.Stop();
+    }
+
 }
