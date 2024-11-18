@@ -14,7 +14,7 @@ namespace PlayerStates
         public void Tick()
         {
             // Calculate the movement speed based on input magnitude
-            float speedValue = player.MovementInput.magnitude * player.MovementSpeed;
+            float speedValue = player.MovementInput.magnitude * player.characterData.movementSpeed;
             player.animator.SetFloat("speed", speedValue);
 
         }

@@ -4,6 +4,9 @@ using PlayerStates;
 
 public abstract class BasePlayer : MonoBehaviour
 {
+    [Header("Character Data")]
+    public CharacterData characterData;
+
     [Header("Player Attributes")]
     [SerializeField] protected float maxHealth = 100f;
     [SerializeField] protected float baseAttackDamage = 50f;
@@ -14,7 +17,6 @@ public abstract class BasePlayer : MonoBehaviour
     private Collider[] hitEnemies = new Collider[20];
     private float attackCooldown = 0.5f;
     private float lastAttackTime;
-
 
     protected PlayerHealth healthSystem;
     protected internal Animator animator;
@@ -45,9 +47,34 @@ public abstract class BasePlayer : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         healthSystem = GetComponent<PlayerHealth>();
-        healthSystem.Initialize(maxHealth);
         Target = GameObject.FindWithTag("Enemy")?.transform;
-        InitializeStateMachine();  // Initialize the state machine here, only once
+
+        // Removed InitializeCharacter() and InitializeStateMachine() from Awake()
+    }
+
+    // New method to initialize the player after characterData is assigned
+    public virtual void InitializePlayer()
+    {
+        if (characterData == null)
+        {
+            Debug.LogError("CharacterData is not assigned.");
+            return;
+        }
+
+        // Initialize attributes from characterData
+        maxHealth = characterData.maxHealth;
+        baseAttackDamage = characterData.baseAttackDamage;
+        movementSpeed = characterData.movementSpeed;
+        abilityCooldown = characterData.abilityCooldown;
+        attackRange = characterData.attackRange;
+        enemyLayerMask = characterData.enemyLayerMask;
+        // Assign other attributes as needed
+
+        // Initialize health
+        healthSystem.Initialize(maxHealth);
+
+        // Initialize state machine
+        InitializeStateMachine();
     }
 
     protected virtual void InitializeStateMachine()
@@ -97,7 +124,6 @@ public abstract class BasePlayer : MonoBehaviour
 
     public virtual void TakeDamage(float amount) => healthSystem.TakeDamage(amount);
 
-    
     public abstract void UseAbility(int abilityIndex);
 
     public void ScaleHealth(float healthIncrease)
@@ -105,6 +131,4 @@ public abstract class BasePlayer : MonoBehaviour
         MaxHealth += healthIncrease;
         healthSystem.Initialize(MaxHealth);
     }
-
-   
 }

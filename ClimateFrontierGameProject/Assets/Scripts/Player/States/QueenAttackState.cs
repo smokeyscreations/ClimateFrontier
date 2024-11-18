@@ -19,7 +19,7 @@ namespace PlayerStates
             hitColliders = new Collider[maxColliders];
 
             // Get the enemy layer mask from the player
-            enemyLayerMask = player.EnemyLayerMask;
+            enemyLayerMask = player.characterData.enemyLayerMask;
         }
 
         public override void OnEnter()
@@ -51,8 +51,8 @@ namespace PlayerStates
                     if (angleToEnemy <= attackAngle * 0.5f) // Divide by 2 because angle is spread equally on both sides
                     {
                         // Apply damage to the enemy
-                        enemy.TakeDamage(player.BaseAttackDamage);
-                        Debug.Log($"Enemy {enemy.gameObject.name} hit within cone range. Dealt damage: {player.BaseAttackDamage}");
+                        enemy.TakeDamage(player.characterData.baseAttackDamage);
+                        Debug.Log($"Enemy {enemy.gameObject.name} hit within cone range. Dealt damage: {player.characterData.baseAttackDamage}");
                     }
                 }
 

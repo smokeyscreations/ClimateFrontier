@@ -19,6 +19,10 @@ MonoBehaviour:
     rid: 2485714618021576704
   m_Scenes:
   - m_enabled: 1
+    m_path: Assets/Scenes/MainMenu/MainMenu.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/CharacterSelection.unity
+  - m_enabled: 1
     m_path: Assets/Scenes/EnvironmentTest.unity
   references:
     version: 2
