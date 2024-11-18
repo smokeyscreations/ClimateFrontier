@@ -21,7 +21,7 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Scenes/MainMenu/MainMenu.unity
   - m_enabled: 1
-    m_path: Assets/Scenes/CharacterSelection.unity
+    m_path: Assets/Scenes/CharacterSelection/CharacterSelection.unity
   - m_enabled: 1
     m_path: Assets/Scenes/EnvironmentTest.unity
   references:

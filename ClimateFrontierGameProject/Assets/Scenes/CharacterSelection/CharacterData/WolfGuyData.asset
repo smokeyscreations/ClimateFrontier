@@ -16,7 +16,7 @@ MonoBehaviour:
   description: A furry warrior uwuing all over the battlefield to destroy the evil
     beings.
   classString: Ranged / Spellcaster
-  icon: {fileID: 21300000, guid: eb0fbb9984143b246943307520ea7904, type: 3}
+  icon: {fileID: 21300000, guid: d6949740138c1554e80fe43bb7621772, type: 3}
   selectionPrefab: {fileID: 1909744818002174, guid: 3dc21b0c91e71b9428833e9eaf6e0ffe,
     type: 3}
   inGamePrefab: {fileID: 1909744818002174, guid: 3dc21b0c91e71b9428833e9eaf6e0ffe,
@@ -32,5 +32,3 @@ MonoBehaviour:
   ability1Damage: 20
   ability2Damage: 25
   ability3Damage: 30
-  barsMaxSizes:
-  - 500

@@ -3,15 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scenes\\characterselection\\characterdata\\characterdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\characterselection\\characterdata\\characterdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scenes\\characterselection\\characterdata\\characterselectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\characterselection\\characterdata\\characterselectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|c:\\users\\husain\\documents\\stablegame\\climatefrontier\\climatefrontiergameproject\\assets\\scenes\\characterselection\\characterdata\\gameinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|c:\\users\\husain\\documents\\stablegame\\climatefrontier\\climatefrontiergameproject\\assets\\scenes\\characterselection\\uianimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\characterselection\\uianimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|c:\\users\\husain\\documents\\stablegame\\climatefrontier\\climatefrontiergameproject\\assets\\scenes\\characterselection\\characterdata\\characterdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\characterselection\\characterdata\\characterdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\assets\\scenes\\characterselection\\characterdata\\gameinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D84887C1-CA51-33DF-7A10-0B7D1366F791}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\characterselection\\characterdata\\gameinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -118,11 +122,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "UIAnimator.cs",
+              "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\CharacterSelection\\UIAnimator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scenes\\CharacterSelection\\UIAnimator.cs",
+              "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\CharacterSelection\\UIAnimator.cs",
+              "RelativeToolTip": "Assets\\Scenes\\CharacterSelection\\UIAnimator.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAYwHMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T14:46:12.562Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "CameraFollow.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Camera\\CameraFollow.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Camera\\CameraFollow.cs",
@@ -134,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GameInitializer.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\CharacterSelection\\CharacterData\\GameInitializer.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\CharacterSelection\\CharacterData\\GameInitializer.cs",
@@ -142,38 +160,37 @@
               "RelativeToolTip": "Assets\\Scenes\\CharacterSelection\\CharacterData\\GameInitializer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T10:29:23.638Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T10:29:23.638Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "CharacterData.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\CharacterSelection\\CharacterData\\CharacterData.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\CharacterSelection\\CharacterData\\CharacterData.cs",
               "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\CharacterSelection\\CharacterData\\CharacterData.cs",
               "RelativeToolTip": "Assets\\Scenes\\CharacterSelection\\CharacterData\\CharacterData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-18T10:12:41.327Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CharacterSelectionManager.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\CharacterSelection\\CharacterData\\CharacterSelectionManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\CharacterSelection\\CharacterData\\CharacterSelectionManager.cs",
               "ToolTip": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\CharacterSelection\\CharacterData\\CharacterSelectionManager.cs",
               "RelativeToolTip": "Assets\\Scenes\\CharacterSelection\\CharacterData\\CharacterSelectionManager.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAIwF8AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAYwJQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-18T10:01:53.621Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "VFXGraph.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Library\\PackageCache\\com.unity.visualeffectgraph\\Editor\\Models\\VFXGraph.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.visualeffectgraph\\Editor\\Models\\VFXGraph.cs",
@@ -181,11 +198,12 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.visualeffectgraph\\Editor\\Models\\VFXGraph.cs",
               "ViewState": "AgIAAG8AAAAAAAAAAAAewIkAAAB6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T11:07:58.599Z"
+              "WhenOpened": "2024-11-17T11:07:58.599Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "ExperienceOrb.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrb.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrb.cs",
@@ -197,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "ExperienceOrbPool.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrbPool.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\Experience Orbs\\ExperienceOrbPool.cs",
@@ -209,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "LootDrop.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\VFXStuff\\Scripts\\LootDrop.cs",
               "RelativeDocumentMoniker": "Assets\\VFXStuff\\Scripts\\LootDrop.cs",
@@ -221,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "EnemyPool.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\EnemyPool.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\EnemyPool.cs",
@@ -233,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "EnemySpanwer.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\EnemySpanwer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\EnemySpanwer.cs",
@@ -245,7 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "QueenAttackState.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\QueenAttackState.cs",
@@ -257,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "PlayerRunState.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\PlayerRunState.cs",
@@ -269,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "PlayerIdleState.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\PlayerIdleState.cs",
@@ -281,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "BasePlayer.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\BasePlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\BasePlayer.cs",
@@ -293,7 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AncientQueen.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\AncientQueen.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\AncientQueen.cs",
@@ -305,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ButtonHoverAnimation.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\MainMenu\\Scripts\\ButtonHoverAnimation.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\MainMenu\\Scripts\\ButtonHoverAnimation.cs",
@@ -317,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\CharacterSelection\\CharacterData\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\CharacterSelection\\CharacterData\\GameManager.cs",
@@ -329,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "CharacterSelectionManager.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\GUI\\CharacterData\\CharacterSelectionManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GUI\\CharacterData\\CharacterSelectionManager.cs",
@@ -337,11 +355,12 @@
               "RelativeToolTip": "Assets\\Scripts\\GUI\\CharacterData\\CharacterSelectionManager.cs",
               "ViewState": "AgIAADwAAAAAAAAAAAAYwHgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T15:42:20.944Z"
+              "WhenOpened": "2024-11-17T15:42:20.944Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "CharacterData.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\GUI\\CharacterData\\CharacterData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GUI\\CharacterData\\CharacterData.cs",
@@ -353,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "LogoGlowAnimation.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scenes\\MainMenu\\Scripts\\LogoGlowAnimation.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\MainMenu\\Scripts\\LogoGlowAnimation.cs",
@@ -365,7 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "PlayerAttackState.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\States\\PlayerAttackState.cs",
@@ -377,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "PlayerHealth.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerHealth.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerHealth.cs",
@@ -389,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "ChaseState.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\States\\ChaseState.cs",
@@ -401,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "AttackState.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\States\\AttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\States\\AttackState.cs",
@@ -413,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "BaseEnemy.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\BaseEnemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\BaseEnemy.cs",
@@ -425,7 +444,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "PlayerExperience.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Player\\PlayerExperience.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerExperience.cs",
@@ -437,7 +456,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "ForestGuardian.cs",
               "DocumentMoniker": "C:\\Users\\Husain\\Documents\\StableGame\\ClimateFrontier\\ClimateFrontierGameProject\\Assets\\Scripts\\Enemies\\ForestGuardian.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\ForestGuardian.cs",
