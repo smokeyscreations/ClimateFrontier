@@ -6,6 +6,7 @@ public class CharacterData : ScriptableObject
 {
     public string characterName;
     public string description;
+    public string classString;
     public Sprite icon; // For the selection buttons
     public GameObject selectionPrefab; // 3D model for rendering in the selection screen
     public GameObject inGamePrefab; // Prefab used in the game scene

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,9 @@ public class CharacterSelectionManager : MonoBehaviour
     public Button characterButton2;
     public TextMeshProUGUI characterNameText;
     public TextMeshProUGUI characterDescriptionText;
+    public TextMeshProUGUI classText;
     public Button lockInButton;
+    public UIAnimator uiAnimator;
 
     [Header("Character Data")]
     public List<CharacterData> characterDataList;
@@ -55,11 +58,34 @@ public class CharacterSelectionManager : MonoBehaviour
     void OnCharacterButtonClicked(int index)
     {
         selectedCharacterIndex = index;
-        DisplaySelectedCharacter();
         lockInButton.interactable = true;
+
+        // Display the character model immediately
+        DisplaySelectedCharacterModel();
+
+        // Play the bars animation
+        uiAnimator.PlayBarsAnimation();
+
+        // Start the coroutine to update the UI text during the animation
+        StartCoroutine(UpdateUIDuringAnimation());
     }
 
-    void DisplaySelectedCharacter()
+    // Correct Coroutine Signature
+    IEnumerator UpdateUIDuringAnimation()
+    {
+        // Wait until the bars have fully covered the original text
+        yield return new WaitForSeconds(uiAnimator.animationDuration / 2);
+
+        // Update the character information UI
+        CharacterData selectedCharacter = characterDataList[selectedCharacterIndex];
+
+        UpdateCharacterInfoUI();
+
+        // Reveal the info panel
+        uiAnimator.ShowInfoPanel();
+    }
+
+    void DisplaySelectedCharacterModel()
     {
         // Destroy the previous character instance if it exists
         if (currentCharacterInstance != null)
@@ -88,10 +114,15 @@ public class CharacterSelectionManager : MonoBehaviour
         {
             Debug.LogError("Selection prefab is missing for " + selectedCharacter.characterName);
         }
+    }
 
+    void UpdateCharacterInfoUI()
+    {
         // Update character information UI
+        CharacterData selectedCharacter = characterDataList[selectedCharacterIndex];
         characterNameText.text = selectedCharacter.characterName;
         characterDescriptionText.text = selectedCharacter.description;
+        classText.text = selectedCharacter.classString;
     }
 
     void LookAtCamera(Transform characterTransform, Transform cameraTransform)

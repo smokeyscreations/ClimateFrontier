@@ -15,6 +15,7 @@ MonoBehaviour:
   characterName: ANCIENT QUEEN
   description: The most powerful of all human beings assigned to eradicate the evil
     plaguing our climate.
+  classString: Melee Damage / Agility / Nuker
   icon: {fileID: 21300000, guid: 5db103765c94941429070e2549bff323, type: 3}
   selectionPrefab: {fileID: 2438057210007699682, guid: 6182c1f4818697b41a17887ac89bffd5,
     type: 3}
@@ -24,10 +25,12 @@ MonoBehaviour:
   baseAttackDamage: 50
   movementSpeed: 5
   abilityCooldown: 1
-  attackRange: 10
+  attackRange: 2
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
   ability1Damage: 20
   ability2Damage: 25
   ability3Damage: 30
+  barsMaxSizes:
+  - 700
