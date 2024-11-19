@@ -320,6 +320,7 @@ Transform:
   m_Children:
   - {fileID: 4716266096215283909}
   - {fileID: 1772034579648552104}
+  - {fileID: 5055456974276650869}
   m_Father: {fileID: 7897535482640895058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &611367315313531363
@@ -842,6 +843,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6951053708089343876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3626714810797998291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5055456974276650869}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5055456974276650869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626714810797998291}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.037777457, y: 0, z: 0, w: 0.9992862}
+  m_LocalPosition: {x: -0.007, y: -0.165, z: 0.173}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2901455195971763046}
+  m_LocalEulerAnglesHint: {x: -4.33, y: 0, z: 0}
 --- !u!1 &3957834990705778053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1752,7 @@ GameObject:
   - component: {fileID: 4983148749160907350}
   - component: {fileID: 5917567383094046112}
   - component: {fileID: 5982512144331519645}
+  - component: {fileID: 6418194792820198119}
   m_Layer: 0
   m_Name: PlayerQueen
   m_TagString: Player
@@ -1858,6 +1891,7 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  projectileSpawnPoint: {fileID: 5055456974276650869}
   ability1Damage: 20
   ability2Damage: 25
   ability3Damage: 30
@@ -1890,6 +1924,22 @@ MonoBehaviour:
   experienceToNextLevel: 10
   baseExperienceRequirement: 10
   experienceIncreasePerLevel: 10
+--- !u!114 &6418194792820198119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799814947428864838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2cc3ef9ff3c8e47b773be8716d6e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spells: []
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1144894505097613114
 PrefabInstance:
   m_ObjectHideFlags: 0

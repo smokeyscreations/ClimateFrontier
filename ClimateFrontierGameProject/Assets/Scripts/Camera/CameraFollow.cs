@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
         FindPlayer();
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (target == null)
         {

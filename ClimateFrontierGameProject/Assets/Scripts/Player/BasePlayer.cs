@@ -14,6 +14,7 @@ public abstract class BasePlayer : MonoBehaviour
     [SerializeField] protected float abilityCooldown = 1f;
     [SerializeField] private float attackRange = 10f;
     [SerializeField] private LayerMask enemyLayerMask;
+    [SerializeField] public Transform projectileSpawnPoint;
     private Collider[] hitEnemies = new Collider[20];
     private float attackCooldown = 0.5f;
     private float lastAttackTime;
@@ -21,6 +22,7 @@ public abstract class BasePlayer : MonoBehaviour
     protected PlayerHealth healthSystem;
     protected internal Animator animator;
     protected Rigidbody rb;
+    protected SpellManager spellManager;
 
     public Vector3 MovementInput { get; private set; }
 
@@ -28,6 +30,8 @@ public abstract class BasePlayer : MonoBehaviour
     protected IState idleState;
     protected IState runState;
     protected IState attackState;
+
+    
 
     public float AttackRange { get => attackRange; set => attackRange = value; }
 
@@ -55,6 +59,7 @@ public abstract class BasePlayer : MonoBehaviour
     // New method to initialize the player after characterData is assigned
     public virtual void InitializePlayer()
     {
+
         if (characterData == null)
         {
             Debug.LogError("CharacterData is not assigned.");
@@ -75,6 +80,17 @@ public abstract class BasePlayer : MonoBehaviour
 
         // Initialize state machine
         InitializeStateMachine();
+
+        spellManager = GetComponent<SpellManager>();
+        if (spellManager != null)
+        {
+            spellManager.spells = characterData.abilities;
+            spellManager.InitializeCooldownTimers(); // Ensure cooldown timers are initialized after spells are assigned
+        }
+        else
+        {
+            Debug.LogError("SpellManager component not found on player.");
+        }
     }
 
     protected virtual void InitializeStateMachine()

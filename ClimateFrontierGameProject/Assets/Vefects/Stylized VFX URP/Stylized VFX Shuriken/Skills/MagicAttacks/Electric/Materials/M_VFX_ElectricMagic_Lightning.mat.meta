@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 34ac65304f9a326428880055fa4ccee0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.51
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Electric/Materials/M_VFX_ElectricMagic_Lightning.mat
+  uploadId: 704617

@@ -89,6 +89,7 @@ public abstract class BaseEnemy : MonoBehaviour
         }
     }
 
+
     protected virtual void Update()
     {
         stateMachine.Tick();

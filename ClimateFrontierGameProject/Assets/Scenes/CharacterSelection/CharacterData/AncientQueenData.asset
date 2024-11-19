@@ -32,3 +32,5 @@ MonoBehaviour:
   ability1Damage: 20
   ability2Damage: 25
   ability3Damage: 30
+  abilities:
+  - {fileID: 11400000, guid: b1dd7e88635005243a1339b3e9f5fb16, type: 2}

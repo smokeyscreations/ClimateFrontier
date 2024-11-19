@@ -24,5 +24,6 @@ public class CharacterData : ScriptableObject
     public float ability2Damage = 25f;
     public float ability3Damage = 30f;
 
-    // Add any additional attributes as needed
+    public SpellData[] abilities; // Array to hold abilities
+
 }

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 214483ec831f8d94ebffce378dedecac
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.51
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Water/Materials/M_VFX_WaterMagic_FlareChromatic.mat
+  uploadId: 704617
