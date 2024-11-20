@@ -2,8 +2,6 @@ using UnityEngine;
 
 namespace PlayerStates
 {
-
-
     public class PlayerIdleState : IState
     {
         protected BasePlayer player;
@@ -15,18 +13,18 @@ namespace PlayerStates
 
         public void Tick()
         {
-            // Set speed to 0 to ensure the Animator stays in Idle state
-            player.animator.SetFloat("speed", 0f);
+            // Remove Animator updates here
+            // Keep any state-specific logic if needed
         }
 
         public void OnEnter()
         {
-            //Debug.Log("Entered player Idle state");
+            // Debug.Log("Entered Player Idle State");
         }
 
         public void OnExit()
         {
-
+            // Any cleanup if necessary
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class AOE : MonoBehaviour
+public class AOE : MonoBehaviour, IPoolable, ISpell
 {
     [Header("AOE Settings")]
     public float speed = 20f;           // Speed at which the AOE moves forward
@@ -11,6 +11,7 @@ public class AOE : MonoBehaviour
 
     private Vector3 startPosition;
     private float spellDamage;          // Damage assigned from SpellData
+    private string poolTag;             // Tag to use when returning to the pool
 
     private Collider aoeCollider;
 
@@ -33,24 +34,26 @@ public class AOE : MonoBehaviour
 
     /// <summary>
     /// Initializes the AOE effect with data from SpellData.
+    /// This method is called externally after spawning the AOE from the pool.
     /// </summary>
-    /// <param name="dmg">Damage to apply upon collision.</param>
-    /// <param name="rng">Maximum range before the AOE is disabled.</param>
-    /// <param name="enemyMask">Layer mask to identify enemy layers.</param>
-    /// <param name="duration">Duration the AOE remains active.</param>
-    public void Initialize(float dmg, float rng, LayerMask enemyMask, float duration)
+    public void Initialize(SpellData spellData, BasePlayer player)
     {
-        spellDamage = dmg;              // Set damage from SpellData
-        range = rng;                    // Set range from SpellData
-        enemyLayerMask = enemyMask;     // Set layer mask from SpellData
-        activeDuration = duration;      // Set active duration from SpellData
+        spellDamage = spellData.damage;
+        range = spellData.spellAttackRange;
+        enemyLayerMask = player.characterData.enemyLayerMask;
+        activeDuration = spellData.activeDuration;
+        poolTag = spellData.tag; // Store the tag for returning to the pool
 
         startPosition = transform.position;
 
-        Debug.Log($"AOE Initialized with Damage: {spellDamage}, Range: {range}, Speed: {speed}, Active Duration: {activeDuration}");
+        Debug.Log($"AOE Initialized with Damage: {spellDamage}, Range: {range}, Speed: {speed}, Active Duration: {activeDuration}, Pool Tag: {poolTag}");
     }
 
-    private void OnEnable()
+    /// <summary>
+    /// Called when the object is spawned from the pool.
+    /// Implements the IPoolable interface.
+    /// </summary>
+    public void OnObjectSpawn()
     {
         // Reset position when the object is activated
         startPosition = transform.position;
@@ -62,7 +65,26 @@ public class AOE : MonoBehaviour
         }
         deactivateCoroutine = StartCoroutine(DeactivateAfterDelay(activeDuration));
 
-        Debug.Log("AOE Enabled.");
+        Debug.Log("AOE OnObjectSpawn called.");
+    }
+
+    /// <summary>
+    /// Called when the object is returned to the pool.
+    /// Implements the IPoolable interface.
+    /// </summary>
+    public void OnObjectReturn()
+    {
+        Debug.Log("AOE OnObjectReturn called.");
+
+        // Stop the coroutine if it's still running
+        if (deactivateCoroutine != null)
+        {
+            StopCoroutine(deactivateCoroutine);
+            deactivateCoroutine = null;
+        }
+
+        // Reset any necessary state here
+        // For example, reset Particle Systems, animations, etc.
     }
 
     private void Update()
@@ -75,7 +97,7 @@ public class AOE : MonoBehaviour
         if (Vector3.Distance(startPosition, transform.position) >= range)
         {
             Debug.Log("AOE Range exceeded. Deactivating.");
-            gameObject.SetActive(false);
+            DeactivateAndReturnToPool();
         }
         */
     }
@@ -84,7 +106,8 @@ public class AOE : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Debug.Log("AOE Duration elapsed. Deactivating.");
-        gameObject.SetActive(false);
+
+        DeactivateAndReturnToPool();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -113,34 +136,20 @@ public class AOE : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void DeactivateAndReturnToPool()
     {
-        Debug.Log("AOE Disabled. Returning to pool.");
-        // Notify the pooler to return this object to the pool
-        if (AOEPooler.Instance != null)
+        Debug.Log("AOE Deactivating and returning to pool.");
+
+        if (!string.IsNullOrEmpty(poolTag) && ObjectPooler.Instance != null)
         {
-            // Assuming the pool tag is "AOE"
-            AOEPooler.Instance.ReturnToPool("AOE", gameObject);
+            ObjectPooler.Instance.ReturnToPool(poolTag, gameObject);
         }
         else
         {
-            Debug.LogError("AOEPooler instance not found!");
+            Debug.LogWarning("Pool tag is not set or ObjectPooler instance is null. Cannot return to pool.");
+            gameObject.SetActive(false); // Fallback to just deactivating
         }
-
-        // Stop the coroutine if it's still running
-        if (deactivateCoroutine != null)
-        {
-            StopCoroutine(deactivateCoroutine);
-            deactivateCoroutine = null;
-        }
-
-        // Reset the AOE's state before returning to the pool
-    
     }
-
-    /// <summary>
-    /// Resets the AOE's position, rotation, and other attributes to their default states.
-    /// </summary>
 
     private void OnDrawGizmosSelected()
     {

@@ -13,22 +13,18 @@ namespace PlayerStates
 
         public void Tick()
         {
-            // Calculate the movement speed based on input magnitude
-            float speedValue = player.MovementInput.magnitude * player.characterData.movementSpeed;
-            player.animator.SetFloat("speed", speedValue);
-
+            // Remove Animator updates here
+            // Keep any state-specific logic if needed
         }
 
         public void OnEnter()
         {
-            //Debug.Log("Entered Player Run State");
+            // Debug.Log("Entered Player Run State");
         }
 
         public void OnExit()
         {
-
-            // Optionally reset the speed parameter
-            player.animator.SetFloat("speed", 0f);
+            // Any cleanup if necessary
         }
     }
 }

@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: QueenProjectile
   m_EditorClassIdentifier: 
   spellName: Powershot
+  tag: Powershot
   description: Fire a powerful piercing attack that damages enemies in its path.
   icon: {fileID: 21300000, guid: cb836e79166c61d4da97f6fac954680a, type: 3}
-  aoePrefab: {fileID: 5241272818924545521, guid: be041444c9844c344a69d8c95c294bb2,
-    type: 3}
+  prefab: {fileID: 5241272818924545521, guid: be041444c9844c344a69d8c95c294bb2, type: 3}
   damage: 100
   cooldown: 2
   spellAttackRange: 10
   hotkey: 32
   activeDuration: 1
+  spawnOffset: 4

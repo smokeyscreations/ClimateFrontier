@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 1497162632}
   - component: {fileID: 1497162633}
   m_Layer: 0
-  m_Name: AOEPoolManager
+  m_Name: ObjectPoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -790,10 +790,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - tag: AOE
+  - tag: Powershot
     prefab: {fileID: 5241272818924545521, guid: be041444c9844c344a69d8c95c294bb2,
       type: 3}
-    size: 2
+    size: 10
+  - tag: SlashVFX
+    prefab: {fileID: 6711607506104325586, guid: ec2c41b24620e2f49b2e5039a534065c,
+      type: 3}
+    size: 15
 --- !u!1 &1686906907
 GameObject:
   m_ObjectHideFlags: 0

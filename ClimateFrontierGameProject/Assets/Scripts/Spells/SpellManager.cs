@@ -8,9 +8,6 @@ public class SpellManager : MonoBehaviour
 
     private BasePlayer player;
 
-
-    public LayerMask enemyLayerMask;
-
     private void Awake()
     {
         player = GetComponent<BasePlayer>();
@@ -18,7 +15,6 @@ public class SpellManager : MonoBehaviour
         {
             Debug.LogError("SpellManager requires a BasePlayer component.");
         }
-
 
         InitializeCooldownTimers();
     }
@@ -39,10 +35,21 @@ public class SpellManager : MonoBehaviour
             spellCooldownTimers = new float[0];
         }
     }
+
     private void Start()
     {
-        enemyLayerMask = LayerMask.GetMask("Enemy");
+        // Ensure enemyLayerMask is set from player.characterData
+        if (player != null && player.characterData != null)
+        {
+            // Use the enemyLayerMask from CharacterData
+            player.characterData.enemyLayerMask = LayerMask.GetMask("Enemy");
+        }
+        else
+        {
+            Debug.LogWarning("Player or CharacterData is null in SpellManager.");
+        }
     }
+
     private void Update()
     {
         HandleSpellInput();
@@ -75,7 +82,7 @@ public class SpellManager : MonoBehaviour
             {
                 if (Time.time >= spellCooldownTimers[i])
                 {
-                    CastConeAOESpell(spell);
+                    CastSpell(spell);
                     spellCooldownTimers[i] = Time.time + spell.cooldown;
                 }
                 else
@@ -87,50 +94,44 @@ public class SpellManager : MonoBehaviour
         }
     }
 
-    private void CastConeAOESpell(SpellData spell)
+    private void CastSpell(SpellData spell)
     {
-        if (spell.aoePrefab != null)
+        if (spell.prefab != null)
         {
-            float spawnOffset = 1.0f; // Fixed offset
-
             // Calculate spawn position based on player's position and forward direction
-            Vector3 spawnPosition = player.transform.position + player.transform.forward;
+            Vector3 spawnPosition = player.transform.position + player.transform.forward * spell.spawnOffset;
 
-            // Align AOE's rotation with player's rotation
+            // Align spell's rotation with player's rotation
             Quaternion spawnRotation = Quaternion.LookRotation(player.transform.forward, Vector3.up);
 
-            // Spawn the AOE from the pool
-            GameObject aoe = AOEPooler.Instance.SpawnFromPool("AOE", spawnPosition, spawnRotation);
-            if (aoe != null)
+            // Spawn the spell from the pool using its unique tag
+            GameObject spellObject = ObjectPooler.Instance.SpawnFromPool(spell.tag, spawnPosition, spawnRotation);
+            if (spellObject != null)
             {
-                // Retrieve the AOE component from the spawned GameObject
-                AOE aoeScript = aoe.GetComponent<AOE>();
-                if (aoeScript != null)
+                // Initialize the spell object
+                IPoolable poolable = spellObject.GetComponent<IPoolable>();
+                if (poolable != null)
                 {
-                    // Initialize the AOE with spell-specific parameters, including activeDuration
-                    aoeScript.Initialize(
-                        spell.damage,                           // Damage value from SpellData
-                        spell.spellAttackRange,                // Range from SpellData
-                        player.characterData.enemyLayerMask,    // Enemy Layer Mask from CharacterData
-                        spell.activeDuration                    // Active duration from SpellData
-                    );
-                    Debug.Log($"Casted {spell.spellName}.");
+                    poolable.OnObjectSpawn();
                 }
-                else
+
+                // If the spell has a specific script (e.g., AOE), initialize it
+                ISpell spellScript = spellObject.GetComponent<ISpell>();
+                if (spellScript != null)
                 {
-                    Debug.LogError("AOE prefab lacks an AOE script on the parent.");
+                    spellScript.Initialize(spell, player);
                 }
+
+                Debug.Log($"Casted {spell.spellName}.");
             }
             else
             {
-                Debug.LogWarning($"Failed to spawn AOE with tag 'AOE'.");
+                Debug.LogWarning($"Failed to spawn spell with tag '{spell.tag}'.");
             }
         }
         else
         {
-            Debug.LogWarning($"Spell {spell.spellName} has no AOE prefab assigned.");
+            Debug.LogWarning($"Spell {spell.spellName} has no prefab assigned.");
         }
     }
-
-
 }

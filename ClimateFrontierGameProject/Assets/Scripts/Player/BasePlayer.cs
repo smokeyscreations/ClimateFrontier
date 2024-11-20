@@ -10,7 +10,14 @@ public abstract class BasePlayer : MonoBehaviour
     [Header("Player Attributes")]
     [SerializeField] protected float maxHealth = 100f;
     [SerializeField] protected float baseAttackDamage = 50f;
-    [SerializeField] protected float movementSpeed = 5f;
+
+
+    [SerializeField] private float baseWalkingSpeed = 2.5f; // Adjust as needed
+    [SerializeField] private float baseRunningSpeed = 5f;    // Adjust as needed
+    private bool isRunning = false;
+    private float movementSpeedValue = 0f;
+    private float movementDirection = 0f;
+
     [SerializeField] protected float abilityCooldown = 1f;
     [SerializeField] private float attackRange = 10f;
     [SerializeField] private LayerMask enemyLayerMask;
@@ -18,7 +25,10 @@ public abstract class BasePlayer : MonoBehaviour
     private Collider[] hitEnemies = new Collider[20];
     private float attackCooldown = 0.5f;
     private float lastAttackTime;
-
+    public float MovementSpeed
+    {
+        get => isRunning ? baseRunningSpeed : baseWalkingSpeed;
+    }
     protected PlayerHealth healthSystem;
     protected internal Animator animator;
     protected Rigidbody rb;
@@ -31,7 +41,7 @@ public abstract class BasePlayer : MonoBehaviour
     protected IState runState;
     protected IState attackState;
 
-    
+
 
     public float AttackRange { get => attackRange; set => attackRange = value; }
 
@@ -39,7 +49,6 @@ public abstract class BasePlayer : MonoBehaviour
 
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
     public float BaseAttackDamage { get => baseAttackDamage; set => baseAttackDamage = value; }
-    public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
     public float AbilityCooldown { get => abilityCooldown; set => abilityCooldown = value; }
     public LayerMask EnemyLayerMask { get => enemyLayerMask; set => enemyLayerMask = value; }
     public float AttackCooldown { get => attackCooldown; set => attackCooldown = value; }
@@ -69,7 +78,8 @@ public abstract class BasePlayer : MonoBehaviour
         // Initialize attributes from characterData
         maxHealth = characterData.maxHealth;
         baseAttackDamage = characterData.baseAttackDamage;
-        movementSpeed = characterData.movementSpeed;
+        baseWalkingSpeed = characterData.baseWalkingSpeed;
+        baseRunningSpeed = characterData.baseRunningSpeed;
         abilityCooldown = characterData.abilityCooldown;
         attackRange = characterData.attackRange;
         enemyLayerMask = characterData.enemyLayerMask;
@@ -121,30 +131,69 @@ public abstract class BasePlayer : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        MovementInput = new Vector3(horizontal, 0, vertical).normalized;
+        Vector3 inputDirection = new Vector3(horizontal, 0, vertical).normalized;
+
+        // Check if the player is moving
+        bool isMoving = inputDirection.magnitude > 0.1f;
+
+        // Check if the player is running
+        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+
+        // Calculate speed value
+        float speed = 0f;
+        if (isMoving)
+        {
+            speed = isRunning ? 1f : 0.5f; // Run = 1, Walk = 0.5
+        }
+
+        float dampTime = 0.1f;
+        animator.SetFloat("Speed", speed, dampTime, Time.deltaTime);
+        animator.SetBool("IsRunning", isRunning);
+
+        // Store movement input for movement logic
+        MovementInput = inputDirection;
+        this.isRunning = isRunning; // Update the isRunning field if needed
     }
+
+
+
+
+
+
 
     public virtual void Move()
     {
+
         if (MovementInput != Vector3.zero)
         {
-            Vector3 movement = MovementInput.normalized * movementSpeed * Time.fixedDeltaTime;
+            float movementSpeed = isRunning ? baseRunningSpeed : baseWalkingSpeed;
+            Vector3 movement = MovementInput * movementSpeed * Time.fixedDeltaTime;
             rb.MovePosition(rb.position + movement);
 
+            // Rotate character to face movement direction
             Quaternion targetRotation = Quaternion.LookRotation(MovementInput);
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, 10f * Time.fixedDeltaTime);
         }
     }
 
+
+
+
+
+
     protected virtual bool IsAttacking() => Input.GetButtonDown("Fire1");
 
     public virtual void TakeDamage(float amount) => healthSystem.TakeDamage(amount);
-
-    public abstract void UseAbility(int abilityIndex);
-
     public void ScaleHealth(float healthIncrease)
     {
         MaxHealth += healthIncrease;
         healthSystem.Initialize(MaxHealth);
+    }
+
+    private void UpdateAnimatorParameters()
+    {
+        animator.SetFloat("Speed", movementSpeedValue);
+        animator.SetFloat("Direction", movementDirection);
+        animator.SetBool("IsRunning", isRunning);
     }
 }
