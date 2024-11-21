@@ -9,14 +9,19 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_VFX_SlashCircle_Earth
   m_Shader: {fileID: 4800000, guid: 401d1d13cd0856d4f9e785b02586432a, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _RECEIVE_SHADOWS_OFF
+  m_InvalidKeywords:
+  - _RECEIVESHADOWS_OFF
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -126,6 +131,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AdditiveLerp: 0
     - _AlphaCutoff: 0.5
     - _Boost_Opacity: 1.3
     - _BumpScale: 1
@@ -151,6 +157,7 @@ Material:
     - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ReceiveShadows: 0
     - _Slash_Noise_Intensity: 0.86
     - _Slash_Scale: 4
     - _Slash_Speed: 0.8
@@ -181,3 +188,4 @@ Material:
     - _Slash_Noise_Scale: {r: 3, g: 1.3, b: 0, a: 0}
     - _Slash_Noise_Speed: {r: 0.4, g: -0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

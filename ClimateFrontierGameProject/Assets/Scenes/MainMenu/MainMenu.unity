@@ -473,8 +473,6 @@ MonoBehaviour:
   glowDuration: 3
   glowStrength: 1.1
   glowColor: {r: 1, g: 1, b: 1, a: 1}
-  resetColorOnDisable: 1
-  resetDistanceOnDisable: 1
 --- !u!1 &485939831
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,8 +792,6 @@ MonoBehaviour:
   glowDuration: 3
   glowStrength: 1.1
   glowColor: {r: 1, g: 1, b: 1, a: 1}
-  resetColorOnDisable: 1
-  resetDistanceOnDisable: 1
 --- !u!114 &639108676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,7 +869,8 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: b1dceca4c2dff4740a5d489f76455b0c, type: 2}
   m_sharedMaterial: {fileID: 4330141878609001296, guid: b1dceca4c2dff4740a5d489f76455b0c,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 4330141878609001296, guid: b1dceca4c2dff4740a5d489f76455b0c, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1333,8 +1330,6 @@ MonoBehaviour:
   glowDuration: 3
   glowStrength: 1.1
   glowColor: {r: 1, g: 1, b: 1, a: 1}
-  resetColorOnDisable: 1
-  resetDistanceOnDisable: 1
 --- !u!114 &1319043908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,7 +1667,8 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: b1dceca4c2dff4740a5d489f76455b0c, type: 2}
   m_sharedMaterial: {fileID: 4330141878609001296, guid: b1dceca4c2dff4740a5d489f76455b0c,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 4330141878609001296, guid: b1dceca4c2dff4740a5d489f76455b0c, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1829,7 +1825,8 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: b1dceca4c2dff4740a5d489f76455b0c, type: 2}
   m_sharedMaterial: {fileID: 4330141878609001296, guid: b1dceca4c2dff4740a5d489f76455b0c,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 4330141878609001296, guid: b1dceca4c2dff4740a5d489f76455b0c, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
