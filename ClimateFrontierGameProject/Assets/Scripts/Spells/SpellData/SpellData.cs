@@ -11,5 +11,5 @@ public class SpellData : ScriptableObject
     public KeyCode hotkey;
     public float activeDuration;
     public float spawnOffset = 1f;
-    public bool isAutomatic = false; // New property to indicate if the spell is automatic
+    public bool isAutomatic = false; 
 }

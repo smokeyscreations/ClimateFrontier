@@ -17,7 +17,7 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
 
     private Coroutine deactivateCoroutine;
 
-    private Transform target; // Add this variable
+    private Transform target; 
 
     private void Awake()
     {
@@ -34,10 +34,6 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
         }
     }
 
-    /// <summary>
-    /// Initializes the AOE effect with data from SpellData.
-    /// This method is called externally after spawning the AOE from the pool.
-    /// </summary>
     public void Initialize(SpellData spellData, BasePlayer player, Transform target)
     {
         spellDamage = spellData.damage;
@@ -50,11 +46,6 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
 
         Debug.Log($"AOE Initialized with Damage: {spellDamage}, Range: {range}, Speed: {speed}, Active Duration: {activeDuration}, Pool Tag: {poolTag}");
     }
-
-    /// <summary>
-    /// Called when the object is spawned from the pool.
-    /// Implements the IPoolable interface.
-    /// </summary>
     public void OnObjectSpawn()
     {
         // Reset position when the object is activated
@@ -67,16 +58,10 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
         }
         deactivateCoroutine = StartCoroutine(DeactivateAfterDelay(activeDuration));
 
-        Debug.Log("AOE OnObjectSpawn called.");
     }
 
-    /// <summary>
-    /// Called when the object is returned to the pool.
-    /// Implements the IPoolable interface.
-    /// </summary>
     public void OnObjectReturn()
     {
-        Debug.Log("AOE OnObjectReturn called.");
 
         // Stop the coroutine if it's still running
         if (deactivateCoroutine != null)
@@ -85,37 +70,24 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
             deactivateCoroutine = null;
         }
 
-        // Reset any necessary state here
-        // For example, reset Particle Systems, animations, etc.
     }
 
     private void Update()
     {
         // Move the AOE forward
         transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
-
-        // Optional: If you still want range-based deactivation, uncomment the following lines
-        /*
-        if (Vector3.Distance(startPosition, transform.position) >= range)
-        {
-            Debug.Log("AOE Range exceeded. Deactivating.");
-            DeactivateAndReturnToPool();
-        }
-        */
     }
 
     private IEnumerator DeactivateAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Debug.Log("AOE Duration elapsed. Deactivating.");
 
         DeactivateAndReturnToPool();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Debug log for collision
-        Debug.Log($"AOE collided with {other.gameObject.name} on layer {other.gameObject.layer}");
+
 
         // Check if the collided object is within the enemy layer mask
         if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
@@ -125,7 +97,6 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
             if (enemy != null)
             {
                 enemy.TakeDamage(Mathf.RoundToInt(spellDamage)); // Use damage from SpellData
-                Debug.Log($"AOE hit {enemy.gameObject.name} for {spellDamage} damage.");
             }
             else
             {
@@ -140,7 +111,6 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
 
     private void DeactivateAndReturnToPool()
     {
-        Debug.Log("AOE Deactivating and returning to pool.");
 
         if (!string.IsNullOrEmpty(poolTag) && ObjectPooler.Instance != null)
         {

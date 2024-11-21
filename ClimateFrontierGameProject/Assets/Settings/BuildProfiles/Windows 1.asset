@@ -23,7 +23,7 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Scenes/CharacterSelection/CharacterSelection.unity
   - m_enabled: 1
-    m_path: Assets/Scenes/EnvironmentTest.unity
+    m_path: Assets/Scenes/CharacterSelection/EnvironmentTest.unity
   references:
     version: 2
     RefIds:

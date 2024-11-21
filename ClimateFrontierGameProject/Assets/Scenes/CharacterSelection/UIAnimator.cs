@@ -56,9 +56,6 @@ public class UIAnimator : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Plays the animation for all bars: expanding to maxSize and then contracting back to zero.
-    /// </summary>
     public void PlayBarsAnimation()
     {
         int completedAnimations = 0;
@@ -98,9 +95,7 @@ public class UIAnimator : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Animates the info panel fading in and moving to its final position.
-    /// </summary>
+
     public void ShowInfoPanel()
     {
         if (infoPanel != null && infoPanelCanvasGroup != null)
@@ -119,9 +114,7 @@ public class UIAnimator : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Optional: Animates the info panel fading out and moving back to its initial offset.
-    /// </summary>
+
     public void HideInfoPanel()
     {
         if (infoPanel != null && infoPanelCanvasGroup != null)
@@ -140,5 +133,5 @@ public class UIAnimator : MonoBehaviour
         }
     }
 
-    // Removed SetBarsMaxSizes method as per user request
+
 }

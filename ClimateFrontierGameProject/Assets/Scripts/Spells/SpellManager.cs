@@ -108,7 +108,7 @@ public class SpellManager : MonoBehaviour
             }
             else
             {
-                // For spells that don't require a target (e.g., SlashCircleSpell)
+                // For spells that don't require a target
                 CastSpell(spell);
                 spellCooldownTimers[index] = Time.time + spell.cooldown;
             }

@@ -167,7 +167,7 @@ public class CharacterSelectionManager : MonoBehaviour
                 // Set the selected character in the GameManager
                 GameManager.Instance.SetSelectedCharacter(selectedCharacter);
 
-                // Load the next scene (e.g., the main game scene)
+                // Load the next scene
                 SceneManager.LoadScene("EnvironmentTest");
             }
             else

@@ -5,8 +5,6 @@ namespace PlayerStates
     public class PlayerAttackState : IState
     {
         protected BasePlayer player;
-        private float attackCooldown = 1.0f; // Example cooldown duration
-        private float lastAttackTime = -1.0f;
 
         public PlayerAttackState(BasePlayer player)
         {

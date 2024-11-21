@@ -3,13 +3,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 using EnemyStates;
+
 public abstract class BaseEnemy : MonoBehaviour
 {
     [Header("Enemy Settings")]
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float baseAttackDamage = 10f;
-    [SerializeField] private float pathUpdateInterval = 0.2f;
+    [SerializeField] private float pathUpdateInterval = 0.2f; // Set a default interval for path updates
 
     public int experienceAmount = 10;
 
@@ -27,6 +28,26 @@ public abstract class BaseEnemy : MonoBehaviour
     protected IState attackState;
 
     public event Action<BaseEnemy> OnEnemyDeath;
+
+    protected EnemyFlashEffect3D flashEffect;
+
+    protected virtual void Awake()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
+
+        navMeshAgent.stoppingDistance = attackRange;
+
+        InitializeStateMachine();
+
+        // Reference to the flash effect script
+        flashEffect = GetComponent<EnemyFlashEffect3D>();
+        if (flashEffect == null)
+        {
+            Debug.LogWarning($"{gameObject.name}: No EnemyFlashEffect3D component found.");
+        }
+    }
 
     protected virtual void OnEnable()
     {
@@ -52,17 +73,6 @@ public abstract class BaseEnemy : MonoBehaviour
         set => pathUpdateInterval = value;
     }
 
-    protected virtual void Awake()
-    {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
-
-        navMeshAgent.stoppingDistance = attackRange;
-
-        InitializeStateMachine();
-    }
-
     protected virtual void Start()
     {
         Target = GameObject.FindWithTag("Player")?.transform;
@@ -76,7 +86,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (isDead) return;
+        if (isDead || !gameObject.activeInHierarchy) return;
         stateMachine.Tick();
     }
 
@@ -120,9 +130,20 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            Debug.LogWarning($"{gameObject.name}: Attempted to take damage while inactive.");
+            return;
+        }
+
         if (isDead) return;
 
         currentHealth -= damage;
+        Debug.Log($"{gameObject.name} took {damage} damage. Remaining health: {currentHealth}");
+
+        // Trigger on-hit effects
+        TriggerOnHitEffects(damage);
+
         if (currentHealth <= 0)
         {
             Die();
@@ -200,15 +221,14 @@ public abstract class BaseEnemy : MonoBehaviour
         if (navMeshAgent != null)
         {
             navMeshAgent.enabled = true;
+            navMeshAgent.isStopped = false;
+            navMeshAgent.stoppingDistance = attackRange;
 
             // Place the NavMeshAgent on the NavMesh
             if (!navMeshAgent.Warp(transform.position))
             {
                 Debug.LogError($"{gameObject.name}: Failed to warp NavMeshAgent to position {transform.position}");
             }
-
-            navMeshAgent.isStopped = false;
-            navMeshAgent.stoppingDistance = attackRange;
         }
 
         Collider collider = GetComponent<Collider>();
@@ -221,8 +241,24 @@ public abstract class BaseEnemy : MonoBehaviour
         animator.ResetTrigger("Die");
         animator.ResetTrigger("Attack");
 
+        // Reset flash effect
+        if (flashEffect != null)
+        {
+            flashEffect.ResetFlash();
+        }
+
         // Re-initialize state machine
         InitializeStateMachine();
     }
 
+    // Method to trigger on-hit effects
+    private void TriggerOnHitEffects(float damage)
+    {
+        // Trigger white flash
+        if (flashEffect != null)
+        {
+            flashEffect.TriggerFlash();
+        }
+
+    }
 }

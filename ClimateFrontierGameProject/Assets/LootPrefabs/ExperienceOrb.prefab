@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8533442288956293501}
   - component: {fileID: 1271553317198393620}
   - component: {fileID: 6443965015184482547}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LootObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1645535555497766857}
   - component: {fileID: 8607815312822805803}
   - component: {fileID: -8734834363321156384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ExperienceOrb
   m_TagString: ExperienceOrb
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 3445556449306552953}
   - component: {fileID: 1407155634672199856}
   - component: {fileID: 234078140463993896}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: vfxgraph_LootDrop01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

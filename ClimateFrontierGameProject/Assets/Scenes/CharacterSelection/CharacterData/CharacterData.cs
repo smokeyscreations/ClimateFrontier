@@ -1,4 +1,4 @@
-// CharacterData.cs
+
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CharacterData", menuName = "Character Selection/Character Data")]

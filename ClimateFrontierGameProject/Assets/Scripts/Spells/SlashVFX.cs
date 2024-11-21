@@ -13,7 +13,7 @@ public class SlashVFX : MonoBehaviour, IPoolable
 
     public void OnObjectSpawn()
     {
-        Debug.Log($"[SlashVFX] OnObjectSpawn called for {gameObject.name}");
+
         // Play all particle systems
         foreach (var ps in particleSystems)
         {
@@ -31,7 +31,7 @@ public class SlashVFX : MonoBehaviour, IPoolable
 
     public void OnObjectReturn()
     {
-        Debug.Log($"[SlashVFX] OnObjectReturn called for {gameObject.name}");
+ 
         // Stop all particle systems
         foreach (var ps in particleSystems)
         {
@@ -48,15 +48,15 @@ public class SlashVFX : MonoBehaviour, IPoolable
 
     private IEnumerator DeactivateAfterDelay(float delay)
     {
-        Debug.Log($"[SlashVFX] DeactivateAfterDelay started for {gameObject.name}");
+
         yield return new WaitForSecondsRealtime(delay);
-        Debug.Log($"[SlashVFX] DeactivateAfterDelay completed for {gameObject.name}");
+
         ReturnToPool();
     }
 
     private void ReturnToPool()
     {
-        Debug.Log($"[SlashVFX] Returning to pool: {gameObject.name}");
+
         // Return this object to the pool
         if (ObjectPooler.Instance != null)
         {

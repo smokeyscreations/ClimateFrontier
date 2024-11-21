@@ -13,7 +13,7 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
     private List<BaseEnemy> enemiesInRange = new List<BaseEnemy>();
     private Coroutine damageCoroutine;
     private string poolTag;
-    
+
     private void Awake()
     {
         // Ensure the Collider is set as a trigger
@@ -30,7 +30,7 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
 
     public void Initialize(SpellData spellData, BasePlayer player, Transform target)
     {
-        Debug.Log($"enemyLayerMask value: {enemyLayerMask.value}");
+
         damagePerTick = spellData.damage;
         duration = spellData.activeDuration;
         spellRadius = spellData.spellAttackRange;
@@ -69,6 +69,16 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
             StopCoroutine(damageCoroutine);
             damageCoroutine = null;
         }
+
+        // Unsubscribe from all enemies' OnEnemyDeath events
+        foreach (var enemy in enemiesInRange)
+        {
+            if (enemy != null)
+            {
+                enemy.OnEnemyDeath -= RemoveEnemyFromList;
+            }
+        }
+
         enemiesInRange.Clear();
     }
 
@@ -77,22 +87,24 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
         while (true)
         {
             yield return new WaitForSeconds(tickInterval);
-            Debug.Log($"Damage tick occurred. Enemies in range: {enemiesInRange.Count}");
-            foreach (BaseEnemy enemy in enemiesInRange)
+
+            // Iterate over a copy of the list to prevent modification during iteration
+            List<BaseEnemy> enemiesToDamage = new List<BaseEnemy>(enemiesInRange);
+
+            foreach (BaseEnemy enemy in enemiesToDamage)
             {
-                if (enemy != null)
+                if (enemy != null && enemy.gameObject.activeInHierarchy)
                 {
                     enemy.TakeDamage(damagePerTick);
-                    Debug.Log($"Dealt {damagePerTick} damage to {enemy.gameObject.name}");
                 }
                 else
                 {
-                    Debug.Log("Enemy in list is null.");
+                    // remove the enemy from the list if it's inactive
+                    RemoveEnemyFromList(enemy);
                 }
             }
         }
     }
-
 
     private IEnumerator SpellDuration()
     {
@@ -102,31 +114,26 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"OnTriggerEnter with {other.gameObject.name}");
-        if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
+
+        if (other.TryGetComponent<BaseEnemy>(out BaseEnemy enemy))
         {
-            if (other.TryGetComponent<BaseEnemy>(out BaseEnemy enemy))
+            if (!enemiesInRange.Contains(enemy))
             {
-                if (!enemiesInRange.Contains(enemy))
-                {
-                    enemiesInRange.Add(enemy);
-                    Debug.Log($"Added {enemy.gameObject.name} to enemiesInRange");
-                }
-            }
-            else
-            {
-                Debug.LogWarning($"{other.gameObject.name} does not have BaseEnemy component.");
+                enemiesInRange.Add(enemy);
+                // Subscribe to the enemy's OnEnemyDeath event
+                enemy.OnEnemyDeath += RemoveEnemyFromList;
             }
         }
         else
         {
-            Debug.Log($"{other.gameObject.name} is not on the enemy layer.");
+            Debug.LogWarning($"{other.gameObject.name} does not have BaseEnemy component.");
         }
     }
 
+
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log($"OnTriggerExit with {other.gameObject.name}");
+
         if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
         {
             if (other.TryGetComponent<BaseEnemy>(out BaseEnemy enemy))
@@ -134,12 +141,22 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
                 if (enemiesInRange.Contains(enemy))
                 {
                     enemiesInRange.Remove(enemy);
-                    Debug.Log($"Removed {enemy.gameObject.name} from enemiesInRange");
+                    // Unsubscribe from the enemy's OnEnemyDeath event
+                    enemy.OnEnemyDeath -= RemoveEnemyFromList;
                 }
             }
         }
     }
 
+    private void RemoveEnemyFromList(BaseEnemy enemy)
+    {
+        if (enemiesInRange.Contains(enemy))
+        {
+            enemiesInRange.Remove(enemy);
+            // Unsubscribe from the event
+            enemy.OnEnemyDeath -= RemoveEnemyFromList;
+        }
+    }
 
     private void DeactivateAndReturnToPool()
     {

@@ -42,17 +42,13 @@ public class ObjectPooler : MonoBehaviour
             {
                 GameObject obj = Instantiate(pool.prefab);
                 obj.SetActive(false);
-                obj.transform.parent = this.transform; // Optional: organize pooled objects under the pooler
+                obj.transform.parent = this.transform; 
                 objectPool.Enqueue(obj);
             }
 
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
-
-    /// <summary>
-    /// Spawns an object from the specified pool.
-    /// </summary>
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
@@ -66,7 +62,6 @@ public class ObjectPooler : MonoBehaviour
         if (objectPool.Count == 0)
         {
             Debug.LogWarning($"No available objects in pool '{tag}'. Consider increasing pool size.");
-            // Optionally, instantiate a new object if the pool is empty
             Pool pool = pools.Find(p => p.tag == tag);
             if (pool != null)
             {
@@ -96,10 +91,6 @@ public class ObjectPooler : MonoBehaviour
 
         return objectToSpawn;
     }
-
-    /// <summary>
-    /// Returns an object back to its pool.
-    /// </summary>
     public void ReturnToPool(string tag, GameObject objectToReturn)
     {
         if (!poolDictionary.ContainsKey(tag))
@@ -118,7 +109,6 @@ public class ObjectPooler : MonoBehaviour
         objectToReturn.SetActive(false);
         poolDictionary[tag].Enqueue(objectToReturn);
 
-        Debug.Log($"[ObjectPooler] Object '{objectToReturn.name}' returned to pool '{tag}'. Pool size: {poolDictionary[tag].Count}");
     }
 
 }

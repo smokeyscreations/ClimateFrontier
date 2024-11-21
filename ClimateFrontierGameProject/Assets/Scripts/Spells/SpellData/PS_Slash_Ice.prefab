@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5711620613709695410}
   - component: {fileID: 3852473686678052881}
   - component: {fileID: 8064441662347390369}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PS_Slash_Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 195799792709454384}
   - component: {fileID: 7826828764361389017}
   - component: {fileID: 5147274980704146117}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VEG_Slash_Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}

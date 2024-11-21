@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7175614543535828222}
   - component: {fileID: -4703514988564057812}
   - component: {fileID: 5299420182010645256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlashCircleVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,10 +155,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 174606039208698220}
     m_Modifications:
+    - target: {fileID: 241854007629570043, guid: 49b65b7f1d666d94abb46325e69627ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010786349532932083, guid: 49b65b7f1d666d94abb46325e69627ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277149672099165031, guid: 49b65b7f1d666d94abb46325e69627ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541623499472435788, guid: 49b65b7f1d666d94abb46325e69627ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504935127267129544, guid: 49b65b7f1d666d94abb46325e69627ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509035744916872842, guid: 49b65b7f1d666d94abb46325e69627ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7639752885123374874, guid: 49b65b7f1d666d94abb46325e69627ed,
         type: 3}
       propertyPath: m_Name
       value: PS_SlashCircle_Earth
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639752885123374874, guid: 49b65b7f1d666d94abb46325e69627ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8520901822343282618, guid: 49b65b7f1d666d94abb46325e69627ed,
         type: 3}
