@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6470300b60578884999fc06dd4b02b1c, type: 3}
-  m_Name: QueenProjectile
+  m_Name: SpiritCircle
   m_EditorClassIdentifier: 
-  spellName: Powershot
-  tag: Powershot
-  prefab: {fileID: 5241272818924545521, guid: be041444c9844c344a69d8c95c294bb2, type: 3}
+  spellName: Spirit Circle
+  tag: SlashCircle
+  prefab: {fileID: 3506638455784613418, guid: 1e0e6f2902c15314dab0ead9676412a9, type: 3}
   damage: 20
-  cooldown: 2
-  spellAttackRange: 10
-  hotkey: 32
-  activeDuration: 1
-  spawnOffset: 4
+  cooldown: 3
+  spellAttackRange: 5
+  hotkey: 0
+  activeDuration: 2
+  spawnOffset: 1
   isAutomatic: 1

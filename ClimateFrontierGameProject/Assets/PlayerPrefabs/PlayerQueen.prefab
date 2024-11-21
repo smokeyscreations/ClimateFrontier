@@ -1753,7 +1753,7 @@ GameObject:
   - component: {fileID: 4983148749160907350}
   - component: {fileID: 5917567383094046112}
   - component: {fileID: 5982512144331519645}
-  - component: {fileID: 6418194792820198119}
+  - component: {fileID: -8687893877634764079}
   m_Layer: 0
   m_Name: PlayerQueen
   m_TagString: Player
@@ -1891,7 +1891,7 @@ MonoBehaviour:
   attackRange: 10
   enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   projectileSpawnPoint: {fileID: 5055456974276650869}
 --- !u!114 &5917567383094046112
 MonoBehaviour:
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   experienceToNextLevel: 10
   baseExperienceRequirement: 10
   experienceIncreasePerLevel: 10
---- !u!114 &6418194792820198119
+--- !u!114 &-8687893877634764079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

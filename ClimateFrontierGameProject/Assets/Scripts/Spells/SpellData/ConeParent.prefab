@@ -241,6 +241,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_Piercing_Nature
       objectReference: {fileID: 0}
+    - target: {fileID: 8508855284383177433, guid: bf7c9aab68118574d8c167b78422bd8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -21,16 +21,17 @@ MonoBehaviour:
     type: 3}
   inGamePrefab: {fileID: 8799814947428864838, guid: 8c4223f97a4964c43b39e5291e1d9d13,
     type: 3}
+  basicAttackVFXTag: SlashVFX
+  basicAttackVFXOffset: 1
   maxHealth: 100
   baseAttackDamage: 50
-  movementSpeed: 5
+  baseWalkingSpeed: 2.5
+  baseRunningSpeed: 5
   abilityCooldown: 1
   attackRange: 2
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  ability1Damage: 20
-  ability2Damage: 25
-  ability3Damage: 30
   abilities:
+  - {fileID: 11400000, guid: 344d12419c3d5ea4f932c55fc8b87ecc, type: 2}
   - {fileID: 11400000, guid: b1dd7e88635005243a1339b3e9f5fb16, type: 2}

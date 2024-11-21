@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public List<Transform> spawnPoints;
     public List<BaseEnemy> enemyPrefabs;
     public float spawnInterval = 2f;
-    [SerializeField] public int maxEnemies = 1;
+    public int maxEnemies = 1;
 
     private float spawnTimer;
     private int currentEnemyCount = 0;
@@ -41,7 +41,6 @@ public class EnemySpawner : MonoBehaviour
 
         // Use CreateEnemy() to fetch from pool instead of Instantiate()
         BaseEnemy newEnemy = CreateEnemy(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-        currentEnemyCount++;
 
         // Subscribe to enemy's death event to decrement the enemy count
         newEnemy.OnEnemyDeath += HandleEnemyDeath;
@@ -51,16 +50,27 @@ public class EnemySpawner : MonoBehaviour
     {
         // Fetch from pool instead of instantiating
         BaseEnemy enemy = EnemyPool.Instance.GetFromPool(prefab);
+
+        // Set position and rotation
         enemy.transform.position = position;
         enemy.transform.rotation = rotation;
+
+        // Activate the enemy
         enemy.gameObject.SetActive(true);
+
+        // Reset the enemy's state after activation
+        enemy.ResetEnemy();
+
+        currentEnemyCount++;
         return enemy;
     }
+
 
     void HandleEnemyDeath(BaseEnemy enemy)
     {
         currentEnemyCount--;
+
+        // Unsubscribe from the enemy's death event
         enemy.OnEnemyDeath -= HandleEnemyDeath;
-        enemy.OnEnemyDeath += HandleEnemyDeath;
     }
 }

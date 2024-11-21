@@ -21,7 +21,6 @@ public class EnemyPool : MonoBehaviour
         if (poolDictionary.ContainsKey(key) && poolDictionary[key].Count > 0)
         {
             BaseEnemy enemy = poolDictionary[key].Dequeue();
-            enemy.gameObject.SetActive(true);
             return enemy;
         }
         else
@@ -42,8 +41,7 @@ public class EnemyPool : MonoBehaviour
             poolDictionary[key] = new Queue<BaseEnemy>();
         }
 
-        poolDictionary[key].Enqueue(enemy);
         enemy.gameObject.SetActive(false);
+        poolDictionary[key].Enqueue(enemy);
     }
-
 }

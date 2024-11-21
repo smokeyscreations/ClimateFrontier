@@ -17,6 +17,8 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
 
     private Coroutine deactivateCoroutine;
 
+    private Transform target; // Add this variable
+
     private void Awake()
     {
         // Get the Collider component on the same GameObject
@@ -36,14 +38,14 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
     /// Initializes the AOE effect with data from SpellData.
     /// This method is called externally after spawning the AOE from the pool.
     /// </summary>
-    public void Initialize(SpellData spellData, BasePlayer player)
+    public void Initialize(SpellData spellData, BasePlayer player, Transform target)
     {
         spellDamage = spellData.damage;
         range = spellData.spellAttackRange;
         enemyLayerMask = player.characterData.enemyLayerMask;
         activeDuration = spellData.activeDuration;
         poolTag = spellData.tag; // Store the tag for returning to the pool
-
+        this.target = target;
         startPosition = transform.position;
 
         Debug.Log($"AOE Initialized with Damage: {spellDamage}, Range: {range}, Speed: {speed}, Active Duration: {activeDuration}, Pool Tag: {poolTag}");

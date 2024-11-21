@@ -1,20 +1,17 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
-using EnemyStates;
-using static UnityEngine.GraphicsBuffer;
 using System.Collections;
-
-
+using EnemyStates;
 public abstract class BaseEnemy : MonoBehaviour
 {
     [Header("Enemy Settings")]
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float baseAttackDamage = 10f;
-    [SerializeField] private float pathUpdateInterval = 0.2f; // Set a default interval for path updates
+    [SerializeField] private float pathUpdateInterval = 0.2f;
 
-    public int experienceAmount = 10; 
+    public int experienceAmount = 10;
 
     public NavMeshAgent navMeshAgent;
     public Animator animator;
@@ -22,32 +19,20 @@ public abstract class BaseEnemy : MonoBehaviour
     private float currentHealth;
     private PlayerHealth playerHealth;
 
-    private float pathUpdateTimer; // Timer to control path update delay
+    private float pathUpdateTimer;
+    private bool isDead = false;
 
     protected StateMachine stateMachine;
     protected IState chaseState;
     protected IState attackState;
 
     public event Action<BaseEnemy> OnEnemyDeath;
+
     protected virtual void OnEnable()
     {
-        // Reset health
-        currentHealth = maxHealth;
-        Debug.Log($"{gameObject.name} reactivated with health: {currentHealth}");
-
-        // Reset other states
-        navMeshAgent.isStopped = false;
-        animator.ResetTrigger("Die");
-        animator.ResetTrigger("Attack");
-
-        // Reset the state machine
-        stateMachine.SetState(chaseState);
-
-        // Ensure the NavMeshAgent is enabled
-        navMeshAgent.enabled = false;
-        navMeshAgent.enabled = true;
+        // Reset health and state
+        ResetEnemy();
     }
-
 
     public float AttackRange
     {
@@ -89,18 +74,17 @@ public abstract class BaseEnemy : MonoBehaviour
         }
     }
 
-
     protected virtual void Update()
     {
+        if (isDead) return;
         stateMachine.Tick();
-
     }
 
     protected virtual void InitializeStateMachine()
     {
         stateMachine = new StateMachine();
 
-        chaseState = new EnemyChaseState(this, navMeshAgent, animator); 
+        chaseState = new EnemyChaseState(this, navMeshAgent, animator);
         attackState = new EnemyAttackState(this, animator);
 
         stateMachine.AddTransition(chaseState, attackState, PlayerInAttackRange);
@@ -109,8 +93,9 @@ public abstract class BaseEnemy : MonoBehaviour
         stateMachine.SetState(chaseState);
     }
 
-    protected Func<bool> PlayerInAttackRange => () => Vector3.Distance(transform.position, Target.position) <= AttackRange;
-    protected Func<bool> PlayerOutOfAttackRange => () => Vector3.Distance(transform.position, Target.position) > AttackRange;
+    protected Func<bool> PlayerInAttackRange => () => Target != null && Vector3.Distance(transform.position, Target.position) <= AttackRange;
+    protected Func<bool> PlayerOutOfAttackRange => () => Target != null && Vector3.Distance(transform.position, Target.position) > AttackRange;
+
     public void LookAtTarget()
     {
         if (Target == null) return;
@@ -123,24 +108,6 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public virtual void PerformAttack()
     {
-        //// Define a detection radius around the enemy's attack range
-        //Collider[] hitObjects = Physics.OverlapSphere(transform.position + transform.forward * attackRange, attackRange);
-
-        //foreach (Collider hit in hitObjects)
-        //{
-        //    // Check if the collider has the "Player" tag
-        //    if (hit.CompareTag("Player"))
-        //    {
-        //        if (hit.TryGetComponent(out PlayerHealth playerHealth))
-        //        {
-        //            playerHealth.TakeDamage(baseAttackDamage);
-        //            Debug.Log($"{gameObject.name} dealt {baseAttackDamage} damage to player.");
-        //            break; // Stop after hitting the player once
-        //        }
-        //    }
-        //}
-
-        // Ensure this method is called via the animation event at the correct time
         if (Target != null && Vector3.Distance(transform.position, Target.position) <= attackRange)
         {
             if (playerHealth != null)
@@ -148,13 +115,13 @@ public abstract class BaseEnemy : MonoBehaviour
                 playerHealth.TakeDamage(baseAttackDamage);
                 Debug.Log($"{gameObject.name} attacks the player for {baseAttackDamage} damage.");
             }
-           
         }
     }
 
-
     public virtual void TakeDamage(float damage)
     {
+        if (isDead) return;
+
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -164,26 +131,39 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        animator.SetTrigger("Die");
-        navMeshAgent.isStopped = true;
+        if (isDead) return;
+        isDead = true;
 
+        // Notify listeners that this enemy has died
+        OnEnemyDeath?.Invoke(this);
+
+        // Play death animation
+        animator.SetTrigger("Die");
+
+        // Disable components to prevent further interaction
+        if (navMeshAgent != null)
+        {
+            navMeshAgent.enabled = false;
+        }
+
+        Collider collider = GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
+
+        // Spawn experience orb
         SpawnExperienceOrb();
 
-        // Return to pool after a delay to allow death animation
-        StartCoroutine(ReturnToPoolAfterDelay(2f));
+        // Return to pool after a short delay to allow the death animation to play
+        StartCoroutine(ReturnToPoolAfterDelay(1f));
     }
-
 
     private IEnumerator ReturnToPoolAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        // Invoke the death event here, after the enemy is about to be deactivated
-        OnEnemyDeath?.Invoke(this);
-
         EnemyPool.Instance.ReturnToPool(this);
     }
-
 
     private void SpawnExperienceOrb()
     {
@@ -197,23 +177,52 @@ public abstract class BaseEnemy : MonoBehaviour
         }
     }
 
-    //public bool ShouldUpdatePath() // Helper function to check if path should update
-    //{
-    //    if (Time.time >= pathUpdateTimer)
-    //    {
-    //        pathUpdateTimer = Time.time + pathUpdateInterval;
-    //        return true;
-    //    }
-    //    return false;
-    //}
-
     public void MoveToTarget()
     {
         if (Time.time >= pathUpdateTimer)
         {
             pathUpdateTimer = Time.time + pathUpdateInterval;
-            navMeshAgent.SetDestination(Target.position);
+            if (Target != null)
+                navMeshAgent.SetDestination(Target.position);
         }
         navMeshAgent.isStopped = false;
     }
+
+    public bool IsDead => isDead;
+
+    public void ResetEnemy()
+    {
+        // Reset health and state
+        isDead = false;
+        currentHealth = maxHealth;
+
+        // Reset components
+        if (navMeshAgent != null)
+        {
+            navMeshAgent.enabled = true;
+
+            // Place the NavMeshAgent on the NavMesh
+            if (!navMeshAgent.Warp(transform.position))
+            {
+                Debug.LogError($"{gameObject.name}: Failed to warp NavMeshAgent to position {transform.position}");
+            }
+
+            navMeshAgent.isStopped = false;
+            navMeshAgent.stoppingDistance = attackRange;
+        }
+
+        Collider collider = GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.enabled = true;
+        }
+
+        // Reset animator triggers and state
+        animator.ResetTrigger("Die");
+        animator.ResetTrigger("Attack");
+
+        // Re-initialize state machine
+        InitializeStateMachine();
+    }
+
 }

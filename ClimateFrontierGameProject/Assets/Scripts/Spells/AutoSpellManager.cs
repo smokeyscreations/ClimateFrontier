@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SpellManager : MonoBehaviour
+public class AutoSpellManager : MonoBehaviour
 {
-    public SpellData[] spells; // Assigned from CharacterData
+    public SpellData[] spells; // Assigned from CharacterData or manually
 
     private float[] spellCooldownTimers;
 
@@ -13,7 +13,7 @@ public class SpellManager : MonoBehaviour
         player = GetComponent<BasePlayer>();
         if (player == null)
         {
-            Debug.LogError("SpellManager requires a BasePlayer component.");
+            Debug.LogError("AutoSpellManager requires a BasePlayer component.");
         }
 
         InitializeCooldownTimers();
@@ -38,10 +38,10 @@ public class SpellManager : MonoBehaviour
 
     private void Update()
     {
-        HandleSpellCasting();
+        HandleAutoCasting();
     }
 
-    private void HandleSpellCasting()
+    private void HandleAutoCasting()
     {
         if (spells == null || spellCooldownTimers == null)
         {
@@ -64,53 +64,19 @@ public class SpellManager : MonoBehaviour
                 continue;
             }
 
-            if (spell.isAutomatic)
-            {
-                HandleAutomaticSpell(i, spell);
-            }
-            else
-            {
-                HandleManualSpell(i, spell);
-            }
-        }
-    }
-
-    private void HandleManualSpell(int index, SpellData spell)
-    {
-        if (Input.GetKeyDown(spell.hotkey))
-        {
-            if (Time.time >= spellCooldownTimers[index])
-            {
-                CastSpell(spell);
-                spellCooldownTimers[index] = Time.time + spell.cooldown;
-            }
-            else
-            {
-                float remaining = spellCooldownTimers[index] - Time.time;
-                Debug.Log($"{spell.spellName} is on cooldown for {remaining:F1} more seconds.");
-            }
-        }
-    }
-
-    private void HandleAutomaticSpell(int index, SpellData spell)
-    {
-        if (Time.time >= spellCooldownTimers[index])
-        {
-            // For spells that require a target, find the nearest enemy
-            if (spell.prefab.GetComponent<ISpell>() is AOE)
+            // Check if the cooldown has elapsed
+            if (Time.time >= spellCooldownTimers[i])
             {
                 Transform target = FindNearestEnemy(spell.spellAttackRange);
                 if (target != null)
                 {
                     CastSpellAtTarget(spell, target);
-                    spellCooldownTimers[index] = Time.time + spell.cooldown;
+                    spellCooldownTimers[i] = Time.time + spell.cooldown;
                 }
-            }
-            else
-            {
-                // For spells that don't require a target (e.g., SlashCircleSpell)
-                CastSpell(spell);
-                spellCooldownTimers[index] = Time.time + spell.cooldown;
+                else
+                {
+                    Debug.Log($"No enemy within range ({spell.spellAttackRange}) for spell '{spell.spellName}'.");
+                }
             }
         }
     }
@@ -134,58 +100,31 @@ public class SpellManager : MonoBehaviour
         return nearestEnemy;
     }
 
-    private void CastSpell(SpellData spell)
-    {
-        if (spell.prefab != null)
-        {
-            Vector3 spawnPosition = player.transform.position + Vector3.up * spell.spawnOffset;
-            Quaternion spawnRotation = player.transform.rotation;
-
-            GameObject spellObject = ObjectPooler.Instance.SpawnFromPool(spell.tag, spawnPosition, spawnRotation);
-            if (spellObject != null)
-            {
-                IPoolable poolable = spellObject.GetComponent<IPoolable>();
-                if (poolable != null)
-                {
-                    poolable.OnObjectSpawn();
-                }
-
-                ISpell spellScript = spellObject.GetComponent<ISpell>();
-                if (spellScript != null)
-                {
-                    spellScript.Initialize(spell, player, null);
-                }
-
-                Debug.Log($"Casted {spell.spellName}.");
-            }
-            else
-            {
-                Debug.LogWarning($"Failed to spawn spell with tag '{spell.tag}'.");
-            }
-        }
-        else
-        {
-            Debug.LogWarning($"Spell {spell.spellName} has no prefab assigned.");
-        }
-    }
-
     private void CastSpellAtTarget(SpellData spell, Transform target)
     {
         if (spell.prefab != null)
         {
+            // Calculate direction to target
             Vector3 directionToTarget = (target.position - player.transform.position).normalized;
+
+            // Calculate spawn position with offset
             Vector3 spawnPosition = player.transform.position + directionToTarget * spell.spawnOffset;
+
+            // Align spell's rotation with direction to target
             Quaternion spawnRotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
 
+            // Spawn the spell from the pool using its unique tag
             GameObject spellObject = ObjectPooler.Instance.SpawnFromPool(spell.tag, spawnPosition, spawnRotation);
             if (spellObject != null)
             {
+                // Initialize the spell object
                 IPoolable poolable = spellObject.GetComponent<IPoolable>();
                 if (poolable != null)
                 {
                     poolable.OnObjectSpawn();
                 }
 
+                // If the spell has a specific script (e.g., AOE), initialize it
                 ISpell spellScript = spellObject.GetComponent<ISpell>();
                 if (spellScript != null)
                 {

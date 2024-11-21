@@ -18,9 +18,31 @@ namespace EnemyStates
 
         public void OnEnter()
         {
-            _navMeshAgent.isStopped = false;
-            //Debug.Log($"{_enemy.gameObject.name}: Entered ChaseState");
+            if (_navMeshAgent.isActiveAndEnabled)
+            {
+                if (_navMeshAgent.isOnNavMesh)
+                {
+                    _navMeshAgent.isStopped = false;
+                }
+                else
+                {
+                    // Attempt to place the agent on the NavMesh
+                    if (!_navMeshAgent.Warp(_enemy.transform.position))
+                    {
+                        Debug.LogError($"{_enemy.gameObject.name}: Failed to place NavMeshAgent on NavMesh at position {_enemy.transform.position}");
+                    }
+                    else
+                    {
+                        _navMeshAgent.isStopped = false;
+                    }
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"{_enemy.gameObject.name}: NavMeshAgent is not active and enabled.");
+            }
         }
+
 
         public void Tick()
         {

@@ -798,6 +798,10 @@ MonoBehaviour:
     prefab: {fileID: 6711607506104325586, guid: ec2c41b24620e2f49b2e5039a534065c,
       type: 3}
     size: 15
+  - tag: SlashCircle
+    prefab: {fileID: 3506638455784613418, guid: 1e0e6f2902c15314dab0ead9676412a9,
+      type: 3}
+    size: 15
 --- !u!1 &1686906907
 GameObject:
   m_ObjectHideFlags: 0

@@ -1550,6 +1550,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90c185df18081b2469b81fa7c353001f, type: 3}
+--- !u!1 &983053738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 983053740}
+  - component: {fileID: 983053739}
+  m_Layer: 0
+  m_Name: ObjectPoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &983053739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983053738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611b341b8d91f094da00623ad930756b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Powershot
+    prefab: {fileID: 5241272818924545521, guid: be041444c9844c344a69d8c95c294bb2,
+      type: 3}
+    size: 10
+  - tag: SlashVFX
+    prefab: {fileID: 6711607506104325586, guid: ec2c41b24620e2f49b2e5039a534065c,
+      type: 3}
+    size: 15
+  - tag: SlashCircle
+    prefab: {fileID: 3506638455784613418, guid: 1e0e6f2902c15314dab0ead9676412a9,
+      type: 3}
+    size: 15
+--- !u!4 &983053740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983053738}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2270045, y: 0.8617478, z: 1.7748361}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1011107150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2289,55 +2346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be30f8049b90d6740806f1062b6f0625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1453410536
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1453410538}
-  - component: {fileID: 1453410537}
-  m_Layer: 0
-  m_Name: AOEPoolManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1453410537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453410536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611b341b8d91f094da00623ad930756b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools:
-  - tag: AOE
-    prefab: {fileID: 5241272818924545521, guid: be041444c9844c344a69d8c95c294bb2,
-      type: 3}
-    size: 2
---- !u!4 &1453410538
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453410536}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2270045, y: 0.8617478, z: 1.7748361}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1474771811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4726195141619606, guid: 90f965259c782c74a830882af458b544,
@@ -3708,4 +3716,4 @@ SceneRoots:
   - {fileID: 883373842}
   - {fileID: 1253490641}
   - {fileID: 1920313060}
-  - {fileID: 1453410538}
+  - {fileID: 983053740}
