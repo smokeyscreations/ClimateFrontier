@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 643fb9efd7651b84c817fdf38bd03ddf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Fire/Materials/M_VFX_Fire_Magic_Emblem.mat
+  uploadId: 710755

@@ -81,6 +81,12 @@ public class SpellManager : MonoBehaviour
         {
             if (Time.time >= spellCooldownTimers[index])
             {
+                if (!spell.CanCast(player))
+                {
+                    Debug.Log($"{spell.spellName} cannot be cast: no valid targets.");
+                    return; // Do not cast or start cooldown
+                }
+
                 CastSpell(spell);
                 spellCooldownTimers[index] = Time.time + spell.cooldown;
             }

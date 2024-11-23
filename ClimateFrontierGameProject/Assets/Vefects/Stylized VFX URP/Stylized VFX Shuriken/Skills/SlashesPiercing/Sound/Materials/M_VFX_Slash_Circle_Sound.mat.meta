@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bc908eea30a186348b55cf11be02ec41
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/SlashesPiercing/Sound/Materials/M_VFX_Slash_Circle_Sound.mat
+  uploadId: 710755

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6c3c2fdc2894cc84db6099d72567baf3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Dark/Materials/M_VFX_Dark_Magic_Pentacle.mat
+  uploadId: 710755

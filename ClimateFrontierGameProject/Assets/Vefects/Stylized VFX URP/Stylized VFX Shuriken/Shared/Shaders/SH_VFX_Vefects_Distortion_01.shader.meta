@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2af8e1b26ce26174a86f26a90b1d3693
+guid: 395efaee919ddc542b73b70ac5628e82
 ShaderImporter:
   externalObjects: {}
   defaultTextures:
@@ -15,6 +15,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 225078
   packageName: Stylized VFX URP
-  packageVersion: 1.1.51
+  packageVersion: 1.1.6
   assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Shared/Shaders/SH_VFX_Vefects_Distortion_01.shader
-  uploadId: 704617
+  uploadId: 710755

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f711b10fa090ab8458ecfca1943a7d9c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Nature/Materials/M_VFX_Nature_Magic_Lens.mat
+  uploadId: 710755

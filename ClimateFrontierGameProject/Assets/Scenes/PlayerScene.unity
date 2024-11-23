@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 63564287}
+  - component: {fileID: 63564288}
   m_Layer: 0
   m_Name: CameraPivot
   m_TagString: Untagged
@@ -151,6 +152,18 @@ Transform:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
+--- !u!114 &63564288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63564286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75250614771bbe4b97f291c4a18f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &124478575
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +254,8 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
+  - component: {fileID: 330585550}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -376,6 +391,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b75250614771bbe4b97f291c4a18f94a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: a9b15d8d981193f409dd220bbe3da71b, type: 2}
+--- !u!114 &330585550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5141592415496d0498fefdeed7a87913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &410087039
@@ -685,7 +729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbPrefab: {fileID: 7945678958170809172, guid: a4091c13628802d49a71dc8ff41716f2,
     type: 3}
-  initialPoolSize: 50
+  initialPoolSize: 20
 --- !u!4 &924213810
 Transform:
   m_ObjectHideFlags: 0
@@ -745,6 +789,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1107106797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1107106798}
+  - component: {fileID: 1107106799}
+  m_Layer: 0
+  m_Name: AudioPoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1107106798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107106797}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7327788, y: 0.32517856, z: -1.7554792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107106799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107106797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134426076129ff54b9091d39778fd2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourcePrefab: {fileID: -6710064403211174006, guid: d37a075e8a996d046931f1c6dff5836f,
+    type: 3}
+  poolSize: 10
 --- !u!1 &1497162631
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +893,14 @@ MonoBehaviour:
     prefab: {fileID: 3506638455784613418, guid: 1e0e6f2902c15314dab0ead9676412a9,
       type: 3}
     size: 15
+  - tag: FlickerStrike
+    prefab: {fileID: 1932963607892405405, guid: 67f4cffcd9d1d2c41bc7713579e1df9d,
+      type: 3}
+    size: 15
+  - tag: SliceVFX
+    prefab: {fileID: 2642749838293771946, guid: 434e4d11918462a49bc014565a0e0e57,
+      type: 3}
+    size: 15
 --- !u!1 &1686906907
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,7 +935,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 6482009278854094925, guid: 56aa7ada12795a14895a15c60de6be62, type: 3}
   spawnInterval: 2
-  maxEnemies: 1
+  maxEnemies: 10
 --- !u!4 &1686906909
 Transform:
   m_ObjectHideFlags: 0
@@ -979,3 +1078,4 @@ SceneRoots:
   - {fileID: 124478576}
   - {fileID: 924213810}
   - {fileID: 1497162632}
+  - {fileID: 1107106798}

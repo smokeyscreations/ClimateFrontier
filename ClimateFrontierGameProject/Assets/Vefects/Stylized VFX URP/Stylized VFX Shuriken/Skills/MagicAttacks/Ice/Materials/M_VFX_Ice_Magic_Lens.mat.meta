@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 170a9bf4d2f853945b038e3ff40d300c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Ice/Materials/M_VFX_Ice_Magic_Lens.mat
+  uploadId: 710755

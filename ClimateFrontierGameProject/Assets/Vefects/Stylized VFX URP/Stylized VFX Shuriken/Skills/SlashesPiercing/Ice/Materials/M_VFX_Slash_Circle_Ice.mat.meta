@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3e088dfc402c40e4887e29b7b73255ee
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/SlashesPiercing/Ice/Materials/M_VFX_Slash_Circle_Ice.mat
+  uploadId: 710755

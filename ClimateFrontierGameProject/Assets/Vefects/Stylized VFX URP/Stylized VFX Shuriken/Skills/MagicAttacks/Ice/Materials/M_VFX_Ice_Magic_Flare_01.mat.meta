@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f4868bc6e361a37469848c299c1481ef
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Ice/Materials/M_VFX_Ice_Magic_Flare_01.mat
+  uploadId: 710755

@@ -15,7 +15,7 @@ MonoBehaviour:
   spellName: Spirit Circle
   tag: SlashCircle
   prefab: {fileID: 3506638455784613418, guid: 1e0e6f2902c15314dab0ead9676412a9, type: 3}
-  damage: 20
+  damage: 0
   cooldown: 3
   spellAttackRange: 5
   hotkey: 0

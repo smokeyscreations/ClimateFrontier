@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b5dfa661a91adf4683f6d112b1c0a2d
+guid: 84ea032c577ff4c42b84318d0a009465
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -124,6 +124,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 225078
   packageName: Stylized VFX URP
-  packageVersion: 1.1.51
+  packageVersion: 1.1.6
   assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Shared/Textures/T_VFX_Noise_Packed_01.tga
-  uploadId: 704617
+  uploadId: 710755

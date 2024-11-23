@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 666ae29b2d5b97d4a96d8afcadb4fdab
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Void/Materials/M_VFX_Void_Magic_Flare_Ring.mat
+  uploadId: 710755

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 010b343557a7a9c41915d1d193d5fa1a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Earth/Materials/M_VFX_Earth_Magic_Trail.mat
+  uploadId: 710755

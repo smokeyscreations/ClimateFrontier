@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f55c242b49d82a94fbbe3d8a77b28450
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Earth/Materials/M_VFX_Earth_Magic_Rocks_Blurred.mat
+  uploadId: 710755

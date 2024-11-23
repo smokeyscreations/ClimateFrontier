@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 267efc5c6e3aad14ba43ac665e3cfdb0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/SlashesPiercing/Fire/Materials/M_VFX_Slash_Circle_Fire.mat
+  uploadId: 710755

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c6bcc5bbf2a074740879fa9ddc8b1397
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225078
+  packageName: Stylized VFX URP
+  packageVersion: 1.1.6
+  assetPath: Assets/Vefects/Stylized VFX URP/Stylized VFX Shuriken/Skills/MagicAttacks/Dark/Materials/M_VFX_Dark_Magic_Smoke_Directional.mat
+  uploadId: 710755
