@@ -32,6 +32,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        if (UpgradeManager.Instance != null)
+        {
+            UpgradeManager.Instance.ResetUpgrades();
+        }
+        else
+        {
+            Debug.LogError("UpgradeManager instance not found.");
+        }
         Debug.Log("Player has died.");
 
     }

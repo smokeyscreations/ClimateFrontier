@@ -1,7 +1,11 @@
+using System;
 using UnityEngine;
 
 public class GameInitializer : MonoBehaviour
 {
+    // Define a delegate and event for player instantiation
+    public event Action<GameObject> OnPlayerInstantiated;
+
     private void Start()
     {
         if (GameManager.Instance != null && GameManager.Instance.selectedCharacterData != null)
@@ -17,6 +21,12 @@ public class GameInitializer : MonoBehaviour
                 basePlayer.characterData = GameManager.Instance.selectedCharacterData;
                 // Initialize the character after assigning characterData
                 basePlayer.InitializePlayer();
+
+                // Tag the player for easy identification
+                player.tag = "Player";
+
+                // Invoke the event to notify that the player has been instantiated
+                OnPlayerInstantiated?.Invoke(player);
             }
             else
             {
@@ -27,5 +37,7 @@ public class GameInitializer : MonoBehaviour
         {
             Debug.LogError("No character data found in GameManager.");
         }
+
+
     }
 }

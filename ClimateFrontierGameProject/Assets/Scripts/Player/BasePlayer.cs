@@ -21,6 +21,8 @@ public abstract class BasePlayer : MonoBehaviour
     [SerializeField] protected float abilityCooldown = 1f;
     [SerializeField] private float attackRange = 10f;
     [SerializeField] private LayerMask enemyLayerMask;
+
+
     [SerializeField] public Transform projectileSpawnPoint;
     private Collider[] hitEnemies = new Collider[20];
     private float attackCooldown = 0.5f;
@@ -40,6 +42,8 @@ public abstract class BasePlayer : MonoBehaviour
     protected IState idleState;
     protected IState runState;
     protected IState attackState;
+
+    private float originalAttackDamage;
 
 
 
@@ -83,7 +87,10 @@ public abstract class BasePlayer : MonoBehaviour
         abilityCooldown = characterData.abilityCooldown;
         attackRange = characterData.attackRange;
         enemyLayerMask = characterData.enemyLayerMask;
-        // Assign other attributes as needed
+
+
+        originalAttackDamage = baseAttackDamage;
+
 
         // Initialize health
         healthSystem.Initialize(maxHealth);
@@ -195,5 +202,19 @@ public abstract class BasePlayer : MonoBehaviour
         animator.SetFloat("Speed", movementSpeedValue);
         animator.SetFloat("Direction", movementDirection);
         animator.SetBool("IsRunning", isRunning);
+    }
+
+    public virtual void IncreaseAttackDamage(int amount)
+    {
+        baseAttackDamage += amount;
+        Debug.Log($"Attack Damage increased by {amount}. New Attack Damage: {baseAttackDamage}");
+    }
+
+
+    public virtual void ResetStats()
+    {
+        baseAttackDamage = originalAttackDamage;
+        Debug.Log($"Attack Damage reset to original value: {baseAttackDamage}");
+        
     }
 }

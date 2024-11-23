@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 public class TestInitializer : MonoBehaviour
 {
     [Header("Test Settings")]
     public GameObject playerPrefab; // Assign via Inspector
     public CharacterData testCharacterData; // Assign via Inspector
+    public event Action<GameObject> OnPlayerInstantiated;
 
     void Awake()
     {
@@ -47,8 +49,11 @@ public class TestInitializer : MonoBehaviour
             {
                 Debug.Log("Assigning characterData to BasePlayer.");
                 basePlayer.characterData = GameManager.Instance.selectedCharacterData;
-                
+
                 basePlayer.InitializePlayer();
+
+                player.tag = "Player";
+                OnPlayerInstantiated?.Invoke(player);
             }
             else
             {

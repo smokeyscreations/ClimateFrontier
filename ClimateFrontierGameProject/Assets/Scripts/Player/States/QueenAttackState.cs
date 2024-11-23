@@ -4,7 +4,6 @@ namespace PlayerStates
 {
     public class QueenAttackState : PlayerAttackState
     {
-
         private float attackRange; // Attack range for detecting enemies
         private float attackAngle = 360f;
         private int maxColliders = 20; // Adjust this number based on expected maximum enemies
@@ -28,7 +27,6 @@ namespace PlayerStates
             slashVFXTag = player.characterData.basicAttackVFXTag;
             slashVFXOffset = player.characterData.basicAttackVFXOffset;
         }
-
 
         public override void OnEnter()
         {
@@ -60,9 +58,9 @@ namespace PlayerStates
                     float angleToEnemy = Vector3.Angle(player.transform.forward, directionToEnemy);
                     if (angleToEnemy <= attackAngle * 0.5f) // Divide by 2 because angle is spread equally on both sides
                     {
-                        // Apply damage to the enemy
-                        enemy.TakeDamage(player.characterData.baseAttackDamage);
-                        Debug.Log($"Enemy {enemy.gameObject.name} hit within cone range. Dealt damage: {player.characterData.baseAttackDamage}");
+                        // Apply damage to the enemy using the updated BaseAttackDamage
+                        enemy.TakeDamage(player.BaseAttackDamage);
+                        Debug.Log($"Enemy {enemy.gameObject.name} hit within cone range. Dealt damage: {player.BaseAttackDamage}");
                     }
                 }
 
@@ -99,7 +97,6 @@ namespace PlayerStates
                 Debug.LogWarning($"Failed to spawn VFX with tag '{slashVFXTag}'.");
             }
         }
-
 
         public override void Tick()
         {
