@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 using EnemyStates;
+using TMPro;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] private float pathUpdateInterval = 0.2f; // Set a default interval for path updates
 
     public int experienceAmount = 10;
+
+    public GameObject floatingTextPrefab;
 
     public NavMeshAgent navMeshAgent;
     public Animator animator;
@@ -30,6 +33,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public event Action<BaseEnemy> OnEnemyDeath;
 
     protected EnemyFlashEffect3D flashEffect;
+    protected TextMeshPro textMesh;
 
     protected virtual void Awake()
     {
@@ -144,9 +148,46 @@ public abstract class BaseEnemy : MonoBehaviour
         // Trigger on-hit effects
         TriggerOnHitEffects(damage);
 
+        // Show floating damage text
+        ShowFloatingDamage(damage);
+
         if (currentHealth <= 0)
         {
             Die();
+        }
+    }
+
+    /// <summary>
+    /// Spawns a floating damage number using the FloatingText prefab.
+    /// </summary>
+    /// <param name="damage">The amount of damage taken.</param>
+    protected virtual void ShowFloatingDamage(float damage)
+    {
+        if (floatingTextPrefab == null)
+        {
+            Debug.LogError($"{gameObject.name}: FloatingTextPrefab is not assigned.");
+            return;
+        }
+
+        // Define spawn position slightly above the enemy to prevent overlap
+        Vector3 spawnPosition = transform.position + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), 1.5f, UnityEngine.Random.Range(-0.5f, 0.5f));
+
+        // Spawn a FloatingText instance from the pool
+        GameObject floatingTextGO = ObjectPooler.Instance.SpawnFromPool("FloatingText", spawnPosition, Quaternion.identity);
+        textMesh = floatingTextGO.GetComponent<TextMeshPro>();
+
+        if (floatingTextGO != null)
+        {
+            FloatingText floatingText = floatingTextGO.GetComponent<FloatingText>();
+            if (floatingText != null)
+            {
+                // Set the damage number
+                floatingText.SetText(Mathf.RoundToInt(damage).ToString());
+            }
+            else
+            {
+                Debug.LogError($"{gameObject.name}: FloatingText component not found on the prefab.");
+            }
         }
     }
 
@@ -260,5 +301,6 @@ public abstract class BaseEnemy : MonoBehaviour
             flashEffect.TriggerFlash();
         }
 
+        // Add other on-hit effects here (e.g., sound, particles)
     }
 }

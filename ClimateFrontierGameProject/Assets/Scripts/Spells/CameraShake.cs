@@ -43,7 +43,7 @@ public class CameraShake : MonoBehaviour
         transform.localPosition = originalPosition;
     }
 
-    // Optional: Shaker method with vibrato and randomness parameters
+    
     public void TriggerShake(float duration, float magnitude, int vibrato = 10, float randomness = 90f)
     {
         StartCoroutine(Shake(duration, magnitude, vibrato, randomness));

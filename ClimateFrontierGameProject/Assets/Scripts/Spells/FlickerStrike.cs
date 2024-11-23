@@ -162,7 +162,7 @@ public class FlickerStrike : MonoBehaviour, ISpell, IPoolable
             // Camera shake
             if (CameraShake.Instance != null)
             {
-                CameraShake.Instance.TriggerShake(0.3f, 0.7f); // Increased duration and magnitude
+                CameraShake.Instance.TriggerShake(0.3f, 0.3f); // Increased duration and magnitude
             }
 
             // Spawn Slice VFX from the pool

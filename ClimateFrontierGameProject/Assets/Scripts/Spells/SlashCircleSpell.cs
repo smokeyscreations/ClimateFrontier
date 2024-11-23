@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
 {
     public float damagePerTick = 10f;
-    public float tickInterval = 1f;
+    public float tickInterval = 0.1f;
     public float duration = 10f;
     public LayerMask enemyLayerMask;
 

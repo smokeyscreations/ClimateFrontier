@@ -307,6 +307,8 @@ MonoBehaviour:
   baseAttackDamage: 10
   pathUpdateInterval: 0.5
   experienceAmount: 10
+  floatingTextPrefab: {fileID: 5666091414001936571, guid: 668e33155f71d2d4e8c85d2a1c1b8308,
+    type: 3}
   navMeshAgent: {fileID: 1005582189409353062}
   animator: {fileID: 3231052397969040181}
 --- !u!114 &101759767798499132

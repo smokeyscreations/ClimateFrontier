@@ -15,7 +15,7 @@ MonoBehaviour:
   spellName: Flicker Strike
   tag: FlickerStrike
   prefab: {fileID: 1932963607892405405, guid: 67f4cffcd9d1d2c41bc7713579e1df9d, type: 3}
-  damage: 100
+  damage: 50
   cooldown: 5
   spellAttackRange: 10
   hotkey: 32
@@ -28,6 +28,5 @@ MonoBehaviour:
   dashDuration: 0.1
   dashVFXPrefab: {fileID: 1932963607892405405, guid: 67f4cffcd9d1d2c41bc7713579e1df9d,
     type: 3}
-  impactSound: {fileID: 8300000, guid: b66a5ab337711024c8df1344d5400fba, type: 3}
   sliceVFXPrefab: {fileID: 2642749838293771946, guid: 434e4d11918462a49bc014565a0e0e57,
     type: 3}

@@ -56,7 +56,7 @@ public class SliceVFX : MonoBehaviour, IPoolable
         source.clip = clip;
         source.transform.position = transform.position; // Position the sound at the impact location
         source.pitch = Random.Range(0.95f, 1.05f); // Slight pitch variation for realism
-        source.volume = Random.Range(0.9f, 1.0f); // Slight volume variation
+        source.volume = 1.0f; // Set to max volume or desired level
         source.spatialBlend = 1.0f; // 3D sound
         source.Play();
 
