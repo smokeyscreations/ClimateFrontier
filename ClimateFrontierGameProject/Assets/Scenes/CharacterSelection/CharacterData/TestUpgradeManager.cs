@@ -26,7 +26,7 @@ public class TestUpgradeManager : MonoBehaviour
     private void OnEnable()
     {
         // Find GameInitializer in the scene
-        TestInitializer gameInitializer = FindObjectOfType<TestInitializer>();
+        TestInitializer gameInitializer = FindAnyObjectByType<TestInitializer>();
         if (gameInitializer != null)
         {
             // Subscribe to the OnPlayerInstantiated event
@@ -41,7 +41,7 @@ public class TestUpgradeManager : MonoBehaviour
     private void OnDisable()
     {
         // Unsubscribe from the event to prevent memory leaks
-        TestInitializer gameInitializer = FindObjectOfType<TestInitializer>();
+        TestInitializer gameInitializer = FindAnyObjectByType<TestInitializer>();
         if (gameInitializer != null)
         {
             gameInitializer.OnPlayerInstantiated -= HandlePlayerInstantiated;

@@ -9,7 +9,7 @@ public class FlickerStrike : MonoBehaviour, ISpell, IPoolable
     private List<Transform> enemiesToAttack;
     private int targetsHit = 0;
 
-    // Reference to the Dash VFX GameObject (assumed to be a child named "DashVFX")
+    // Reference to the Dash VFX GameObject)
     private GameObject dashVFX;
 
     // Coroutine reference for the Flicker Strike process

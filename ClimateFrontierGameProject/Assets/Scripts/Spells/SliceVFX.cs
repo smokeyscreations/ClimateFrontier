@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SliceVFX : MonoBehaviour, IPoolable
@@ -49,24 +47,7 @@ public class SliceVFX : MonoBehaviour, IPoolable
         int soundIndex = Random.Range(0, impactSounds.Length);
         AudioClip clip = impactSounds[soundIndex];
 
-        // Get an AudioSource from the pool
-        AudioSource source = AudioPooler.Instance.GetAudioSource();
-
-        // Configure the AudioSource
-        source.clip = clip;
-        source.transform.position = transform.position; // Position the sound at the impact location
-        source.pitch = Random.Range(0.95f, 1.05f); // Slight pitch variation for realism
-        source.volume = 1.0f; // Set to max volume or desired level
-        source.spatialBlend = 1.0f; // 3D sound
-        source.Play();
-
-        // Return the AudioSource to the pool after the clip finishes
-        StartCoroutine(ReturnSourceAfterDelay(source, clip.length));
-    }
-
-    private IEnumerator ReturnSourceAfterDelay(AudioSource source, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        AudioPooler.Instance.ReturnAudioSource(source);
+        // Use AudioPooler's PlaySound method
+        AudioPooler.Instance.PlaySound(clip, transform.position, new Vector2(0.95f, 1.05f));
     }
 }
