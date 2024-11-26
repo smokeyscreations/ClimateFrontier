@@ -9,6 +9,9 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
     public LayerMask enemyLayerMask;    // Layer mask to identify enemies
     public float activeDuration = 1f;   // Duration the AOE remains active
 
+    [Header("Audio Settings")]
+    public AudioClip spawnSound;        // Sound played when AOE is spawned
+
     private Vector3 startPosition;
     private float spellDamage;          // Damage assigned from SpellData
     private string poolTag;             // Tag to use when returning to the pool
@@ -17,7 +20,7 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
 
     private Coroutine deactivateCoroutine;
 
-    private Transform target; 
+    private Transform target;
 
     private void Awake()
     {
@@ -46,10 +49,14 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
 
         Debug.Log($"AOE Initialized with Damage: {spellDamage}, Range: {range}, Speed: {speed}, Active Duration: {activeDuration}, Pool Tag: {poolTag}");
     }
+
     public void OnObjectSpawn()
     {
         // Reset position when the object is activated
         startPosition = transform.position;
+
+        // Play the spawn sound
+        PlaySpawnSound();
 
         // Start the delayed deactivation coroutine
         if (deactivateCoroutine != null)
@@ -57,19 +64,16 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
             StopCoroutine(deactivateCoroutine);
         }
         deactivateCoroutine = StartCoroutine(DeactivateAfterDelay(activeDuration));
-
     }
 
     public void OnObjectReturn()
     {
-
         // Stop the coroutine if it's still running
         if (deactivateCoroutine != null)
         {
             StopCoroutine(deactivateCoroutine);
             deactivateCoroutine = null;
         }
-
     }
 
     private void Update()
@@ -87,8 +91,6 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
 
     private void OnTriggerEnter(Collider other)
     {
-
-
         // Check if the collided object is within the enemy layer mask
         if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
         {
@@ -111,7 +113,6 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
 
     private void DeactivateAndReturnToPool()
     {
-
         if (!string.IsNullOrEmpty(poolTag) && ObjectPooler.Instance != null)
         {
             ObjectPooler.Instance.ReturnToPool(poolTag, gameObject);
@@ -120,6 +121,19 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
         {
             Debug.LogWarning("Pool tag is not set or ObjectPooler instance is null. Cannot return to pool.");
             gameObject.SetActive(false); // Fallback to just deactivating
+        }
+    }
+
+    private void PlaySpawnSound()
+    {
+        if (spawnSound != null)
+        {
+            // Play the spawn sound as a 2D sound by ignoring position
+            AudioPooler.Instance.PlaySound(spawnSound, Vector3.zero, new Vector2(0.95f, 1.05f));
+        }
+        else
+        {
+            Debug.LogWarning("AOE: Spawn sound is not assigned.");
         }
     }
 

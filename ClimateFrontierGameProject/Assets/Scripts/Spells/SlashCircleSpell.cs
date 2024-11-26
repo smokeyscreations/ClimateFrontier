@@ -4,15 +4,18 @@ using System.Collections.Generic;
 
 public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
 {
+    [Header("Spell Settings")]
     public float damagePerTick = 10f;
     public float tickInterval = 0.1f;
     public float duration = 10f;
     public LayerMask enemyLayerMask;
-
     private float spellRadius;
     private List<BaseEnemy> enemiesInRange = new List<BaseEnemy>();
     private Coroutine damageCoroutine;
     private string poolTag;
+
+    [Header("Audio Settings")]
+    public AudioClip spawnSound;        // Sound played when SlashCircleSpell is spawned
 
     private void Awake()
     {
@@ -30,7 +33,6 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
 
     public void Initialize(SpellData spellData, BasePlayer player, Transform target)
     {
-
         damagePerTick = spellData.damage;
         duration = spellData.activeDuration;
         spellRadius = spellData.spellAttackRange;
@@ -59,6 +61,9 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
     {
         // Reset any necessary variables
         enemiesInRange.Clear();
+
+        // Play the spawn sound
+        PlaySpawnSound();
     }
 
     public void OnObjectReturn()
@@ -114,7 +119,6 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.TryGetComponent<BaseEnemy>(out BaseEnemy enemy))
         {
             if (!enemiesInRange.Contains(enemy))
@@ -133,7 +137,6 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
 
     private void OnTriggerExit(Collider other)
     {
-
         if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
         {
             if (other.TryGetComponent<BaseEnemy>(out BaseEnemy enemy))
@@ -168,6 +171,26 @@ public class SlashCircleSpell : MonoBehaviour, IPoolable, ISpell
         {
             Debug.LogWarning("Pool tag is not set or ObjectPooler instance is null. Cannot return to pool.");
             gameObject.SetActive(false); // Fallback to just deactivating
+        }
+    }
+
+    private void PlaySpawnSound()
+    {
+        if (spawnSound != null)
+        {
+            if (AudioPooler.Instance != null)
+            {
+                // Play the spawn sound as a 2D sound by ignoring position
+                AudioPooler.Instance.PlaySound(spawnSound, Vector3.zero, new Vector2(0.95f, 1.05f));
+            }
+            else
+            {
+                Debug.LogWarning("SlashCircleSpell: AudioPooler instance is not found in the scene.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("SlashCircleSpell: Spawn sound is not assigned.");
         }
     }
 }

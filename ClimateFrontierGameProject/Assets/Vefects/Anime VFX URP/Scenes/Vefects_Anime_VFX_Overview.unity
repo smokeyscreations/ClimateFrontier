@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -97,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -136,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_VFX_DebuffCast
       objectReference: {fileID: 0}
+    - target: {fileID: 3628913460639372173, guid: fb625641b0ee28e4b978cb942dd744c4,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 3628913460639372175, guid: fb625641b0ee28e4b978cb942dd744c4,
         type: 3}
       propertyPath: m_RootOrder
@@ -282,6 +283,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3107498401967008175, guid: cd799f62aab418c4d8efed7992b9f568,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 4231482995727018640, guid: cd799f62aab418c4d8efed7992b9f568,
         type: 3}
       propertyPath: m_Name
@@ -447,12 +453,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!81 &893733682
 AudioListener:
   m_ObjectHideFlags: 0
@@ -598,6 +604,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_VFX_Explosion_Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 2131427319078079923, guid: 6c0e2ea3d9659784bad0f7b76ee08899,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 5832562647259613401, guid: 6c0e2ea3d9659784bad0f7b76ee08899,
         type: 3}
       propertyPath: m_RootOrder
@@ -721,6 +732,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4939626660716641432, guid: 1fbe51b7e5c742e45ad895474c0e5b34,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 6130567110401474471, guid: 1fbe51b7e5c742e45ad895474c0e5b34,
         type: 3}
       propertyPath: m_Name
@@ -799,6 +815,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_VFX_HealLoop
       objectReference: {fileID: 0}
+    - target: {fileID: 8461290916847762351, guid: 88ac81127d155884ca17e13e76d97ed8,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -846,6 +867,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4735854018667895493, guid: c25cba9fccb56344ba86e01368b5a4dc,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 4735854018667895494, guid: c25cba9fccb56344ba86e01368b5a4dc,
         type: 3}
       propertyPath: m_RootOrder
@@ -974,6 +1000,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4939626660716641432, guid: 1fbe51b7e5c742e45ad895474c0e5b34,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 6130567110401474471, guid: 1fbe51b7e5c742e45ad895474c0e5b34,
         type: 3}
       propertyPath: m_Name
@@ -1065,6 +1096,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 162527373737542416, guid: e56142ed85a6a9c46888b2db9614f066,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 1429993768825323567, guid: e56142ed85a6a9c46888b2db9614f066,
         type: 3}
       propertyPath: m_Name
@@ -1198,6 +1234,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2569992915501827519, guid: 6f8f4290ec1f6e04e8ec91261b1a0948,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1266,6 +1307,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7401769242565539061, guid: a950c79ddf783f140b92aec632c10c4c,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 8584265374633801674, guid: a950c79ddf783f140b92aec632c10c4c,
         type: 3}
       propertyPath: m_Name
@@ -1284,6 +1330,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1187099872122563157, guid: f0277273bba10df42b592ecf7fc7cd63,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 1187099872122563158, guid: f0277273bba10df42b592ecf7fc7cd63,
         type: 3}
       propertyPath: m_RootOrder
@@ -1477,6 +1528,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1522,6 +1576,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PS_VFX_Gunshot 02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274282251134712899, guid: feda8b505230de04da9dd3eb1657e4d3,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+    - target: {fileID: 6960372626974268242, guid: feda8b505230de04da9dd3eb1657e4d3,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8517564764485679401, guid: feda8b505230de04da9dd3eb1657e4d3,
         type: 3}
@@ -1627,6 +1691,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_VFX_Gunshot
       objectReference: {fileID: 0}
+    - target: {fileID: 4274282251134712899, guid: feda8b505230de04da9dd3eb1657e4d3,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+    - target: {fileID: 6960372626974268242, guid: feda8b505230de04da9dd3eb1657e4d3,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8517564764485679401, guid: feda8b505230de04da9dd3eb1657e4d3,
         type: 3}
       propertyPath: m_RootOrder
@@ -1700,6 +1774,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_VFX_Explosion_Omni_Ice
       objectReference: {fileID: 0}
+    - target: {fileID: 2131427319078079923, guid: 14d6e10b8b21c6b40913fdf2d483185d,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 5832562647259613401, guid: 14d6e10b8b21c6b40913fdf2d483185d,
         type: 3}
       propertyPath: m_RootOrder
@@ -1773,6 +1852,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_VFX_BasicAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 3834213586654520725, guid: 1e4a7160d9d435b458b32b9b02ca82dd,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 8669686536258560255, guid: 1e4a7160d9d435b458b32b9b02ca82dd,
         type: 3}
       propertyPath: m_RootOrder
@@ -1846,6 +1930,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_VFX_DebuffLoop
       objectReference: {fileID: 0}
+    - target: {fileID: 8345663990781943181, guid: 82b66041114262e4cb6fc2d96c3052d3,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 8345663990781943183, guid: 82b66041114262e4cb6fc2d96c3052d3,
         type: 3}
       propertyPath: m_RootOrder
@@ -1919,6 +2008,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_VFX_HealCast
       objectReference: {fileID: 0}
+    - target: {fileID: 1590954047425036225, guid: 0dd0b9a4b9d4d30449985aee6c911e17,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 6589049169314609835, guid: 0dd0b9a4b9d4d30449985aee6c911e17,
         type: 3}
       propertyPath: m_RootOrder
@@ -2043,9 +2137,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891757918}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -2095,8 +2188,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1001 &4521688346353488778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2110,6 +2207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_VFX_Explosion_Omni
       objectReference: {fileID: 0}
+    - target: {fileID: 2131427319078079923, guid: 1088de5662f7a1346b1d36be122c094a,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 5832562647259613401, guid: 1088de5662f7a1346b1d36be122c094a,
         type: 3}
       propertyPath: m_LocalPosition.x

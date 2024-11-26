@@ -48,12 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0481c46af939364389015b9f82ab172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 15
   range: 40
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
   activeDuration: 1
+  spawnSound: {fileID: 8300000, guid: 83758157eda69c045977f285ef7009f4, type: 3}
 --- !u!136 &7153682621091806989
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -190,7 +191,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8318746655983814433, guid: 5bf7313d619ef764ca78538602f4200c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

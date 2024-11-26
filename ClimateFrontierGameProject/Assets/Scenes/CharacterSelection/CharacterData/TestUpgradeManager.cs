@@ -25,12 +25,11 @@ public class TestUpgradeManager : MonoBehaviour
 
     private void OnEnable()
     {
-        // Find GameInitializer in the scene
         TestInitializer gameInitializer = FindAnyObjectByType<TestInitializer>();
         if (gameInitializer != null)
         {
-            // Subscribe to the OnPlayerInstantiated event
             gameInitializer.OnPlayerInstantiated += HandlePlayerInstantiated;
+            Debug.Log("Subscribed to GameInitializer.OnPlayerInstantiated");
         }
         else
         {
@@ -40,11 +39,17 @@ public class TestUpgradeManager : MonoBehaviour
 
     private void OnDisable()
     {
-        // Unsubscribe from the event to prevent memory leaks
         TestInitializer gameInitializer = FindAnyObjectByType<TestInitializer>();
         if (gameInitializer != null)
         {
             gameInitializer.OnPlayerInstantiated -= HandlePlayerInstantiated;
+            Debug.Log("Unsubscribed from GameInitializer.OnPlayerInstantiated");
+        }
+
+        if (playerExperience != null)
+        {
+            playerExperience.OnUpgradeAvailable -= HandleUpgradeAvailable;
+            Debug.Log("Unsubscribed from PlayerExperience.OnUpgradeAvailable");
         }
     }
 
@@ -64,6 +69,7 @@ public class TestUpgradeManager : MonoBehaviour
                 {
                     // Subscribe to the OnUpgradeAvailable event
                     playerExperience.OnUpgradeAvailable += HandleUpgradeAvailable;
+                    Debug.Log("Upgrade Availabe");
                 }
                 else
                 {
@@ -83,6 +89,7 @@ public class TestUpgradeManager : MonoBehaviour
 
     private void HandleUpgradeAvailable()
     {
+        Debug.Log("Handling Upgrade");
         // Display the Upgrade UI
         if (upgradeUIManager != null)
         {
@@ -115,6 +122,12 @@ public class TestUpgradeManager : MonoBehaviour
             return;
         }
 
+        if (player == null)
+        {
+            Debug.LogError("Player is null.");
+            return;
+        }
+
         switch (upgrade.upgradeType)
         {
             case UpgradeType.IncreaseAttackDamage:
@@ -129,6 +142,8 @@ public class TestUpgradeManager : MonoBehaviour
                 break;
         }
     }
+
+
 
     /// <summary>
     /// Resets all applied upgrades. Call this upon player death.

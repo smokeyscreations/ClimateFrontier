@@ -33,7 +33,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Unity.UnityRigidbody
                 return TaskStatus.Failure;
             }
 
-            storeValue.Value = rigidbody.linearVelocity;
+            storeValue.Value = rigidbody.velocity;
 
             return TaskStatus.Success;
         }

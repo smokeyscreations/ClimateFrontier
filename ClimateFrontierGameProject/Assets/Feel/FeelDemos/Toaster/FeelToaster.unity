@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5338735, g: 0.46065825, b: 0.37825975, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -138,12 +134,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -328,12 +324,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -1353,12 +1349,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -1543,12 +1539,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -2057,9 +2053,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164326925}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 0.2567639, b: 0, a: 1}
   m_Intensity: 2
   m_Range: 50
@@ -2109,8 +2104,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &164326927
 Transform:
   m_ObjectHideFlags: 0
@@ -2291,12 +2290,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -2481,12 +2480,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -2997,12 +2996,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -3187,12 +3186,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -3842,12 +3841,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -4032,12 +4031,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -4576,6 +4575,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -5540,6 +5540,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -5764,12 +5765,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -5954,12 +5955,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -6504,6 +6505,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -7126,6 +7128,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -7361,48 +7364,6 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 455938081}
         DebugActive: 0
-        m_ImpulseDefinition:
-          ImpulseChannel: 1
-          ImpulseShape: 0
-          CustomImpulseShape:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          ImpulseDuration: 0.2
-          ImpulseType: 3
-          DissipationRate: 0
-          RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-          AmplitudeGain: 1
-          FrequencyGain: 1
-          RepeatMode: 0
-          Randomize: 1
-          TimeEnvelope:
-            AttackShape:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            DecayShape:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            AttackTime: 0
-            SustainTime: 0.1
-            DecayTime: 0.1
-            ScaleWithImpact: 1
-            HoldForever: 0
-          ImpactRadius: 100
-          DirectionMode: 0
-          DissipationMode: 2
-          DissipationDistance: 100
-          PropagationSpeed: 343
-        Velocity: {x: 0, y: 5, z: 0}
-        ClearImpulseOnStop: 0
         DrawGizmos: 0
 --- !u!4 &456551792 stripped
 Transform:
@@ -7425,12 +7386,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -7615,12 +7576,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -8159,6 +8120,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -8854,7 +8816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 168.97992, y: -83.29996}
+  m_AnchoredPosition: {x: 168.97992, y: -83.29993}
   m_SizeDelta: {x: 256.09998, y: 166.49976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509011380
@@ -9005,12 +8967,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7565085844071258583, guid: e7170b34430d5ef44bb8add062be7881,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6f8e34aa4d2a0ac4c8c93827337b4bc1, type: 2}
     - target: {fileID: -3482085882602428156, guid: e7170b34430d5ef44bb8add062be7881,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f14dd1b35629eb44b85455e276cab64a, type: 2}
     - target: {fileID: 919132149155446097, guid: e7170b34430d5ef44bb8add062be7881,
@@ -9055,12 +9017,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -9245,12 +9207,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -9904,6 +9866,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -10288,7 +10251,7 @@ GameObject:
   - component: {fileID: 652019917}
   - component: {fileID: 652019916}
   m_Layer: 5
-  m_Name: TMP SubMeshUI [Lato SDF Material + Lato-Bold SDF Atlas]
+  m_Name: 'TMP SubMeshUI [Lato SDF Material + Lato-Bold SDF Atlas]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10406,6 +10369,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10509,6 +10475,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -10804,6 +10771,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -11426,6 +11394,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -11677,6 +11646,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -12016,9 +11986,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716261750}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 0.8275339, b: 0.5896226, a: 1}
   m_Intensity: 1
   m_Range: 200
@@ -12068,8 +12037,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &716261752
 Transform:
   m_ObjectHideFlags: 0
@@ -12522,12 +12495,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -12712,12 +12685,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -13323,12 +13296,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -13513,12 +13486,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -14592,6 +14565,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -18000,6 +17974,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -19483,6 +19458,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -19907,15 +19883,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -20098,6 +20076,9 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -24911,12 +24892,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -25101,12 +25082,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -25605,12 +25586,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -25795,12 +25776,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -26339,6 +26320,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -26646,15 +26628,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -26774,12 +26758,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -26964,12 +26948,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -27643,7 +27627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -689.40485}
+  m_AnchoredPosition: {x: 0, y: -689.85394}
   m_SizeDelta: {x: 0, y: 1380.4368}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1225466293
@@ -27843,6 +27827,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -28413,9 +28398,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302830942}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 0.6
   m_Range: 10
@@ -28465,8 +28449,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &1302830944
 Transform:
   m_ObjectHideFlags: 0
@@ -28543,6 +28531,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -28778,48 +28767,6 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 1336248706}
         DebugActive: 0
-        m_ImpulseDefinition:
-          ImpulseChannel: 1
-          ImpulseShape: 0
-          CustomImpulseShape:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          ImpulseDuration: 0.2
-          ImpulseType: 3
-          DissipationRate: 0
-          RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-          AmplitudeGain: 1
-          FrequencyGain: 1
-          RepeatMode: 0
-          Randomize: 1
-          TimeEnvelope:
-            AttackShape:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            DecayShape:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            AttackTime: 0
-            SustainTime: 0.1
-            DecayTime: 0.1
-            ScaleWithImpact: 1
-            HoldForever: 0
-          ImpactRadius: 100
-          DirectionMode: 0
-          DissipationMode: 2
-          DissipationDistance: 100
-          PropagationSpeed: 343
-        Velocity: {x: 0, y: 12, z: 0}
-        ClearImpulseOnStop: 0
         DrawGizmos: 0
 --- !u!1 &1346151443
 GameObject:
@@ -28978,6 +28925,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -29401,8 +29349,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1430467394}
   m_HandleRect: {fileID: 198157609}
   m_Direction: 2
-  m_Value: 0.99727875
-  m_Size: 0.7834477
+  m_Value: 0.99727947
+  m_Size: 0.9029747
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -29501,6 +29449,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -29660,7 +29609,6 @@ MonoBehaviour:
         Owner: {fileID: 1438331653}
         DebugActive: 0
         Velocity: {x: 0, y: 1, z: 0}
-        ImpulseSource: {fileID: 110488534}
         ClearImpulseOnStop: 0
 --- !u!1 &1438549803
 GameObject:
@@ -29783,12 +29731,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -29973,12 +29921,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -30483,12 +30431,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -30673,12 +30621,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -31426,6 +31374,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -31880,6 +31829,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -33078,12 +33028,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -33268,12 +33218,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -33772,12 +33722,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -33962,12 +33912,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -34536,19 +34486,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 6b045d86234fb62479b688760e514f43, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 15358a46554e118498bc180225ee8427, type: 2}
     - target: {fileID: 2300002, guid: 6b045d86234fb62479b688760e514f43, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 15358a46554e118498bc180225ee8427, type: 2}
     - target: {fileID: 2300004, guid: 6b045d86234fb62479b688760e514f43, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 15358a46554e118498bc180225ee8427, type: 2}
     - target: {fileID: 2300006, guid: 6b045d86234fb62479b688760e514f43, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 15358a46554e118498bc180225ee8427, type: 2}
     m_RemovedComponents: []
@@ -34574,7 +34524,7 @@ GameObject:
   - component: {fileID: 1729351304}
   - component: {fileID: 1729351303}
   m_Layer: 5
-  m_Name: TMP SubMeshUI [Lato SDF Material + Lato-Bold SDF Atlas]
+  m_Name: 'TMP SubMeshUI [Lato SDF Material + Lato-Bold SDF Atlas]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34989,6 +34939,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -35147,84 +35098,6 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 1781783855}
         DebugActive: 0
-        m_ImpulseDefinition:
-          ImpulseChannel: 1
-          ImpulseShape: 0
-          CustomImpulseShape:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          ImpulseDuration: 0.2
-          ImpulseType: 3
-          DissipationRate: 0
-          RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-          AmplitudeGain: 1
-          FrequencyGain: 1
-          RepeatMode: 0
-          Randomize: 1
-          TimeEnvelope:
-            AttackShape:
-              serializedVersion: 2
-              m_Curve:
-              - serializedVersion: 3
-                time: 0
-                value: 0
-                inSlope: 0
-                outSlope: 0
-                tangentMode: 0
-                weightedMode: 0
-                inWeight: 0
-                outWeight: 0
-              - serializedVersion: 3
-                time: 1
-                value: 1
-                inSlope: 0
-                outSlope: 0
-                tangentMode: 0
-                weightedMode: 0
-                inWeight: 0
-                outWeight: 0
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            DecayShape:
-              serializedVersion: 2
-              m_Curve:
-              - serializedVersion: 3
-                time: 0
-                value: 1
-                inSlope: 0
-                outSlope: 0
-                tangentMode: 0
-                weightedMode: 0
-                inWeight: 0
-                outWeight: 0
-              - serializedVersion: 3
-                time: 1
-                value: 0
-                inSlope: 0
-                outSlope: 0
-                tangentMode: 0
-                weightedMode: 0
-                inWeight: 0
-                outWeight: 0
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            AttackTime: 0
-            SustainTime: 0.1
-            DecayTime: 1
-            ScaleWithImpact: 1
-            HoldForever: 0
-          ImpactRadius: 100
-          DirectionMode: 0
-          DissipationMode: 1
-          DissipationDistance: 100
-          PropagationSpeed: 343
-        Velocity: {x: 0, y: 2, z: 0}
-        ClearImpulseOnStop: 0
         DrawGizmos: 0
 --- !u!1 &1782308582 stripped
 GameObject:
@@ -35321,12 +35194,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -35511,12 +35384,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -36015,12 +35888,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -36205,12 +36078,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -36749,12 +36622,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -36939,12 +36812,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -37443,12 +37316,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -37633,12 +37506,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -38341,12 +38214,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[0]
+      propertyPath: 'Feedbacks.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 740943787560283421, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: Feedbacks.Array.data[1]
+      propertyPath: 'Feedbacks.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2903879014986604938, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -38531,12 +38404,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[0]
+      propertyPath: 'FeedbacksList.Array.data[0]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
         type: 3}
-      propertyPath: FeedbacksList.Array.data[1]
+      propertyPath: 'FeedbacksList.Array.data[1]'
       value: MoreMountains.Feedbacks MoreMountains.Feedbacks.MMF_AudioSource
       objectReference: {fileID: 0}
     - target: {fileID: 5448448891795205863, guid: a16c33a1240b8ce4f930161a7c85fae6,
@@ -39231,6 +39104,7 @@ MonoBehaviour:
   ForceTimescaleMode: 0
   ForcedTimescaleMode: 1
   DurationMultiplier: 1
+  TimescaleMultiplier: 1
   RandomizeDuration: 0
   RandomDurationMultiplier: {x: 0.5, y: 1.5}
   DisplayFullDurationDetails: 0
@@ -39389,48 +39263,6 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 2125248316}
         DebugActive: 0
-        m_ImpulseDefinition:
-          ImpulseChannel: 1
-          ImpulseShape: 0
-          CustomImpulseShape:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          ImpulseDuration: 0.2
-          ImpulseType: 3
-          DissipationRate: 0
-          RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-          AmplitudeGain: 1
-          FrequencyGain: 1
-          RepeatMode: 0
-          Randomize: 1
-          TimeEnvelope:
-            AttackShape:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            DecayShape:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            AttackTime: 0
-            SustainTime: 0.1
-            DecayTime: 0.1
-            ScaleWithImpact: 1
-            HoldForever: 0
-          ImpactRadius: 100
-          DirectionMode: 0
-          DissipationMode: 2
-          DissipationDistance: 100
-          PropagationSpeed: 343
-        Velocity: {x: 0, y: 5, z: 0}
-        ClearImpulseOnStop: 0
         DrawGizmos: 0
 --- !u!1 &2143538914
 GameObject:
@@ -39479,6 +39311,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 80140f70bc373074582ae93dffce593b, type: 3}
+  m_Resource: {fileID: 8300000, guid: 80140f70bc373074582ae93dffce593b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

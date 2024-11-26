@@ -25,7 +25,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameInitializer gameInitializer = FindObjectOfType<GameInitializer>();
+        GameInitializer gameInitializer = FindAnyObjectByType<GameInitializer>();
         if (gameInitializer != null)
         {
             gameInitializer.OnPlayerInstantiated += HandlePlayerInstantiated;
@@ -39,7 +39,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void OnDisable()
     {
-        GameInitializer gameInitializer = FindObjectOfType<GameInitializer>();
+        GameInitializer gameInitializer = FindAnyObjectByType<GameInitializer>();
         if (gameInitializer != null)
         {
             gameInitializer.OnPlayerInstantiated -= HandlePlayerInstantiated;

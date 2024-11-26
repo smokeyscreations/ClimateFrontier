@@ -16,7 +16,6 @@ public class AudioPooler : MonoBehaviour
 
     private Queue<AudioSource> poolQueue = new Queue<AudioSource>();
 
-    // SFX Volume Control via Audio Mixer
     private void Awake()
     {
         // Implement Singleton pattern
@@ -41,6 +40,8 @@ public class AudioPooler : MonoBehaviour
             AudioSource newSource = Instantiate(audioSourcePrefab, transform);
             newSource.gameObject.SetActive(false);
             newSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
+            newSource.spatialBlend = 0.0f; // Ensure the sound is 2D
+            newSource.playOnAwake = false;
             poolQueue.Enqueue(newSource);
         }
     }
@@ -58,6 +59,8 @@ public class AudioPooler : MonoBehaviour
             // Optional: Expand the pool if needed
             source = Instantiate(audioSourcePrefab, transform);
             source.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
+            source.spatialBlend = 0.0f; // Ensure the sound is 2D
+            source.playOnAwake = false;
             Debug.LogWarning("AudioPooler: Pool exhausted, instantiated a new AudioSource.");
         }
 
@@ -69,6 +72,7 @@ public class AudioPooler : MonoBehaviour
     public void ReturnAudioSource(AudioSource source)
     {
         source.Stop();
+        source.clip = null;
         source.gameObject.SetActive(false);
         poolQueue.Enqueue(source);
     }
@@ -85,10 +89,9 @@ public class AudioPooler : MonoBehaviour
     }
 
     /// <summary>
-    /// Plays a sound effect with optional pitch variation and position.
+    /// Plays a sound effect at full volume as a 2D sound.
     /// </summary>
     /// <param name="clip">AudioClip to play.</param>
-    /// <param name="position">Position to play the sound from.</param>
     /// <param name="pitchRange">Range for random pitch variation.</param>
     public void PlaySound(AudioClip clip, Vector3 position, Vector2 pitchRange = default)
     {
@@ -100,9 +103,13 @@ public class AudioPooler : MonoBehaviour
 
         AudioSource source = GetAudioSource();
         source.clip = clip;
-        source.transform.position = position;
-        source.pitch = (pitchRange != default) ? Random.Range(pitchRange.x, pitchRange.y) : 1.0f;
-        source.spatialBlend = 1.0f; // Ensure 3D sound
+
+        // For 2D sounds, position is irrelevant. Ensure spatialBlend is 0.
+        source.transform.position = Vector3.zero; // Position is irrelevant for 2D sounds
+        source.spatialBlend = 0.0f; // Ensure the sound is 2D
+
+        source.pitch = 1.0f;
+        source.volume = 1.0f; // Ensure full volume
 
         source.Play();
 
