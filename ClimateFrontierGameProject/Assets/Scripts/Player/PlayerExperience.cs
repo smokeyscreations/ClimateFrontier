@@ -1,3 +1,4 @@
+// Assets/Scripts/Player/PlayerExperience.cs
 using System;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class PlayerExperience : MonoBehaviour
     // Events
     public event Action<int> OnLevelUp; // Passes the new level
     public event Action OnUpgradeAvailable; // Indicates that an upgrade is available
+    public event Action OnBossSpawn; // Event to trigger boss spawn at level 10
 
     public void GainExperience(int amount)
     {
@@ -33,18 +35,22 @@ public class PlayerExperience : MonoBehaviour
         currentLevel++;
         Debug.Log($"Leveled up to Level {currentLevel}!");
 
-        // Optionally increase player stats here
-
         // Emit level-up event
         OnLevelUp?.Invoke(currentLevel);
 
         // Calculate XP needed for next level
         experienceToNextLevel = CalculateExperienceForNextLevel(currentLevel);
 
-        // Check if the new level qualifies for an upgrade (every 5 levels)
+        // Check if the new level qualifies for an upgrade (every 2 levels)
         if (currentLevel % 2 == 0)
         {
             OnUpgradeAvailable?.Invoke();
+        }
+
+        // Check if the player has reached level 10 to spawn the boss
+        if (currentLevel == 10)
+        {
+            OnBossSpawn?.Invoke();
         }
     }
 

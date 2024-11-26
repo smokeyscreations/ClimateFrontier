@@ -9,7 +9,7 @@ public class EnemyConditional : Conditional
     protected Transform target;
     protected NavMeshAgent agent;
 
-    protected TestInitializer testInitializer;
+    protected GameInitializer gameInitializer;
 
     public override void OnAwake()
     {
@@ -18,10 +18,10 @@ public class EnemyConditional : Conditional
         agent = GetComponent<NavMeshAgent>();
 
         // Find the TestInitializer in the scene
-        testInitializer = GameObject.FindAnyObjectByType<TestInitializer>();
-        if (testInitializer != null)
+        gameInitializer = GameObject.FindObjectOfType<GameInitializer>();
+        if (gameInitializer != null)
         {
-            testInitializer.OnPlayerInstantiated += SetTarget;
+            gameInitializer.OnPlayerInstantiated += SetTarget;
             Debug.Log("EnemyConditional: Subscribed to OnPlayerInstantiated event.");
         }
         else
@@ -32,9 +32,9 @@ public class EnemyConditional : Conditional
 
     protected void OnDestroy()
     {
-        if (testInitializer != null)
+        if (gameInitializer != null)
         {
-            testInitializer.OnPlayerInstantiated -= SetTarget;
+            gameInitializer.OnPlayerInstantiated -= SetTarget;
             Debug.Log("EnemyConditional: Unsubscribed from OnPlayerInstantiated event.");
         }
     }

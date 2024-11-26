@@ -94,15 +94,15 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
         // Check if the collided object is within the enemy layer mask
         if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
         {
-            // Attempt to get the enemy's health component
-            BaseEnemy enemy = other.GetComponent<BaseEnemy>();
-            if (enemy != null)
+            // Attempt to get any component that implements IDamageable
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
             {
-                enemy.TakeDamage(Mathf.RoundToInt(spellDamage)); // Use damage from SpellData
+                damageable.TakeDamage(Mathf.RoundToInt(spellDamage));
             }
             else
             {
-                Debug.LogWarning($"Object {other.gameObject.name} does not have a BaseEnemy component.");
+                Debug.LogWarning($"Object {other.gameObject.name} does not implement IDamageable.");
             }
         }
         else
@@ -110,6 +110,8 @@ public class AOE : MonoBehaviour, IPoolable, ISpell
             Debug.Log($"Object {other.gameObject.name} is not on an enemy layer.");
         }
     }
+
+
 
     private void DeactivateAndReturnToPool()
     {

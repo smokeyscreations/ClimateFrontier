@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class GameInitializer : MonoBehaviour
 {
-    // Define a delegate and event for player instantiation
     public event Action<GameObject> OnPlayerInstantiated;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
@@ -37,7 +41,5 @@ public class GameInitializer : MonoBehaviour
         {
             Debug.LogError("No character data found in GameManager.");
         }
-
-
     }
 }

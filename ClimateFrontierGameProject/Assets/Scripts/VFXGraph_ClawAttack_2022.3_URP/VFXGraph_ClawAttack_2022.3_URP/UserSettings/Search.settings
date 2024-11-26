@@ -1,0 +1,115 @@
+trackSelection = true
+refreshSearchWindowsInPlayMode = false
+fetchPreview = true
+defaultFlags = 0
+keepOpen = false
+queryFolder = "Assets"
+onBoardingDoNotAskAgain = true
+showPackageIndexes = false
+showStatusBar = false
+scopes = {
+	"last_search.7F95D817" = "ref:Assets/GabrielAguiarProductions/Shaders/StylizedTrail.mat"
+	"OpenInspectorPreview.7F95D817" = "0"
+	"currentGroup.7F95D817" = "scene"
+	"last_search.2138236A" = ""
+	"OpenInspectorPreview.2138236A" = "0"
+	"currentGroup.2138236A" = "asset"
+	"picker_window_position_offset.74AD8FDB" = "695;420;970;622"
+	"picker_search_text.74AD8FDB" = "00 "
+	"last_search.74AD8FDB" = "00 "
+	"OpenInspectorPreview.74AD8FDB" = "0"
+	"currentGroup.74AD8FDB" = "all"
+	"picker_window_position_offset.3172962C" = "8;-42;970;622"
+	"picker_search_text.3172962C" = "sphere "
+	"last_search.3172962C" = "sphere "
+	"OpenInspectorPreview.3172962C" = "0"
+	"currentGroup.3172962C" = "all"
+	"picker_window_position_offset.7E63D72B" = "386;363;970;622"
+	"picker_search_text.7E63D72B" = ""
+	"last_search.7E63D72B" = ""
+	"OpenInspectorPreview.7E63D72B" = "0"
+	"currentGroup.7E63D72B" = "all"
+}
+providers = {
+	adb = {
+		active = false
+		priority = 2500
+		defaultAction = null
+	}
+	asset = {
+		active = true
+		priority = 25
+		defaultAction = null
+	}
+	store = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	find = {
+		active = true
+		priority = 25
+		defaultAction = null
+	}
+	log = {
+		active = false
+		priority = 210
+		defaultAction = null
+	}
+	packages = {
+		active = true
+		priority = 90
+		defaultAction = null
+	}
+	performance = {
+		active = false
+		priority = 100
+		defaultAction = null
+	}
+	scene = {
+		active = true
+		priority = 50
+		defaultAction = null
+	}
+	query = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	profilermarkers = {
+		active = false
+		priority = 100
+		defaultAction = null
+	}
+}
+objectSelectors = {
+}
+recentSearches = [
+	"v"
+	"sq"
+	" "
+	"00"
+	"s"
+	"i"
+	"ci"
+	"0"
+	"de"
+	"f"
+	"r"
+	"p"
+	"c"
+	"ref:Assets/GabrielAguiarProductions/Shaders/StylizedTrail.mat"
+]
+searchItemFavorites = [
+]
+savedSearchesSortOrder = 0
+showSavedSearchPanel = false
+hideTabs = false
+expandedQueries = [
+]
+queryBuilder = false
+ignoredProperties = "id;name;classname;imagecontentshash"
+helperWidgetCurrentArea = "all"
+disabledIndexers = ""
+minIndexVariations = 2
+findProviderIndexHelper = true

@@ -48,19 +48,19 @@ namespace PlayerStates
             {
                 Collider collider = hitColliders[i];
 
-                // Check if the collider belongs to an enemy
-                if (collider.TryGetComponent<BaseEnemy>(out BaseEnemy enemy))
+                // Check if the collider has any IDamageable component
+                if (collider.TryGetComponent<IDamageable>(out IDamageable damageable))
                 {
                     // Calculate the direction to the enemy
-                    Vector3 directionToEnemy = (enemy.transform.position - player.transform.position).normalized;
+                    Vector3 directionToEnemy = (collider.transform.position - player.transform.position).normalized;
 
                     // Check if the enemy is within the cone angle in front of the player
                     float angleToEnemy = Vector3.Angle(player.transform.forward, directionToEnemy);
                     if (angleToEnemy <= attackAngle * 0.5f) // Divide by 2 because angle is spread equally on both sides
                     {
                         // Apply damage to the enemy using the updated BaseAttackDamage
-                        enemy.TakeDamage(player.BaseAttackDamage);
-                        Debug.Log($"Enemy {enemy.gameObject.name} hit within cone range. Dealt damage: {player.BaseAttackDamage}");
+                        damageable.TakeDamage(player.BaseAttackDamage);
+                        Debug.Log($"{player.gameObject.name} attacks {collider.gameObject.name} for {player.BaseAttackDamage} damage.");
                     }
                 }
 

@@ -9,7 +9,7 @@ public class EnemyAction : Action
     public Transform target;
     protected NavMeshAgent agent;
 
-    protected TestInitializer testInitializer;
+    protected GameInitializer gameInitializer;
 
     public float stoppingDistance = 6f; // Distance at which the enemy stops chasing the player
 
@@ -20,24 +20,24 @@ public class EnemyAction : Action
         agent = GetComponent<NavMeshAgent>();
 
         // Find the TestInitializer in the scene
-        testInitializer = GameObject.FindAnyObjectByType<TestInitializer>();
-        if (testInitializer != null)
+        gameInitializer = GameObject.FindObjectOfType<GameInitializer>();
+        if (gameInitializer != null)
         {
-            testInitializer.OnPlayerInstantiated += SetTarget;
+            gameInitializer.OnPlayerInstantiated += SetTarget;
             Debug.Log("EnemyAction: Subscribed to OnPlayerInstantiated event.");
         }
         else
         {
-            Debug.LogError("EnemyAction: TestInitializer not found in the scene.");
+            Debug.LogError("EnemyAction: GameInitializer not found in the scene.");
         }
     }
 
     // Do NOT use 'override' here
     protected void OnDestroy()
     {
-        if (testInitializer != null)
+        if (gameInitializer != null)
         {
-            testInitializer.OnPlayerInstantiated -= SetTarget;
+            gameInitializer.OnPlayerInstantiated -= SetTarget;
             Debug.Log("EnemyAction: Unsubscribed from OnPlayerInstantiated event.");
         }
     }
