@@ -24,8 +24,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 17882f89ffea94f479bfcc52855cb542, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _SURFACE_TYPE_TRANSPARENT
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _DISTORTMAINTEXTURE_ON
   - _EMISSION
@@ -33,10 +32,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Transparent
+  stringTagMap: {}
   disabledShaderPasses:
-  - DepthOnly
   - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
@@ -134,20 +131,15 @@ Material:
     - Vector1_BC98DBE9: 0
     - Vector1_C1728026: 1
     - Vector1_D1034171: 0
-    - _AlphaClip: 0
-    - _AlphaToMask: 0
-    - _Blend: 2
     - _BumpScale: 1
-    - _CastShadows: 1
     - _ColorMultiplier: 2.5
-    - _Cull: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DistortMainTexture: 1
     - _DistortionUSpeed: -1
     - _DistortionVSpeed: 0.1
     - _DoubleSided: 1
-    - _DstBlend: 1
+    - _DstBlend: 0
     - _EdgeSoftness: 0
     - _FaceSignClamp: 1
     - _GlossMapScale: 1
@@ -171,12 +163,9 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _Softness: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
-    - _Surface: 1
+    - _SrcBlend: 1
     - _UVSec: 0
-    - _ZTest: 4
-    - _ZWrite: 0
-    - _ZWriteControl: 0
+    - _ZWrite: 1
     m_Colors:
     - Color_34BEEA07: {r: 1, g: 1, b: 1, a: 1}
     - Color_8D750926: {r: 0, g: 0, b: 0, a: 1}

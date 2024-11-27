@@ -103,7 +103,7 @@ public class SpellManager : MonoBehaviour
         if (Time.time >= spellCooldownTimers[index])
         {
             // For spells that require a target, find the nearest enemy
-            if (spell.prefab.GetComponent<ISpell>() is AOE)
+            if (spell.prefab.GetComponent<ISpell>() is IPoolable)
             {
                 Transform target = FindNearestEnemy(spell.spellAttackRange);
                 if (target != null)

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6470300b60578884999fc06dd4b02b1c, type: 3}
+  m_Name: SpiritWolves
+  m_EditorClassIdentifier: 
+  spellName: Spirit Wolves
+  tag: Wolf
+  prefab: {fileID: 144221064144136606, guid: 7980b8dbdf3ebd44f98291ab469d3427, type: 3}
+  damage: 20
+  cooldown: 2
+  spellAttackRange: 7
+  hotkey: 0
+  activeDuration: 1
+  spawnOffset: 1
+  isAutomatic: 1

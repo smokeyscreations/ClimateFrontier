@@ -1558,7 +1558,7 @@ MonoBehaviour:
   uiAnimator: {fileID: 1646082504}
   characterDataList:
   - {fileID: 11400000, guid: d910d03ca91d3aa40b0d4b1370943ed4, type: 2}
-  - {fileID: 11400000, guid: a4297052abf14454389d7d4c962d2b79, type: 2}
+  - {fileID: 11400000, guid: c34a673b413b49e48b5d27d012e877eb, type: 2}
   characterRenderPosition: {fileID: 228359914}
   characterRenderCamera: {fileID: 897741105}
 --- !u!1 &1610042706
