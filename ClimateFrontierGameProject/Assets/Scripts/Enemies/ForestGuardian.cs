@@ -8,6 +8,7 @@ public class ForestGuardian : BaseEnemy
     protected override void Awake()
     {
         base.Awake();
+        goldReward = 13;
         InitializeAttributes();
     }
 

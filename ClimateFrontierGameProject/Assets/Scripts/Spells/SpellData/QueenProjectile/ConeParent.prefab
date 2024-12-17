@@ -126,6 +126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PS_Piercing_Nature_Static
       objectReference: {fileID: 0}
+    - target: {fileID: 229326534054702188, guid: 5bf7313d619ef764ca78538602f4200c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8694051978335646966, guid: 5bf7313d619ef764ca78538602f4200c,
         type: 3}
       propertyPath: m_LocalScale.x

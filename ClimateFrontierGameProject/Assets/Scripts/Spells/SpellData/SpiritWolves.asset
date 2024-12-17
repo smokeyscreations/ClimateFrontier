@@ -16,7 +16,7 @@ MonoBehaviour:
   tag: Wolf
   prefab: {fileID: 144221064144136606, guid: 7980b8dbdf3ebd44f98291ab469d3427, type: 3}
   damage: 20
-  cooldown: 2
+  cooldown: 1.5
   spellAttackRange: 7
   hotkey: 0
   activeDuration: 1

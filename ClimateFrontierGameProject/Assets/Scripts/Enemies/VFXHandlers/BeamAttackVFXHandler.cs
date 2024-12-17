@@ -46,11 +46,16 @@ public class BeamAttackVFXHandler : BaseBoss
             return;
         }
 
-        // Validate player reference
         if (player == null)
         {
-            Debug.LogError("BeamAttackVFXHandler: Player reference is missing.");
-            return;
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null) player = playerObj.transform;
+
+            if (player == null)
+            {
+                Debug.LogError("BeamAttackVFXHandler: Player reference is missing and could not be found by tag.");
+                return;
+            }
         }
 
         // Calculate spawn position with forgiveness

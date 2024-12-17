@@ -1,111 +1,101 @@
 using UnityEngine;
+using System.Collections.Generic;
+using PlayerStates;
 
 namespace PlayerStates
 {
     public class WolfAttackState : PlayerAttackState
     {
-        private float attackRange; // Attack range for detecting enemies
-        private float attackAngle = 360f;
-        private int maxColliders = 20; // Adjust this number based on expected maximum enemies
-        private Collider[] hitColliders;
+        private float attackRange;
+        private LayerMask enemyLayerMask;
 
-        private LayerMask enemyLayerMask; // Layer mask for filtering enemies
-        private string slashVFXTag = "SlashVFX"; // Tag for the slash VFX in the ObjectPooler
-        private float slashVFXOffset = 1f; // Distance in front of the player to spawn the VFX
+        // The Object Pool tag for your WolfHomingRFXProjectile prefab
+        private string projectileVFXTag = "WolfProjectile";
+        private float projectileSpawnOffset = 1f;
 
         public WolfAttackState(AncientWarrior player, float range) : base(player)
         {
-            attackRange = range; // Assign the attack range from the player
-
-            // Initialize the hitColliders array
-            hitColliders = new Collider[maxColliders];
-
-            // Get the enemy layer mask from the player
+            attackRange = range;
             enemyLayerMask = player.characterData.enemyLayerMask;
 
-            // Get VFX settings from CharacterData
-            slashVFXTag = player.characterData.basicAttackVFXTag;
-            slashVFXOffset = player.characterData.basicAttackVFXOffset;
+            // If your CharacterData has a special projectile tag, you could do:
+            // projectileVFXTag = player.characterData.basicAttackVFXTag;
+            // projectileSpawnOffset = player.characterData.basicAttackVFXOffset;
         }
 
         public override void OnEnter()
         {
-            Debug.Log("Entering QueenAttackState");
-            player.animator.SetTrigger("Attack"); // Trigger the Queen's attack animation
+            Debug.Log("Entering WolfAttackState (Ranged)");
+            player.animator.SetTrigger("Attack");
 
-            // Spawn the slash VFX
-            SpawnSlashVFX();
-            // Perform the attack check
-            AttemptAttack();
+            AttemptRangedAttack();
         }
 
-        protected override internal void AttemptAttack()
+        private void AttemptRangedAttack()
         {
-            // Use OverlapSphereNonAlloc to avoid allocations
-            int numColliders = Physics.OverlapSphereNonAlloc(player.transform.position, attackRange, hitColliders, enemyLayerMask);
-
-            for (int i = 0; i < numColliders; i++)
+            Transform closestEnemy = FindClosestEnemy();
+            if (closestEnemy == null)
             {
-                Collider collider = hitColliders[i];
-
-                // Check if the collider has any IDamageable component
-                if (collider.TryGetComponent<IDamageable>(out IDamageable damageable))
-                {
-                    // Calculate the direction to the enemy
-                    Vector3 directionToEnemy = (collider.transform.position - player.transform.position).normalized;
-
-                    // Check if the enemy is within the cone angle in front of the player
-                    float angleToEnemy = Vector3.Angle(player.transform.forward, directionToEnemy);
-                    if (angleToEnemy <= attackAngle * 0.5f) // Divide by 2 because angle is spread equally on both sides
-                    {
-                        // Apply damage to the enemy using the updated BaseAttackDamage
-                        damageable.TakeDamage(player.BaseAttackDamage);
-                        Debug.Log($"{player.gameObject.name} attacks {collider.gameObject.name} for {player.BaseAttackDamage} damage.");
-                    }
-                }
-
-                // Clear the collider reference to prevent holding onto it
-                hitColliders[i] = null;
+                Debug.Log("No enemy found in range. Ranged attack does nothing.");
+                return;
             }
-        }
 
-        private void SpawnSlashVFX()
-        {
-            // Define the vertical offset
-            float verticalOffset = 1.0f; // Adjust this value as needed
-
-            // Calculate the position in front of the player with an upward offset
-            Vector3 spawnPosition = player.transform.position
-                                    + player.transform.forward * slashVFXOffset
-                                    + Vector3.up * verticalOffset;
-
-            // Align the VFX with the player's rotation
+            // Spawn the projectile from the ObjectPooler
+            Vector3 spawnPosition = player.transform.position + player.transform.forward * projectileSpawnOffset + Vector3.up * 1f;
             Quaternion spawnRotation = Quaternion.LookRotation(player.transform.forward, Vector3.up);
 
-            // Spawn the VFX from the pool
-            GameObject vfxObject = ObjectPooler.Instance.SpawnFromPool(slashVFXTag, spawnPosition, spawnRotation);
-            if (vfxObject != null)
+            // This call actually reuses or creates from the pool, rather than always instantiating:
+            GameObject projectile = ObjectPooler.Instance.SpawnFromPool(projectileVFXTag, spawnPosition, spawnRotation);
+            if (projectile == null)
             {
-                IPoolable poolable = vfxObject.GetComponent<IPoolable>();
-                if (poolable != null)
-                {
-                    poolable.OnObjectSpawn();
-                }
+                Debug.LogWarning($"Failed to spawn projectile with tag '{projectileVFXTag}'.");
+                return;
+            }
+
+            // Get our WolfHomingRFXProjectile script
+            WolfHomingRFXProjectile projectileScript = projectile.GetComponent<WolfHomingRFXProjectile>();
+            if (projectileScript != null)
+            {
+                // If your WolfHomingRFXProjectile has a method to set the tag, do it now:
+                projectileScript.SetPoolTag(projectileVFXTag);
+
+                // Assign the target
+                projectileScript.Target = closestEnemy.gameObject;
+
+                Debug.Log($"WolfAttackState: Assigned {closestEnemy.name} as target to WolfHomingRFXProjectile.");
             }
             else
             {
-                Debug.LogWarning($"Failed to spawn VFX with tag '{slashVFXTag}'.");
+                Debug.LogWarning("WolfHomingRFXProjectile not found on projectile. The projectile won't track the target.");
             }
+        }
+
+        private Transform FindClosestEnemy()
+        {
+            Collider[] colliders = Physics.OverlapSphere(player.transform.position, attackRange, enemyLayerMask);
+            Transform closest = null;
+            float minDist = Mathf.Infinity;
+
+            foreach (var col in colliders)
+            {
+                float dist = Vector3.Distance(player.transform.position, col.transform.position);
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    closest = col.transform;
+                }
+            }
+            return closest;
         }
 
         public override void Tick()
         {
-            
+            // No repeating logic needed for a single-shot ranged attack
         }
 
         public override void OnExit()
         {
-            
+            // Optional cleanup
         }
     }
 }

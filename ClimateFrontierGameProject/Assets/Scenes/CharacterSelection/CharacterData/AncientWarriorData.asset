@@ -20,16 +20,17 @@ MonoBehaviour:
     type: 3}
   inGamePrefab: {fileID: 8799814947428864838, guid: b9423855ed85be247ba5c0a3e9d7aa52,
     type: 3}
-  basicAttackVFXTag: SlashVFX
+  basicAttackVFXTag: WolfProjectile
   basicAttackVFXOffset: 1
   maxHealth: 100
   baseAttackDamage: 50
   baseWalkingSpeed: 2.5
   baseRunningSpeed: 5
   abilityCooldown: 1
-  attackRange: 10
+  attackRange: 20
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
   abilities:
   - {fileID: 11400000, guid: 7e87778d53f101040a3f0855d76e6417, type: 2}
+  - {fileID: 11400000, guid: ebfe0ebf7dd2dbf49843305d4fd180d9, type: 2}

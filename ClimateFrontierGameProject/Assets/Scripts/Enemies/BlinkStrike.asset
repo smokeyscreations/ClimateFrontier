@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7defb7c7da1d5684489f9ee006564169, type: 3}
+  m_Name: BlinkStrike
+  m_EditorClassIdentifier: 
+  spellName: Blink Strike
+  tag: BlinkSpell
+  prefab: {fileID: 3829872782616085620, guid: ffb527961564bea438dab0be9607eddd, type: 3}
+  damage: 0
+  cooldown: 5
+  spellAttackRange: 10
+  hotkey: 32
+  activeDuration: 1
+  spawnOffset: 1
+  isAutomatic: 0
+  blinkDistance: 10
+  blinkDuration: 0.2

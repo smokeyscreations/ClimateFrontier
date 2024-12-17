@@ -190,7 +190,7 @@ public class FlickerStrike : MonoBehaviour, ISpell, IPoolable
         ObjectPooler.Instance.ReturnToPool(SliceVFXTag, sliceVFX);
         Debug.Log("SliceVFX returned to pool.");
     }
-
+    
     private void EndSpell()
     {
         // Return the FlickerStrike object to the pool

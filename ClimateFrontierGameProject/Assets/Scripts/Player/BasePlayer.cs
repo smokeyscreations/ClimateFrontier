@@ -8,7 +8,6 @@ public abstract class BasePlayer : MonoBehaviour
     public CharacterData characterData;
 
     [Header("Player Attributes")]
-    [SerializeField] protected float maxHealth = 100f;
     [SerializeField] protected float baseAttackDamage = 50f;
 
 
@@ -31,7 +30,7 @@ public abstract class BasePlayer : MonoBehaviour
     {
         get => isRunning ? baseRunningSpeed : baseWalkingSpeed;
     }
-    protected PlayerHealth healthSystem;
+    public PlayerHealth healthSystem;
     protected internal Animator animator;
     protected Rigidbody rb;
     protected SpellManager spellManager;
@@ -51,7 +50,8 @@ public abstract class BasePlayer : MonoBehaviour
 
     public Transform Target { get; protected set; } // Use in Awake or Start to find and assign the target
 
-    public float MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public float MaxHealth => healthSystem.MaxHealth;
+    public float CurrentHealth => healthSystem.CurrentHealth;
     public float BaseAttackDamage { get => baseAttackDamage; set => baseAttackDamage = value; }
     public float AbilityCooldown { get => abilityCooldown; set => abilityCooldown = value; }
     public LayerMask EnemyLayerMask { get => enemyLayerMask; set => enemyLayerMask = value; }
@@ -80,7 +80,6 @@ public abstract class BasePlayer : MonoBehaviour
         }
 
         // Initialize attributes from characterData
-        maxHealth = characterData.maxHealth;
         baseAttackDamage = characterData.baseAttackDamage;
         baseWalkingSpeed = characterData.baseWalkingSpeed;
         baseRunningSpeed = characterData.baseRunningSpeed;
@@ -93,7 +92,7 @@ public abstract class BasePlayer : MonoBehaviour
 
 
         // Initialize health
-        healthSystem.Initialize(maxHealth);
+        healthSystem.Initialize(characterData.maxHealth);
 
         // Initialize state machine
         InitializeStateMachine();
@@ -191,11 +190,6 @@ public abstract class BasePlayer : MonoBehaviour
     protected virtual bool IsAttacking() => Input.GetButtonDown("Fire1");
 
     public virtual void TakeDamage(float amount) => healthSystem.TakeDamage(amount);
-    public void ScaleHealth(float healthIncrease)
-    {
-        MaxHealth += healthIncrease;
-        healthSystem.Initialize(MaxHealth);
-    }
 
     private void UpdateAnimatorParameters()
     {
@@ -208,6 +202,20 @@ public abstract class BasePlayer : MonoBehaviour
     {
         baseAttackDamage += amount;
         Debug.Log($"Attack Damage increased by {amount}. New Attack Damage: {baseAttackDamage}");
+    }
+
+    public virtual void IncreaseMovementSpeed(int percentage)
+    {
+        float multiplier = 1 + (percentage / 100f);
+        baseWalkingSpeed *= multiplier;
+        baseRunningSpeed *= multiplier;
+        Debug.Log($"Movement Speed increased by {percentage}%. New Walking Speed: {baseWalkingSpeed}, New Running Speed: {baseRunningSpeed}");
+    }
+
+    public virtual void IncreaseMaxHealth(int amount)
+    {
+        healthSystem.IncreaseMaxHealth(amount); // Ensure healthSystem handles max health update
+        Debug.Log($"Max Health increased by {amount}. New Max Health: {MaxHealth}");
     }
 
 

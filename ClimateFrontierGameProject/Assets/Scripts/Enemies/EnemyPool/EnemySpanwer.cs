@@ -5,12 +5,9 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawning Settings")]
     public List<Transform> spawnPoints;
-    public List<BaseEnemy> enemyPrefabs;
     public float spawnInterval = 2f;
-    public int maxEnemies = 1;
 
     private float spawnTimer;
-    private int currentEnemyCount = 0;
 
     void Start()
     {
@@ -19,9 +16,6 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (currentEnemyCount >= maxEnemies)
-            return;
-
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0f)
         {
@@ -32,38 +26,63 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        if (spawnPoints.Count == 0 || enemyPrefabs.Count == 0)
+        if (spawnPoints.Count == 0) return;
+
+        var spawnDataList = EnemyPool.Instance.enemyTypes;
+        if (spawnDataList == null || spawnDataList.Count == 0)
+        {
+            Debug.LogWarning("EnemySpawner: No enemy types available in the EnemyPool.");
             return;
+        }
 
+        // Gather only the types not at maxCount
+        List<EnemyPoolData> validTypes = new List<EnemyPoolData>();
+        foreach (var data in spawnDataList)
+        {
+            if (data.activeCount < data.maxCount)
+                validTypes.Add(data);
+        }
 
+        if (validTypes.Count == 0)
+        {
+            // All enemy types are at max. No spawns possible this cycle.
+            Debug.Log("All enemy types have reached maxCount. Spawning stopped.");
+            return;
+        }
+
+        // Choose from valid types only
+        int randomIndex = Random.Range(0, validTypes.Count);
+        EnemyPoolData chosenData = validTypes[randomIndex];
+
+        // Pick a random spawn point
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
-        BaseEnemy enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
 
-        BaseEnemy newEnemy = CreateEnemy(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        CreateEnemy(chosenData.prefab, spawnPoint.position, spawnPoint.rotation);
     }
+
 
     BaseEnemy CreateEnemy(BaseEnemy prefab, Vector3 position, Quaternion rotation)
     {
-
+        // Use EnemyPool to spawn enemy
         BaseEnemy enemy = EnemyPool.Instance.GetFromPool(prefab);
+        if (enemy == null)
+        {
+            // Could not spawn (maybe maxCount reached for this prefab)
+            return null;
+        }
+
         enemy.transform.position = position;
         enemy.transform.rotation = rotation;
-
-        // Activate the enemy
         enemy.gameObject.SetActive(true);
-
-        // Reset the enemy's state before activation
         enemy.ResetEnemy();
 
-        // Subscribe to enemy's death event to decrement the enemy count
         enemy.OnEnemyDeath += HandleEnemyDeath;
-
         return enemy;
     }
 
     void HandleEnemyDeath(BaseEnemy enemy)
     {
-        currentEnemyCount--;
+        EnemyPool.Instance.ReturnToPool(enemy);
         enemy.OnEnemyDeath -= HandleEnemyDeath;
     }
 }

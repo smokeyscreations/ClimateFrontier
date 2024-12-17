@@ -1,41 +1,44 @@
 using UnityEngine;
 using BehaviorDesigner.Runtime.Tasks;
-using UnityEngine.AI;
+using System;
 
 public class EnemyConditional : Conditional
 {
-    protected Rigidbody body;
-    protected Animator animator;
     protected Transform target;
-    protected NavMeshAgent agent;
-
     protected GameInitializer gameInitializer;
 
     public override void OnAwake()
     {
-        body = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+        // Moved subscription logic to OnStart or OnEnable to ensure player is ready.
+    }
 
-        // Find the TestInitializer in the scene
-        gameInitializer = GameObject.FindObjectOfType<GameInitializer>();
+    public override void OnStart()
+    {
+        Debug.Log("EnemyConditional: OnStart called.");
+
+        // Try subscribing to the OnPlayerInstantiated event here
+        gameInitializer = GameObject.FindAnyObjectByType<GameInitializer>();
         if (gameInitializer != null)
         {
             gameInitializer.OnPlayerInstantiated += SetTarget;
-            Debug.Log("EnemyConditional: Subscribed to OnPlayerInstantiated event.");
+            Debug.Log("EnemyConditional: Subscribed to OnPlayerInstantiated event in OnStart.");
         }
         else
         {
-            Debug.LogError("EnemyConditional: TestInitializer not found in the scene.");
+            Debug.LogError("EnemyConditional: GameInitializer not found in OnStart.");
         }
+
+        // Also try to find the player immediately here, if already spawned
+        TryFindPlayerByTag();
     }
 
-    protected void OnDestroy()
+    public override void OnEnd()
     {
+        // Unsubscribe when the task ends
         if (gameInitializer != null)
         {
             gameInitializer.OnPlayerInstantiated -= SetTarget;
-            Debug.Log("EnemyConditional: Unsubscribed from OnPlayerInstantiated event.");
+            Debug.Log("EnemyConditional: Unsubscribed from OnPlayerInstantiated event in OnEnd.");
         }
     }
 
@@ -52,27 +55,27 @@ public class EnemyConditional : Conditional
     {
         if (target == null)
         {
-            // Try to find the player if already instantiated
-            GameObject playerObj = GameObject.FindWithTag("Player");
-            if (playerObj != null)
+            Debug.LogWarning("EnemyConditional: Target not assigned, attempting to find player by tag in OnUpdate.");
+            if (!TryFindPlayerByTag())
             {
-                target = playerObj.transform;
-                Debug.Log("EnemyConditional: Player found and target set.");
-            }
-            else
-            {
-                Debug.LogWarning("EnemyConditional: Player not found. Waiting for player to be instantiated.");
+                Debug.LogError("EnemyConditional: Player target not assigned or found. Ensure the player has the correct tag.");
                 return TaskStatus.Failure;
             }
         }
 
-        if (target == null)
-        {
-            // Target not yet assigned. Depending on condition, return Running or Failure
-            return TaskStatus.Failure;
-        }
-
-        // Base class does not implement specific condition
+        // If you’re extending this class, return TaskStatus based on conditions
         return TaskStatus.Failure;
+    }
+
+    private bool TryFindPlayerByTag()
+    {
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+        {
+            target = playerObj.transform;
+            Debug.Log("EnemyConditional: Player found by tag in OnUpdate.");
+            return true;
+        }
+        return false;
     }
 }

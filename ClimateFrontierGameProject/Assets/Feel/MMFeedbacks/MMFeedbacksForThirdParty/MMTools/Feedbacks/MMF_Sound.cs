@@ -198,7 +198,7 @@ namespace MoreMountains.Feedbacks
 		protected override void CustomInitialization(MMF_Player owner)
 		{
 			base.CustomInitialization(owner);
-			if (PlayMethod == PlayMethods.Cached)
+			if ((PlayMethod == PlayMethods.Cached) && (_cachedAudioSource == null))
 			{
 				_cachedAudioSource = CreateAudioSource(owner.gameObject, "CachedFeedbackAudioSource");
 			}
@@ -513,7 +513,7 @@ namespace MoreMountains.Feedbacks
 			{
 				return;
 			}
-			MMSoundManager soundManager = (MMSoundManager)UnityEngine.Object.FindObjectOfType(typeof(MMSoundManager));
+			MMSoundManager soundManager = (MMSoundManager)UnityEngine.Object.FindAnyObjectByType(typeof(MMSoundManager));
 			if (soundManager == null)
 			{
 				GameObject soundManagerGo = new GameObject("MMSoundManager");

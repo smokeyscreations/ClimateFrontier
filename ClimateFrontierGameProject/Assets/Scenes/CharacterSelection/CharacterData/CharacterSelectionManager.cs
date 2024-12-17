@@ -168,7 +168,7 @@ public class CharacterSelectionManager : MonoBehaviour
                 GameManager.Instance.SetSelectedCharacter(selectedCharacter);
 
                 // Load the next scene
-                SceneManager.LoadScene("EnvironmentTest");
+                SceneManager.LoadScene("TheAbyss");
             }
             else
             {

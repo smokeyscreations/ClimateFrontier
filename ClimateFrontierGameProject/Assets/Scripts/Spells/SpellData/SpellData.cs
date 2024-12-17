@@ -13,6 +13,7 @@ public class SpellData : ScriptableObject
     public float activeDuration;
     public float spawnOffset = 1f;
     public bool isAutomatic = false;
+    public Sprite icon; 
 
     public virtual bool CanCast(BasePlayer player)
     {

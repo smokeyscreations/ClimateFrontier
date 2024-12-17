@@ -26,6 +26,16 @@ public class BeamAttack : EnemyAction
             return;
         }
 
+        // Fallback to find player by tag
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null) target = playerObj.transform;
+
+        if (target == null)
+        {
+            Debug.LogError("BeamAttack: Player is still null at OnStart. Cannot proceed.");
+            return; // Prevent starting attack
+        }
+
         // Initialize attack variables
         attackTimer = 0f;
         isAttacking = true;

@@ -408,17 +408,6 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 53
       objectReference: {fileID: 0}
-    - target: {fileID: 4890379605273566326, guid: f29e58f894ff83e4cb45c81f33425b53,
-        type: 3}
-      propertyPath: m_fontSharedMaterials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4890379605273566326, guid: f29e58f894ff83e4cb45c81f33425b53,
-        type: 3}
-      propertyPath: 'm_fontSharedMaterials.Array.data[0]'
-      value: 
-      objectReference: {fileID: -6263097307693789204, guid: 2f490f72b6ed6ae4d8b31cee2cac3de7,
-        type: 2}
     - target: {fileID: 4890379605558982783, guid: f29e58f894ff83e4cb45c81f33425b53,
         type: 3}
       propertyPath: m_text

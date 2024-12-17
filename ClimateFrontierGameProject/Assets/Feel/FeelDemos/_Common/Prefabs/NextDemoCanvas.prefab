@@ -440,7 +440,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: v4.3
+  m_Text: v5.1
 --- !u!1 &8516721323258378253
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +659,7 @@ MonoBehaviour:
     OnResume:
       m_PersistentCalls:
         m_Calls: []
-    OnRevert:
+    OnChangeDirection:
       m_PersistentCalls:
         m_Calls: []
     OnComplete:
@@ -681,6 +681,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   DebugActive: 0
+  InScriptDrivenPause: 0
   FeedbacksList:
   - rid: 4503284173417480195
   - rid: 4503284173417480196
@@ -698,11 +699,11 @@ MonoBehaviour:
         Active: 1
         UniqueID: -632043938
         Label: Load Scene
+        OriginalLabel: 
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
         Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
         Timing:
           TimescaleMode: 0
           ExcludeFromHoldingPauses: 0
@@ -773,10 +774,12 @@ MonoBehaviour:
         SecureLoad: 1
         UnloadMethod: 2
         AntiSpillSceneName: 
+        DebugMode: 0
         BeforeEntryFadeDelay: 0
         EntryFadeDuration: 0.2
         AfterEntryFadeDelay: 0
-        BeforeExitFadeDelay: 0.2
+        BeforeSceneActivationDelay: 0
+        AfterSceneActivationDelay: 0
         ExitFadeDuration: 0.3
         InterpolateProgress: 1
         ProgressInterpolationSpeed: 5
@@ -810,6 +813,9 @@ MonoBehaviour:
             m_PostInfinity: 2
             m_RotationOrder: 4
           Initialized: 0
+          ConditionPropertyName: 
+          EnumConditionPropertyName: 
+          EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
         ExitFadeTween:
           MMTweenDefinitionType: 1
           MMTweenCurve: 4
@@ -838,17 +844,20 @@ MonoBehaviour:
             m_PostInfinity: 2
             m_RotationOrder: 4
           Initialized: 0
+          ConditionPropertyName: 
+          EnumConditionPropertyName: 
+          EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
     - rid: 4503284173417480196
       type: {class: MMF_MMSoundManagerSound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
         UniqueID: -1425550496
         Label: MMSoundManager Sound
+        OriginalLabel: 
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
         Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
         Timing:
           TimescaleMode: 0
           ExcludeFromHoldingPauses: 0
@@ -962,6 +971,9 @@ MonoBehaviour:
             m_PostInfinity: 2
             m_RotationOrder: 4
           Initialized: 0
+          ConditionPropertyName: Fade
+          EnumConditionPropertyName: 
+          EnumConditions: 0000000000000000000000000000000000000000000000000000000000000000
         SoloSingleTrack: 0
         SoloAllTracks: 0
         AutoUnSoloOnEnd: 0
@@ -1024,11 +1036,11 @@ MonoBehaviour:
         Active: 1
         UniqueID: 1879286882
         Label: Haptic Preset
+        OriginalLabel: 
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
         Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
         Timing:
           TimescaleMode: 0
           ExcludeFromHoldingPauses: 0

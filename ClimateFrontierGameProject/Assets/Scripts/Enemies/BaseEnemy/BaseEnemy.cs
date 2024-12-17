@@ -12,6 +12,8 @@ public abstract class BaseEnemy : MonoBehaviour, IDamageable
     [SerializeField] protected float maxHealth = 100f;
     [SerializeField] private float baseAttackDamage = 10f;
     [SerializeField] private float pathUpdateInterval = 0.2f; // Set a default interval for path updates
+    [SerializeField] protected int goldReward = 0; // default 0
+
 
     public int experienceAmount = 10;
 
@@ -196,6 +198,11 @@ public abstract class BaseEnemy : MonoBehaviour, IDamageable
         if (isDead) return;
         isDead = true;
 
+
+        if (GameManager.Instance != null && goldReward > 0)
+        {
+            GameManager.Instance.AddGold(goldReward);
+        }
         // Notify listeners that this enemy has died
         OnEnemyDeath?.Invoke(this);
 
@@ -218,10 +225,10 @@ public abstract class BaseEnemy : MonoBehaviour, IDamageable
         SpawnExperienceOrb();
 
         // Return to pool after a short delay to allow the death animation to play
-        StartCoroutine(ReturnToPoolAfterDelay(1f));
+        EnemyPool.Instance.ReturnToPoolWithDelay(this, 1f);
     }
 
-    private IEnumerator ReturnToPoolAfterDelay(float delay)
+    protected IEnumerator ReturnToPoolAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         EnemyPool.Instance.ReturnToPool(this);

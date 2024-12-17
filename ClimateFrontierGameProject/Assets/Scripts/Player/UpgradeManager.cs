@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -53,10 +54,6 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Handles the player instantiation event.
-    /// </summary>
-    /// <param name="instantiatedPlayer">The instantiated player GameObject.</param>
     private void HandlePlayerInstantiated(GameObject instantiatedPlayer)
     {
         if (instantiatedPlayer != null)
@@ -69,7 +66,7 @@ public class UpgradeManager : MonoBehaviour
                 {
                     // Subscribe to the OnUpgradeAvailable event
                     playerExperience.OnUpgradeAvailable += HandleUpgradeAvailable;
-                    Debug.Log("Upgrade Availabe");
+                    Debug.Log("Upgrade Available");
                 }
                 else
                 {
@@ -93,16 +90,11 @@ public class UpgradeManager : MonoBehaviour
         // Display the Upgrade UI
         if (upgradeUIManager != null)
         {
-            // For now, create a predefined upgrade
-            Upgrade attackUpgrade = new Upgrade
-            {
-                upgradeType = UpgradeType.IncreaseAttackDamage,
-                description = "Increase Attack Damage by +5",
-                value = 5,
-                icon = null // Assign a default or specific icon if available
-            };
+            // Generate a list of upgrades
+            List<Upgrade> upgrades = GenerateUpgrades();
 
-            upgradeUIManager.ShowUpgradeUI(attackUpgrade);
+            // Show the upgrade UI with multiple options
+            upgradeUIManager.ShowUpgradeUI(upgrades, ApplyUpgrade);
         }
         else
         {
@@ -110,10 +102,39 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Applies the specified upgrade to the player.
-    /// </summary>
-    /// <param name="upgrade">The upgrade to apply.</param>
+    private List<Upgrade> GenerateUpgrades()
+    {
+        List<Upgrade> upgrades = new List<Upgrade>();
+
+        // For now, create predefined upgrades
+        upgrades.Add(new Upgrade
+        {
+            upgradeType = UpgradeType.IncreaseAttackDamage,
+            description = "Increase Attack Damage by +5",
+            value = 5,
+            icon = null // Assign a default or specific icon if available
+        });
+
+        upgrades.Add(new Upgrade
+        {
+            upgradeType = UpgradeType.IncreaseMaxHealth,
+            description = "Increase Max Health by +10",
+            value = 10,
+            icon = null
+        });
+
+        upgrades.Add(new Upgrade
+        {
+            upgradeType = UpgradeType.IncreaseMovementSpeed,
+            description = "Increase Movement Speed by 10%",
+            value = 10,
+            icon = null
+        });
+
+        // Randomize or select upgrades as needed
+        return upgrades;
+    }
+
     public void ApplyUpgrade(Upgrade upgrade)
     {
         if (upgrade == null)
@@ -132,22 +153,26 @@ public class UpgradeManager : MonoBehaviour
         {
             case UpgradeType.IncreaseAttackDamage:
                 player.IncreaseAttackDamage(upgrade.value);
-                Debug.Log($"Applied Upgrade: {upgrade.description}");
                 break;
 
-            // Future cases for different upgrade types can be added here
+            case UpgradeType.IncreaseMaxHealth:
+                player.IncreaseMaxHealth(upgrade.value);
+                break;
+
+            case UpgradeType.IncreaseMovementSpeed:
+                player.IncreaseMovementSpeed(upgrade.value);
+                break;
+
+            // Handle other upgrade types as needed
 
             default:
                 Debug.LogWarning("Unhandled upgrade type.");
                 break;
         }
+
+        Debug.Log($"Applied Upgrade: {upgrade.description}");
     }
 
-
-
-    /// <summary>
-    /// Resets all applied upgrades. Call this upon player death.
-    /// </summary>
     public void ResetUpgrades()
     {
         if (player != null)

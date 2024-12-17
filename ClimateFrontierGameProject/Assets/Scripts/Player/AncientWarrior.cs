@@ -21,5 +21,6 @@ public class AncientWarrior : BasePlayer
         stateMachine.AddTransition(attackState, runState, () => !IsAttacking() && MovementInput != Vector3.zero);
     }
 
+    
 
 }

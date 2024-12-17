@@ -1,57 +1,56 @@
-// UpgradeUIManager.cs
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using System.Collections.Generic;
 
 public class UpgradeUIManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private GameObject upgradeUIPanel; // Assign via Inspector
-    [SerializeField] private Image upgradeIcon;
-    [SerializeField] private TextMeshProUGUI descriptionText;
-    [SerializeField] private Button upgradeButton;
+    [SerializeField] private GameObject upgradeUIPanel; // Panel containing all upgrade cards
+    [SerializeField] private Transform upgradesContainer; // Parent transform for the upgrade cards
+    // Removed upgradeCardPrefab since we use ObjectPooler
 
-    private Upgrade currentUpgrade;
+    private Action<Upgrade> onUpgradeSelected;
+
+    private string upgradeCardPoolTag = "UpgradeCard"; // The tag used in ObjectPooler
+
+    private List<GameObject> activeUpgradeCards = new List<GameObject>(); // Keep track of active cards
+
 
     private void Start()
     {
         // Initially hide the Upgrade UI
         HideUpgradeUI();
-
-        // Assign the button listener
-        if (upgradeButton != null)
-        {
-            upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
-        }
-        else
-        {
-            Debug.LogError("Upgrade Button is not assigned in the UpgradeUIManager.");
-        }
     }
 
-    /// <summary>
-    /// Displays the Upgrade UI with the specified upgrade details.
-    /// </summary>
-    /// <param name="upgrade">The upgrade to display.</param>
-    public void ShowUpgradeUI(Upgrade upgrade)
+    public void ShowUpgradeUI(List<Upgrade> upgrades, Action<Upgrade> onUpgradeSelected)
     {
-        currentUpgrade = upgrade;
+        this.onUpgradeSelected = onUpgradeSelected;
 
-        // Update UI elements
-        if (upgradeIcon != null && currentUpgrade.icon != null)
+        // Clear existing upgrade cards (return them to the pool)
+        foreach (var cardObj in activeUpgradeCards)
         {
-            upgradeIcon.sprite = currentUpgrade.icon;
-            upgradeIcon.enabled = true;
+            ObjectPooler.Instance.ReturnToPool(upgradeCardPoolTag, cardObj);
         }
-        else if (upgradeIcon != null)
-        {
-            // Hide the icon if none is provided
-            upgradeIcon.enabled = false;
-        }
+        activeUpgradeCards.Clear();
 
-        if (descriptionText != null)
+        // Spawn upgrade cards from the pool
+        foreach (var upgrade in upgrades)
         {
-            descriptionText.text = currentUpgrade.description;
+            Debug.Log($"Spawning UpgradeCard with tag: {upgradeCardPoolTag}");
+            GameObject cardObj = ObjectPooler.Instance.SpawnFromPool(upgradeCardPoolTag, Vector3.zero, Quaternion.identity);
+            cardObj.transform.SetParent(upgradesContainer, false); // Set parent without altering scale
+            UpgradeCard card = cardObj.GetComponent<UpgradeCard>();
+            if (card != null)
+            {
+                card.Initialize(upgrade, OnUpgradeButtonClicked);
+                activeUpgradeCards.Add(cardObj);
+            }
+            else
+            {
+                Debug.LogError("UpgradeCard component not found on the pooled object.");
+            }
         }
 
         // Show the panel
@@ -65,26 +64,23 @@ public class UpgradeUIManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Hides the Upgrade UI.
-    /// </summary>
-    private void OnUpgradeButtonClicked()
+    private void OnUpgradeButtonClicked(Upgrade selectedUpgrade)
     {
         Debug.Log("Upgrade Button Clicked");
-        if (UpgradeManager.Instance != null && currentUpgrade != null)
+        if (onUpgradeSelected != null && selectedUpgrade != null)
         {
-            Debug.Log($"Applying Upgrade: {currentUpgrade.description}");
-            UpgradeManager.Instance.ApplyUpgrade(currentUpgrade);
+            onUpgradeSelected(selectedUpgrade);
             HideUpgradeUI(); // Ensure this is called to hide the panel
         }
         else
         {
-            Debug.LogError("UpgradeManager instance or currentUpgrade is not set.");
+            Debug.LogError("onUpgradeSelected callback or selectedUpgrade is not set.");
         }
     }
 
     public void HideUpgradeUI()
     {
+        // Hide the panel
         if (upgradeUIPanel != null)
         {
             upgradeUIPanel.SetActive(false);
@@ -94,6 +90,14 @@ public class UpgradeUIManager : MonoBehaviour
         {
             Debug.LogError("UpgradeUIPanel is not assigned in the UpgradeUIManager.");
         }
-    }
 
+        // Return active upgrade cards to the pool
+        foreach (var cardObj in activeUpgradeCards)
+        {
+            Debug.Log($"Returning UpgradeCard to pool with tag: {upgradeCardPoolTag}");
+            cardObj.transform.SetParent(ObjectPooler.Instance.transform, false);
+            ObjectPooler.Instance.ReturnToPool(upgradeCardPoolTag, cardObj);
+        }
+        activeUpgradeCards.Clear();
+    }
 }
