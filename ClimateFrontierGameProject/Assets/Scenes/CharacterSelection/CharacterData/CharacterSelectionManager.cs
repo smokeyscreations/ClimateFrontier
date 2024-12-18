@@ -15,6 +15,7 @@ public class CharacterSelectionManager : MonoBehaviour
     public TextMeshProUGUI classText;
     public Button lockInButton;
     public UIAnimator uiAnimator;
+    public Button upgradeButton; // New Upgrade button
 
     [Header("Character Data")]
     public List<CharacterData> characterDataList;
@@ -34,6 +35,10 @@ public class CharacterSelectionManager : MonoBehaviour
         // Initially disable the lock-in button
         lockInButton.interactable = false;
         lockInButton.onClick.AddListener(OnLockInButtonClicked);
+
+        // Hide the upgrade button initially
+        upgradeButton.gameObject.SetActive(false);
+        upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
     }
 
     void SetupCharacterButtons()
@@ -68,6 +73,9 @@ public class CharacterSelectionManager : MonoBehaviour
 
         // Start the coroutine to update the UI text during the animation
         StartCoroutine(UpdateUIDuringAnimation());
+
+        // Now that a character is selected, show the upgrade button
+        upgradeButton.gameObject.SetActive(true);
     }
 
     // Correct Coroutine Signature
@@ -167,7 +175,7 @@ public class CharacterSelectionManager : MonoBehaviour
                 // Set the selected character in the GameManager
                 GameManager.Instance.SetSelectedCharacter(selectedCharacter);
 
-                // Load the next scene
+                // Load the next scene (gameplay)
                 SceneManager.LoadScene("TheAbyss");
             }
             else
@@ -178,6 +186,31 @@ public class CharacterSelectionManager : MonoBehaviour
         else
         {
             Debug.LogWarning("No character selected.");
+        }
+    }
+
+    void OnUpgradeButtonClicked()
+    {
+        if (selectedCharacterIndex >= 0)
+        {
+            CharacterData selectedCharacter = characterDataList[selectedCharacterIndex];
+
+            if (GameManager.Instance != null)
+            {
+                // Set the selected character in the GameManager
+                GameManager.Instance.SetSelectedCharacter(selectedCharacter);
+
+                // Load the upgrade scene
+                SceneManager.LoadScene("CharacterUpgradeScene");
+            }
+            else
+            {
+                Debug.LogError("GameManager instance not found.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No character selected for upgrade.");
         }
     }
 }

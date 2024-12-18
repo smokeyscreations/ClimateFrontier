@@ -32,6 +32,8 @@ MonoBehaviour:
     m_path: Assets/Scenes/CharacterSelection/EnvironmentTest.unity
   - m_enabled: 1
     m_path: Assets/Scenes/TheAbyss.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/CharacterSelection/CharacterUpgradeScene.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings: []
